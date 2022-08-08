@@ -35,9 +35,26 @@ public class Attraction {
     private String image;
     @Column(name = "bus_routes")
     private ArrayList<String> busRoutes;
-
-    @Column(name = "accessibility")
-    private Accessibility accessibility;
+    @Column(name = "is_wheelchair_accessible")
+    private boolean isWheelchairAccessible;
+    @Column(name = "is_epilepsy_friendly")
+    private boolean isEpilepsyFriendly;
+    @Column(name = "has_quiet_room")
+    private boolean hasQuietRoom;
+    @Column(name = "has_lift")
+    private boolean hasLift;
+    @Column(name = "has_parking")
+    private boolean hasParking;
+    @Column(name = "has_headphones")
+    private boolean hasHeadphones;
+    @Column(name = "is_loud")
+    private boolean isLoud;
+    @Column(name = "is_busy")
+    private boolean isBusy;
+    @Column(name = "hasBSLSigner")
+    private boolean hasBSLSigner;
+    @Column(name = "hasMakatonSigner")
+    private boolean hasMakatonSigner;
 
     @JsonIgnoreProperties({"locations"})
     @ManyToOne
@@ -47,6 +64,7 @@ public class Attraction {
 
     public Attraction(String name, String description, String address, double adultEntryPrice, double childEntryPrice, double concessionEntryPrice, boolean freeEntryForCarers, String openingHours, boolean isIndoors, String image, Location location, AttractionType attractionType) {
         this.name = name;
+        this.location = location;
         this.description = description;
         this.address = address;
         this.adultEntryPrice = adultEntryPrice;
@@ -58,10 +76,28 @@ public class Attraction {
         this.image = image;
         this.attractionType = attractionType;
         this.busRoutes = new ArrayList<>();
+        this.isWheelchairAccessible = false;
+        this.isEpilepsyFriendly = false;
+        this.hasQuietRoom = false;
+        this.hasLift = false;
+        this.hasParking = false;
+        this.hasHeadphones = false;
+        this.isLoud = false;
+        this.isBusy = false;
+        this.hasBSLSigner = false;
+        this.hasMakatonSigner = false;
     }
 
     public Attraction(){
 
+    }
+
+    public AttractionType getAttractionType() {
+        return attractionType;
+    }
+
+    public void setAttractionType(AttractionType attractionType) {
+        this.attractionType = attractionType;
     }
 
     public String getName() {
@@ -166,5 +202,85 @@ public class Attraction {
 
     public void setBusRoutes(ArrayList<String> busRoutes) {
         this.busRoutes = busRoutes;
+    }
+
+    public boolean isWheelchairAccessible() {
+        return isWheelchairAccessible;
+    }
+
+    public void setWheelchairAccessible(boolean wheelchairAccessible) {
+        isWheelchairAccessible = wheelchairAccessible;
+    }
+
+    public boolean isEpilepsyFriendly() {
+        return isEpilepsyFriendly;
+    }
+
+    public void setEpilepsyFriendly(boolean epilepsyFriendly) {
+        isEpilepsyFriendly = epilepsyFriendly;
+    }
+
+    public boolean isHasQuietRoom() {
+        return hasQuietRoom;
+    }
+
+    public void setHasQuietRoom(boolean hasQuietRoom) {
+        this.hasQuietRoom = hasQuietRoom;
+    }
+
+    public boolean isHasLift() {
+        return hasLift;
+    }
+
+    public void setHasLift(boolean hasLift) {
+        this.hasLift = hasLift;
+    }
+
+    public boolean isHasParking() {
+        return hasParking;
+    }
+
+    public void setHasParking(boolean hasParking) {
+        this.hasParking = hasParking;
+    }
+
+    public boolean isHasHeadphones() {
+        return hasHeadphones;
+    }
+
+    public void setHasHeadphones(boolean hasHeadphones) {
+        this.hasHeadphones = hasHeadphones;
+    }
+
+    public boolean isLoud() {
+        return isLoud;
+    }
+
+    public void setLoud(boolean loud) {
+        isLoud = loud;
+    }
+
+    public boolean isBusy() {
+        return isBusy;
+    }
+
+    public void setBusy(boolean busy) {
+        isBusy = busy;
+    }
+
+    public boolean isHasBSLSigner() {
+        return hasBSLSigner;
+    }
+
+    public void setHasBSLSigner(boolean hasBSLSigner) {
+        this.hasBSLSigner = hasBSLSigner;
+    }
+
+    public boolean isHasMakatonSigner() {
+        return hasMakatonSigner;
+    }
+
+    public void setHasMakatonSigner(boolean hasMakatonSigner) {
+        this.hasMakatonSigner = hasMakatonSigner;
     }
 }
