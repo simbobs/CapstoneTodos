@@ -9,9 +9,10 @@ The user should be able to:
 -Add/edit an activity
 -Can click on a place to see more information
 -filter activites based on needs of the individual
+-user can create a favourites list
 
 Possible extensions:
--user can create a favourites list
+
 -user can leave comments and pictures(save image as blob?)
 -user can leave star rating
 -user login
