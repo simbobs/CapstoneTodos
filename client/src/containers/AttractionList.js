@@ -10,9 +10,9 @@ const AttractionList = ({ attractions, changeSelectedAttraction, addToFavourites
     })
 
     return (
-        <ul>
+        <div className="list-container">
             {attractionNodes}
-        </ul>
+        </div>
     )
 }
 

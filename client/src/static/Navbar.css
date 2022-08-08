@@ -1,12 +1,12 @@
 .topnav {
     overflow: hidden;
-    background-color: #CDC5B4;
+    background-color: #C9D7F8;
 }
 
 .topnav a {
     float: left;
     display: block;
-    color: #FF8600;
+    color: #E84855;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
