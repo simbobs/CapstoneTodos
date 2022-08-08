@@ -88,6 +88,10 @@ public class Attraction {
         this.hasMakatonSigner = false;
     }
 
+    // All accessibility items added above as properties but not passed through constructor. All set to false initially and we will set to true later when creating an instance of Attraction.
+
+    // Getters and setters for each property below.
+
     public Attraction(){
 
     }
