@@ -1,5 +1,6 @@
 package com.example.codeclan.attractions.enums;
 
+// Enum containing different attraction types that can be attached to instances of attraction in our database.
 public enum AttractionType {
 
     MUSEUM,
