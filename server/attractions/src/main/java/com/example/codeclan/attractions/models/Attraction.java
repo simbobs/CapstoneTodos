@@ -20,11 +20,11 @@ public class Attraction {
     @Column(name = "address")
     private String address;
     @Column(name = "adult_entry_price")
-    private double AdultEntryPrice;
+    private double adultEntryPrice;
     @Column(name = "child_entry_price")
-    private double ChildEntryPrice;
+    private double childEntryPrice;
     @Column(name = "concession_entry_price")
-    private double ConcessionEntryPrice;
+    private double concessionEntryPrice;
     @Column(name = "free_entry_for_carers")
     private boolean freeEntryForCarers;
     @Column(name = "opening_hours")
@@ -33,9 +33,10 @@ public class Attraction {
     private boolean isIndoors;
     @Column(name = "image")
     private String image;
+    @Column(name = "bus_routes")
     private ArrayList<String> busRoutes;
-    // does this have a column and is it passed into the constructor??
-    // many accessibilities to one attraction?? @ManyToOne or have I got this the wrong way around?
+
+    @Column(name = "accessibility")
     private Accessibility accessibility;
 
     @JsonIgnoreProperties({"locations"})
@@ -44,18 +45,19 @@ public class Attraction {
     private Location location;
     private AttractionType attractionType;
 
-    public Attraction(String name, String description, String address, double AdultEntryPrice, double ChildEntryPrice, double ConcessionEntryPrice, boolean freeEntryForCarers, String openingHours, boolean isIndoors, String image, Location location, AttractionType attractionType) {
+    public Attraction(String name, String description, String address, double adultEntryPrice, double childEntryPrice, double concessionEntryPrice, boolean freeEntryForCarers, String openingHours, boolean isIndoors, String image, Location location, AttractionType attractionType) {
         this.name = name;
         this.description = description;
         this.address = address;
-        this.AdultEntryPrice = AdultEntryPrice;
-        this.ChildEntryPrice = ChildEntryPrice;
-        this.ConcessionEntryPrice = ConcessionEntryPrice;
+        this.adultEntryPrice = adultEntryPrice;
+        this.childEntryPrice = childEntryPrice;
+        this.concessionEntryPrice = concessionEntryPrice;
         this.freeEntryForCarers = freeEntryForCarers;
         this.openingHours = openingHours;
         this.isIndoors = isIndoors;
         this.image = image;
         this.attractionType = attractionType;
+        this.busRoutes = new ArrayList<>();
     }
 
     public Attraction(){
@@ -87,27 +89,27 @@ public class Attraction {
     }
 
     public double getAdultEntryPrice() {
-        return AdultEntryPrice;
+        return adultEntryPrice;
     }
 
     public void setAdultEntryPrice(double adultEntryPrice) {
-        AdultEntryPrice = adultEntryPrice;
+        adultEntryPrice = adultEntryPrice;
     }
 
     public double getChildEntryPrice() {
-        return ChildEntryPrice;
+        return childEntryPrice;
     }
 
     public void setChildEntryPrice(double childEntryPrice) {
-        ChildEntryPrice = childEntryPrice;
+        childEntryPrice = childEntryPrice;
     }
 
     public double getConcessionEntryPrice() {
-        return ConcessionEntryPrice;
+        return concessionEntryPrice;
     }
 
     public void setConcessionEntryPrice(double concessionEntryPrice) {
-        ConcessionEntryPrice = concessionEntryPrice;
+        concessionEntryPrice = concessionEntryPrice;
     }
 
     public Location getLocation() {

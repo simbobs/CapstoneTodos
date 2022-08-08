@@ -25,8 +25,12 @@ public class Accessibility {
     private boolean isLoud;
     @Column(name = "is_busy")
     private boolean isBusy;
+    @Column(name = "hasBSLSigner")
+    private boolean hasBSLSigner;
+    @Column(name = "hasMakatonSigner")
+    private boolean hasMakatonSigner;
 
-    public Accessibility(boolean isWheelchairAccessible, boolean isEpilepsyFriendly, boolean hasQuietRoom, boolean hasLift, boolean hasParking, boolean hasHeadphones, boolean isLoud, boolean isBusy) {
+    public Accessibility(boolean isWheelchairAccessible, boolean isEpilepsyFriendly, boolean hasQuietRoom, boolean hasLift, boolean hasParking, boolean hasHeadphones, boolean isLoud, boolean isBusy, boolean hasBSLSigner) {
         this.isWheelchairAccessible = isWheelchairAccessible;
         this.isEpilepsyFriendly = isEpilepsyFriendly;
         this.hasQuietRoom = hasQuietRoom;
@@ -35,10 +39,12 @@ public class Accessibility {
         this.hasHeadphones = hasHeadphones;
         this.isLoud = isLoud;
         this.isBusy = isBusy;
+        this.hasBSLSigner = hasBSLSigner;
     }
 
-    public Accessibility(){
+    public Accessibility(boolean hasBSLSigner){
 
+        this.hasBSLSigner = hasBSLSigner;
     }
 
     public boolean isWheelchairAccessible() {
@@ -111,5 +117,21 @@ public class Accessibility {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public boolean isHasBSLSigner() {
+        return hasBSLSigner;
+    }
+
+    public void setHasBSLSigner(boolean hasBSLSigner) {
+        this.hasBSLSigner = hasBSLSigner;
+    }
+
+    public boolean isHasMakatonSigner() {
+        return hasMakatonSigner;
+    }
+
+    public void setHasMakatonSigner(boolean hasMakatonSigner) {
+        this.hasMakatonSigner = hasMakatonSigner;
     }
 }
