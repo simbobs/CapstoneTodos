@@ -58,11 +58,21 @@ function App() {
 
 
 
+  // using state to see if our form works
+  const createAttraction = (attraction) => {
+    const attractionsCopy = [...attractions]
+    attractionsCopy.push(attraction)
+    setAttractions(attractionsCopy);
+  }
+
+  
+
+
   return (
     <>
       <Navbar />
      
-      <AddForm locations={locations} />
+      <AddForm locations={locations} onCreate={createAttraction} />
       {selectedAttraction ? <AttractionDetail attraction={selectedAttraction} goBackToList={goBackToList} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />}
       
     </>

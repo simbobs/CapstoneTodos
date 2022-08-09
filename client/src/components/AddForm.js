@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const AddForm = ({locations}) => {
+const AddForm = ({locations, onCreate}) => {
 
     const [attraction, setAttraction] = useState({
         name: "",
@@ -38,8 +38,11 @@ const AddForm = ({locations}) => {
 
     const handleSubmit = (event) => {
         console.log("we clicked submit");
+        
         event.preventDefault();
-        // a function will be passed here to update top level state      
+
+        // a function will be passed here to update top level state
+        onCreate(attraction)
     }
 
 
