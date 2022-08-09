@@ -15,7 +15,7 @@ public class Attraction {
     private Long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "description")
+    @Column(name = "description", length = 1024)
     private String description;
     @Column(name = "address")
     private String address;
@@ -56,7 +56,7 @@ public class Attraction {
     @Column(name = "hasMakatonSigner")
     private boolean hasMakatonSigner;
 
-    @JsonIgnoreProperties({"locations"})
+    @JsonIgnoreProperties({"attraction"})
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = false)
     private Location location;

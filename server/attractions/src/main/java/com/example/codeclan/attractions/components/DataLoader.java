@@ -217,13 +217,13 @@ public class DataLoader implements ApplicationRunner {
                 "https://ibb.co/zm9RXXW",
                 glasgow,
                 AttractionType.PARK);
-        attractionRepository.save(tollcrossFarm);
+        attractionRepository.save(queensPark);
         queensPark.setWheelchairAccessible(true);
         queensPark.setEpilepsyFriendly(true);
         queensPark.setHasParking(true);
         queensPark.setHasHeadphones(true);
         queensPark.setBusy(true);
-        attractionRepository.save(tollcrossFarm);
+        attractionRepository.save(queensPark);
 
         Attraction edinbrughZoo = new Attraction("Edinbrugh Zoo",
                 "The wildest visitor attraction in Scotland, Edinburgh Zoo is home to over 1,000 rare and beautiful animals from around the world and home to the UK's only giant pandas and koalas.",
@@ -296,7 +296,7 @@ public class DataLoader implements ApplicationRunner {
                 "06.00 - 21.00",
                 true,
                 "https://ibb.co/DppCVRP",
-                edinburgh,
+                stirling,
                 AttractionType.ENTERTAINMENT);
         attractionRepository.save(thePeak);
         thePeak.setWheelchairAccessible(true);
