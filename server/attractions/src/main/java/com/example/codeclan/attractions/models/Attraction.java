@@ -64,7 +64,6 @@ public class Attraction {
 
     public Attraction(String name, String description, String address, double adultEntryPrice, double childEntryPrice, double concessionEntryPrice, boolean freeEntryForCarers, String openingHours, boolean isIndoors, String image, Location location, AttractionType attractionType) {
         this.name = name;
-        this.location = location;
         this.description = description;
         this.address = address;
         this.adultEntryPrice = adultEntryPrice;
@@ -74,6 +73,7 @@ public class Attraction {
         this.openingHours = openingHours;
         this.isIndoors = isIndoors;
         this.image = image;
+        this.location = location;
         this.attractionType = attractionType;
         this.busRoutes = new ArrayList<>();
         this.isWheelchairAccessible = false;
