@@ -83,7 +83,8 @@ function App() {
       <Navbar />
 
       <AddForm locations={locations} onCreate={createAttraction} />
-      {selectedAttraction ? <AttractionDetail attraction={selectedAttraction} removeAttraction={removeAttraction} goBackToList={goBackToList} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />}
+
+      {selectedAttraction ? <AttractionDetail selectedAttraction={selectedAttraction} locations={locations}  removeAttraction={removeAttraction} goBackToList={goBackToList} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />}
 
     </>
   );
