@@ -3,11 +3,15 @@ import './App.css';
 import Navbar from './components/Navbar';
 import AttractionDetail from './components/AttractionDetail';
 import AttractionList from './containers/AttractionList';
-import { getAttractions } from './services/services.js'
+
+import {getAttractions, getLocations} from './services/services.js'
+import AddForm from './components/AddForm';
+
 // import Request from './helpers/request';
 
 function App() {
 
+  const [locations, setLocations] = useState([])
   const [attractions, setAttractions] = useState([])
   const [selectedAttraction, setSelectedAttraction] = useState(null);
   const [favourites, setFavourites] = useState([]);
@@ -19,6 +23,15 @@ function App() {
 
 
   }, [])
+
+  useEffect(() => {
+    getLocations()
+    .then(locations => setLocations(locations))
+    
+    
+  }, [])
+
+  
 
 
   // const getAttractions = () => {
@@ -48,9 +61,10 @@ function App() {
   return (
     <>
       <Navbar />
-
+     
+      <AddForm locations={locations} />
       {selectedAttraction ? <AttractionDetail attraction={selectedAttraction} goBackToList={goBackToList} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />}
-
+      
     </>
   );
 }
