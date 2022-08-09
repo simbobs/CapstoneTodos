@@ -10,8 +10,8 @@ export const getAttractions = () => {
 export const getLocations = () => {
     return fetch(baseURL + "/api/locations")
     .then(res=> res.json())
-  
-
+ 
+}
 
 export const postAttraction = (payload) => {
     return fetch(baseURL + "/api/attractions", {
