@@ -16,7 +16,7 @@ public class Location {
     private Long id;
     @Column(name = "city")
     private String city;
-    @JsonIgnoreProperties
+    @JsonIgnoreProperties({"location"})
     @OneToMany(mappedBy = "location")
     private List<Attraction> attractions;
 
