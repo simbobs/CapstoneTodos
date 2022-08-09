@@ -10,6 +10,7 @@ public enum AttractionType {
     ENTERTAINMENT,
     HISTORICAL,
     NATIONAL_TRUST,
+    VISITOR_CENTRE,
     CASTLE;
 
     // have added the above for now, other ones can be added or some deleted depending on what attractions we have
