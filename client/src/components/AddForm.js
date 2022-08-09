@@ -44,9 +44,22 @@ const AddForm = ({ locations, onCreate }) => {
         postAttraction(tempFormData).then((data) => {
             onCreate(data)
         })
+        setAttraction({
+            name: "",
+            description: "",
+            address: "",
+            adultEntryPrice: 0.0,
+            childEntryPrice: 0.0,
+            concessionEntryPrice: 0.0,
+            freeEntryForCarers: false,
+            openingHours: "",
+            isIndoors: false,
+            image: "",
+            location: null,
+            attractionType: null
 
+        })
 
-        // a function will be passed here to update top level state
 
     }
 

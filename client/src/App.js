@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import AttractionDetail from './components/AttractionDetail';
 import AttractionList from './containers/AttractionList';
 
-import { getAttractions, getLocations } from './services/services.js'
+import { getAttractions, getLocations, editAttraction } from './services/services.js'
 import AddForm from './components/AddForm';
 
 // import Request from './helpers/request';
@@ -75,6 +75,15 @@ function App() {
 
   }
 
+  const updateAttraction = (editedAttraction) => {
+    editAttraction(editedAttraction);
+    const updatedAttractionsList = attractions.findIndex(attraction => attraction.id === editedAttraction.id);
+    const updatedAttractions = [...attractions];
+    updatedAttractions[updatedAttractionsList] = editedAttraction;
+    setAttractions(updatedAttractions);
+
+  }
+
 
 
 
@@ -84,7 +93,7 @@ function App() {
 
       <AddForm locations={locations} onCreate={createAttraction} />
 
-      {selectedAttraction ? <AttractionDetail selectedAttraction={selectedAttraction} locations={locations}  removeAttraction={removeAttraction} goBackToList={goBackToList} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />}
+      {selectedAttraction ? <AttractionDetail selectedAttraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />}
 
     </>
   );

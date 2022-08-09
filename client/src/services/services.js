@@ -30,7 +30,7 @@ export const deleteAttraction = (id) => {
 };
 
 export const editAttraction = (attraction) => {
-    return fetch(baseURL + "/api/attractions" + attraction.id, {
+    return fetch(baseURL + "/api/attractions/" + attraction.id, {
         method: 'PUT',
         body: JSON.stringify(attraction),
         headers: {

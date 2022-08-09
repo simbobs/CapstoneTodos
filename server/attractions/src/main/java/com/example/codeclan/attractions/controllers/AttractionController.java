@@ -30,11 +30,11 @@ public class AttractionController {
         return new ResponseEntity<>(attraction, HttpStatus.CREATED);
     }
 
-//    @PatchMapping(value = "/attractions/{id}")
-//    public ResponseEntity<Attraction> updateAttraction(@RequestBody Attraction attraction){
-//        attractionRepository.save(attraction);
-//        return new ResponseEntity<>(attraction, HttpStatus.OK);
-//    }
+    @PutMapping(value = "/attractions/{id}")
+    public ResponseEntity<Attraction> updateAttraction(@RequestBody Attraction attraction){
+        attractionRepository.save(attraction);
+        return new ResponseEntity<>(attraction, HttpStatus.OK);
+    }
 
     @DeleteMapping(value = "/attractions/{id}")
     public ResponseEntity<Attraction> deleteAttraction(@PathVariable Long id){

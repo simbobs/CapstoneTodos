@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
-import { deleteAttraction } from '../services/services';
+import { deleteAttraction, editAttraction } from '../services/services';
 import EditForm from './EditForm';
 
 const Button = styled.button`
@@ -19,7 +19,7 @@ ${props =>
 `};
 `
 
-const SelectedAttraction = ({ removeAttraction, selectedAttraction, goBackToList, locations }) => {
+const SelectedAttraction = ({ removeAttraction, selectedAttraction, goBackToList, locations, updateAttraction }) => {
 
     const handleDelete = () => {
         deleteAttraction(selectedAttraction.id).then(() => {
@@ -28,6 +28,8 @@ const SelectedAttraction = ({ removeAttraction, selectedAttraction, goBackToList
             goBackToList();
         })
     }
+
+
 
 
     return (
@@ -39,7 +41,7 @@ const SelectedAttraction = ({ removeAttraction, selectedAttraction, goBackToList
 
             <Button onClick={handleDelete}>Delete</Button>
 
-            <EditForm selectedAttraction={selectedAttraction} locations={locations} />
+            <EditForm selectedAttraction={selectedAttraction} locations={locations} updateAttraction={updateAttraction} />
 
         </>
     )
