@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import AttractionDetail from './components/AttractionDetail';
 import AttractionList from './containers/AttractionList';
 import {getAttractions} from './services/services.js'
+import Request from './helpers/request';
 
 function App() {
 
@@ -16,7 +17,16 @@ function App() {
     getAttractions()
     .then(attractions => setAttractions(attractions))
     
-  })
+    
+  }, [])
+
+
+  // const getAttractions = () => {
+  //   const request = new Request()
+  //   request.get("/api/attractions")
+  //   .then((attractions)=> {setAttractions(attractions)})
+    
+  // }
 
   const changeSelectedAttraction = (index) => {
     const attraction = attractions[index];
