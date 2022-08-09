@@ -17,7 +17,7 @@ const Navbar = () => {
             <nav className="topnav" id="myTopnav">
 
                 <a href="#" className="logo">Todos</a>
-                <a href="#">Add attraction</a>
+                <a href="#">Add attraction</a> 
                 <a href="#">Favourites list</a>
                 <a href="javascript:void(0);" className="icon" onClick={handleClick}>
                     <i className="fa fa-bars"></i>
