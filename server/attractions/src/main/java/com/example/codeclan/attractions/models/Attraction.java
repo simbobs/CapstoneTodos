@@ -1,6 +1,7 @@
 package com.example.codeclan.attractions.models;
 
 import com.example.codeclan.attractions.enums.AttractionType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -55,8 +56,10 @@ public class Attraction {
     private boolean hasBSLSigner;
     @Column(name = "hasMakatonSigner")
     private boolean hasMakatonSigner;
+    @Column(name = "hasDisabledToilets")
+    private boolean hasDisabledToilets;
 
-    @JsonIgnoreProperties({"attraction"})
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = false)
     private Location location;
@@ -86,6 +89,7 @@ public class Attraction {
         this.isBusy = false;
         this.hasBSLSigner = false;
         this.hasMakatonSigner = false;
+        this.hasDisabledToilets = false;
     }
 
     // All accessibility items added above as properties but not passed through constructor. All set to false initially and we will set to true later when creating an instance of Attraction.
@@ -286,5 +290,17 @@ public class Attraction {
 
     public void setHasMakatonSigner(boolean hasMakatonSigner) {
         this.hasMakatonSigner = hasMakatonSigner;
+    }
+
+    public boolean isHasDisabledToilets() {
+        return hasDisabledToilets;
+    }
+
+    public void setHasDisabledToilets(boolean hasDisabledToilets) {
+        this.hasDisabledToilets = hasDisabledToilets;
+    }
+
+    public void addBusRoute(String bus){
+        this.busRoutes.add(bus);
     }
 }
