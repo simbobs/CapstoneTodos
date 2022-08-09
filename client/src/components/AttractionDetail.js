@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
+import EditForm from './EditForm';
 
 const Button = styled.button`
 background: transparent;
@@ -17,15 +18,16 @@ ${props =>
 `};
 `
 
-const SelectedAttraction = ({ attraction, goBackToList }) => {
+const SelectedAttraction = ({ selectedAttraction, goBackToList, locations}) => {
 
 
     return (
 
 
         <>
-            <h1>{attraction.name}</h1>
+            <h1>{selectedAttraction.name}</h1>
             <Button primary onClick={goBackToList}>Back</Button>
+            <EditForm selectedAttraction={selectedAttraction} locations={locations} />
         </>
     )
 }
