@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25f7c00a-94ed-441c-88e0-0aca99395b0c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/enums/AttractionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/enums/AttractionType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/models/Attraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/models/Attraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attractions/src/test/java/com/example/codeclan/attractions/AttractionsApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/attractions/src/test/java/com/example/codeclan/attractions/AttractionsApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attractions/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/attractions/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +24,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -49,7 +62,20 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.AttractionsApplication">
+    <configuration name="AttractionsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.codeclan.attractions.AttractionsApplication" />
+      <module name="attractions" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.codeclan.attractions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AttractionsApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="attractions" />
       <extension name="coverage">
@@ -67,6 +93,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AttractionsApplication" />
         <item itemvalue="JUnit.AttractionsApplicationTests" />
       </list>
     </recent_temporary>
@@ -81,5 +108,16 @@
       <updated>1659965302709</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
