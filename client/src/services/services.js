@@ -24,7 +24,7 @@ export const postAttraction = (payload) => {
 }
 
 export const deleteAttraction = (id) => {
-    return fetch(baseURL + "/api/attractions" + id, {
+    return fetch(baseURL + "/api/attractions/" + id, {
         method: 'DELETE'
     });
 };
