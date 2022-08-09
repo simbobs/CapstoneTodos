@@ -3,8 +3,10 @@ import './App.css';
 import Navbar from './components/Navbar';
 import AttractionDetail from './components/AttractionDetail';
 import AttractionList from './containers/AttractionList';
+
 import {getAttractions, getLocations} from './services/services.js'
 import AddForm from './components/AddForm';
+
 // import Request from './helpers/request';
 
 function App() {
@@ -17,9 +19,9 @@ function App() {
   // renders info on application load
   useEffect(() => {
     getAttractions()
-    .then(attractions => setAttractions(attractions))
-    
-    
+      .then(attractions => setAttractions(attractions))
+
+
   }, [])
 
   useEffect(() => {
@@ -36,7 +38,7 @@ function App() {
   //   const request = new Request()
   //   request.get("/api/attractions")
   //   .then((attractions)=> {setAttractions(attractions)})
-    
+
   // }
 
   const changeSelectedAttraction = (index) => {
@@ -54,7 +56,7 @@ function App() {
     setSelectedAttraction(null);
   }
 
-  
+
 
   return (
     <>
