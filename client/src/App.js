@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import AttractionDetail from './components/AttractionDetail';
 import AttractionList from './containers/AttractionList';
 
-import {getAttractions, getLocations} from './services/services.js'
+import { getAttractions, getLocations } from './services/services.js'
 import AddForm from './components/AddForm';
 
 // import Request from './helpers/request';
@@ -26,12 +26,12 @@ function App() {
 
   useEffect(() => {
     getLocations()
-    .then(locations => setLocations(locations))
-    
-    
+      .then(locations => setLocations(locations))
+
+
   }, [])
 
-  
+
 
 
   // const getAttractions = () => {
@@ -65,16 +65,26 @@ function App() {
     setAttractions(attractionsCopy);
   }
 
-  
+  // this removes an attraction from the front end
+
+  const removeAttraction = (id) => {
+    const temp = [...attractions]
+    const indexToDelete = temp.map(attraction => attraction.id).indexOf(id);
+    temp.splice(indexToDelete, 1);
+    setAttractions(temp);
+
+  }
+
+
 
 
   return (
     <>
       <Navbar />
-     
+
       <AddForm locations={locations} onCreate={createAttraction} />
-      {selectedAttraction ? <AttractionDetail attraction={selectedAttraction} goBackToList={goBackToList} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />}
-      
+      {selectedAttraction ? <AttractionDetail attraction={selectedAttraction} removeAttraction={removeAttraction} goBackToList={goBackToList} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />}
+
     </>
   );
 }

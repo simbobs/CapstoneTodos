@@ -61,7 +61,7 @@ public class Attraction {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "location_id", nullable = false)
+    @JoinColumn(name = "location_id", nullable = true)
     private Location location;
     private AttractionType attractionType;
 

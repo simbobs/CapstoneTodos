@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
+import { deleteAttraction } from '../services/services';
 
 const Button = styled.button`
 background: transparent;
@@ -17,7 +18,15 @@ ${props =>
 `};
 `
 
-const SelectedAttraction = ({ attraction, goBackToList }) => {
+const SelectedAttraction = ({ removeAttraction, attraction, goBackToList }) => {
+
+    const handleDelete = () => {
+        deleteAttraction(attraction.id).then(() => {
+            removeAttraction(attraction.id);
+        }).then(() => {
+            goBackToList();
+        })
+    }
 
 
     return (
@@ -26,6 +35,7 @@ const SelectedAttraction = ({ attraction, goBackToList }) => {
         <>
             <h1>{attraction.name}</h1>
             <Button primary onClick={goBackToList}>Back</Button>
+            <Button onClick={handleDelete}>Delete</Button>
         </>
     )
 }
