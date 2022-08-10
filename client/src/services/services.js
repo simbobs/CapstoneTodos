@@ -3,14 +3,14 @@ const baseURL = "http://localhost:8080"
 
 export const getAttractions = () => {
     return fetch(baseURL + "/api/attractions")
-    .then(res=> res.json())
-  
+        .then(res => res.json())
+
 }
 
 export const getLocations = () => {
     return fetch(baseURL + "/api/locations")
-    .then(res=> res.json())
- 
+        .then(res => res.json())
+
 }
 
 export const postAttraction = (payload) => {
@@ -24,13 +24,13 @@ export const postAttraction = (payload) => {
 }
 
 export const deleteAttraction = (id) => {
-    return fetch(baseURL + "/api/attractions" + id, {
+    return fetch(baseURL + "/api/attractions/" + id, {
         method: 'DELETE'
     });
 };
 
 export const editAttraction = (attraction) => {
-    return fetch(baseURL + "/api/attractions" + attraction.id, {
+    return fetch(baseURL + "/api/attractions/" + attraction.id, {
         method: 'PUT',
         body: JSON.stringify(attraction),
         headers: {
@@ -39,6 +39,5 @@ export const editAttraction = (attraction) => {
     })
         .then(res => res.json());
 }
-
 
 
