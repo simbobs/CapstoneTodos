@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import AttractionDetail from './components/AttractionDetail';
 import AttractionList from './containers/AttractionList';
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { getAttractions, getLocations, editAttraction } from './services/services.js'
 import AddForm from './components/AddForm';
 
@@ -89,14 +89,17 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={selectedAttraction ? <AttractionDetail selectedAttraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />} />
 
-      <AddForm locations={locations} onCreate={createAttraction} />
+          <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
-      {selectedAttraction ? <AttractionDetail selectedAttraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />}
-
+        </Routes>
+      </Router>
     </>
-  );
+  )
 }
 
 export default App;
