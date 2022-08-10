@@ -166,7 +166,7 @@ public class Attraction {
         this.location = location;
     }
 
-    public boolean hasFreeEntryForCarers() {
+    public boolean getFreeEntryForCarers() {
         return freeEntryForCarers;
     }
 
@@ -182,7 +182,7 @@ public class Attraction {
         this.openingHours = openingHours;
     }
 
-    public boolean isIndoors() {
+    public boolean getIsIndoors() {
         return isIndoors;
     }
 
@@ -214,7 +214,7 @@ public class Attraction {
         this.busRoutes = busRoutes;
     }
 
-    public boolean isWheelchairAccessible() {
+    public boolean getIsWheelchairAccessible() {
         return isWheelchairAccessible;
     }
 
@@ -222,7 +222,7 @@ public class Attraction {
         isWheelchairAccessible = wheelchairAccessible;
     }
 
-    public boolean isEpilepsyFriendly() {
+    public boolean getIsEpilepsyFriendly() {
         return isEpilepsyFriendly;
     }
 
@@ -230,7 +230,7 @@ public class Attraction {
         isEpilepsyFriendly = epilepsyFriendly;
     }
 
-    public boolean hasQuietRoom() {
+    public boolean getHasQuietRoom() {
         return hasQuietRoom;
     }
 
@@ -238,7 +238,7 @@ public class Attraction {
         this.hasQuietRoom = hasQuietRoom;
     }
 
-    public boolean hasLift() {
+    public boolean getHasLift() {
         return hasLift;
     }
 
@@ -246,7 +246,7 @@ public class Attraction {
         this.hasLift = hasLift;
     }
 
-    public boolean hasParking() {
+    public boolean getHasParking() {
         return hasParking;
     }
 
@@ -254,7 +254,7 @@ public class Attraction {
         this.hasParking = hasParking;
     }
 
-    public boolean hasHeadphones() {
+    public boolean getHasHeadphones() {
         return hasHeadphones;
     }
 
@@ -262,7 +262,7 @@ public class Attraction {
         this.hasHeadphones = hasHeadphones;
     }
 
-    public boolean isLoud() {
+    public boolean getIsLoud() {
         return isLoud;
     }
 
@@ -270,7 +270,7 @@ public class Attraction {
         isLoud = loud;
     }
 
-    public boolean isBusy() {
+    public boolean getIsBusy() {
         return isBusy;
     }
 
@@ -278,7 +278,7 @@ public class Attraction {
         isBusy = busy;
     }
 
-    public boolean hasBSLSigner() {
+    public boolean getHasBSLSigner() {
         return hasBSLSigner;
     }
 
@@ -286,7 +286,7 @@ public class Attraction {
         this.hasBSLSigner = hasBSLSigner;
     }
 
-    public boolean hasMakatonSigner() {
+    public boolean getHasMakatonSigner() {
         return hasMakatonSigner;
     }
 
@@ -295,7 +295,7 @@ public class Attraction {
     }
 
 
-    public boolean isHasDisabledToilets() {
+    public boolean getHasDisabledToilets() {
         return hasDisabledToilets;
     }
 
