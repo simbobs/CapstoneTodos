@@ -57,22 +57,16 @@ const EditForm = ({ locations, selectedAttraction, updateAttraction }) => {
 
         const tempFormData = attraction;
         updateAttraction(tempFormData)
-        // .then((data) => {
-        //     onCreate(data)
-        // })
-
-
-
     }
 
     //seeing if this will help with state issues
     const handleCheckbox = (event) => {
-       
+
         let objectKey = event.target.name;
-        let copiedAttraction = {...attraction};
+        let copiedAttraction = { ...attraction };
         copiedAttraction[objectKey] = event.target.checked;
 
-      
+
     }
 
 
@@ -96,13 +90,13 @@ const EditForm = ({ locations, selectedAttraction, updateAttraction }) => {
                 <label>Free Entry for Carers?</label>
 
                 <input type="checkbox" name="freeEntryForCarers" defaultChecked={attraction.freeEntryForCarers} onChange={handleCheckbox} value={attraction.freeEntryForCarers}></input>
-        
-                <input type ="text" placeholder="Opening Hours" name="openingHours" onChange={handleChange} value={attraction.openingHours}/>
+
+                <input type="text" placeholder="Opening Hours" name="openingHours" onChange={handleChange} value={attraction.openingHours} />
 
                 <label>Indoor Venue?</label>
                 <input type="checkbox" name="isIndoors" defaultChecked={attraction.indoors} onChange={handleCheckbox} value={attraction.indoors}></input>
 
-               
+
                 <input type="text" placeholder="Image Url" name="image" onChange={handleChange} value={attraction.image} />
                 <select name="location" onChange={handleLocation} defaultValue="select-location">
                     <option disabled value="select-location">Select a City</option>
@@ -110,16 +104,16 @@ const EditForm = ({ locations, selectedAttraction, updateAttraction }) => {
 
                 </select>
                 <select name="attractionType" onChange={handleChange} defaultValue="select-attraction-type">
-                        <option defaultValue={attraction.attractionType}>{attraction.attractionType}</option>
-                        <option value="MUSEUM">Museum</option>
-                        <option value="PARK">Park</option>
-                        <option value="SAFARI_PARK">Safari Park</option>
-                        <option value="ZOO">Zoo</option>
-                        <option value="ENTERTAINMENT">Entertainment</option>
-                        <option value="HISTORICAL">Historical</option>
-                        <option value="NATIONAL_TRUST">National Trust</option>
-                        <option value="VISITOR_CENTRE">Visitor Centre</option>
-                        <option value="CASTLE">Castle</option>
+                    <option defaultValue={attraction.attractionType}>{attraction.attractionType}</option>
+                    <option value="MUSEUM">Museum</option>
+                    <option value="PARK">Park</option>
+                    <option value="SAFARI_PARK">Safari Park</option>
+                    <option value="ZOO">Zoo</option>
+                    <option value="ENTERTAINMENT">Entertainment</option>
+                    <option value="HISTORICAL">Historical</option>
+                    <option value="NATIONAL_TRUST">National Trust</option>
+                    <option value="VISITOR_CENTRE">Visitor Centre</option>
+                    <option value="CASTLE">Castle</option>
 
                 </select>
 

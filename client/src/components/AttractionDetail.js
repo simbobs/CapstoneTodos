@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components';
 import { deleteAttraction, editAttraction } from '../services/services';
 import EditForm from './EditForm';
+import { Link } from 'react-router-dom'
 
 const Button = styled.button`
 background: transparent;
@@ -76,6 +77,8 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
 
             <Button onClick={handleDelete}>Delete</Button>
+
+            <Link to="/edit">Edit</Link>
 
             {/* <EditForm selectedAttraction={selectedAttraction} locations={locations} updateAttraction={updateAttraction} /> */}
 
