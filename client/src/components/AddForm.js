@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
 
+
     const [attraction, setAttraction] = useState({
         name: "",
         description: "",
