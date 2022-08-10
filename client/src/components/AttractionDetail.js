@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
+import AttractionList from '../containers/AttractionList';
 import { deleteAttraction, editAttraction } from '../services/services';
 import EditForm from './EditForm';
 
@@ -19,29 +20,62 @@ ${props =>
 `};
 `
 
-const SelectedAttraction = ({ removeAttraction, selectedAttraction, goBackToList, locations, updateAttraction }) => {
+const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locations, updateAttraction }) => {
 
     const handleDelete = () => {
-        deleteAttraction(selectedAttraction.id).then(() => {
-            removeAttraction(selectedAttraction.id);
+        deleteAttraction(attraction.id).then(() => {
+            removeAttraction(attraction.id);
         }).then(() => {
             goBackToList();
         })
     }
 
-
-
-
     return (
 
-
         <>
-            <h1>{selectedAttraction.name}</h1>
+
+            <div className='attraction-info'>
+                <h1> {attraction.name}</h1>
+                <img src={attraction.image} />
+                <p> <b>About:</b> {attraction.description}</p>
+                <p> <b>Address:</b> {attraction.address}</p>
+                <p> <b>Adult:</b> £{attraction.adultEntryPrice}</p>
+                <p> <b>Child:</b> £{attraction.childEntryPrice}</p>
+                <p> <b>Concession:</b> £{attraction.concessionEntryPrice}</p>
+                <div>
+                    {attraction.freeEntryForCarers ? <b>Free For Carers</b> : null}
+                </div>
+                <p> <b>Opening Hours:</b> {attraction.openingHours}</p>
+                <div>
+                    {attraction.indoors ? <b>Indoor Facilities</b> : null}
+                </div>
+                <p> <b>Attraction Type:</b>{attraction.attractionType}</p>
+                {/* logic needed to produce a symbol based on whether or not the attraction has these accesibility features. */}
+            </div>
+            <div>
+                {attraction.wheelchairAccessible ? <img src={''} /> : null}
+            </div>
+            <div>
+                {attraction.epilepsyFriendly ? <img src={''} /> : null}
+            </div>
+            <div>
+                {attraction.hasQuietRoom ? <img src={''} /> : null}
+            </div>
+            <div>
+                {attraction.hasParking ? <img src={''} /> : null}
+            </div>
+            <div>
+                {attraction.hasHeadphones ? <img src={''} /> : null}
+            </div>
+
+
             <Button primary onClick={goBackToList}>Back</Button>
+
 
             <Button onClick={handleDelete}>Delete</Button>
 
-            <EditForm selectedAttraction={selectedAttraction} locations={locations} updateAttraction={updateAttraction} />
+            {/* <EditForm selectedAttraction={selectedAttraction} locations={locations} updateAttraction={updateAttraction} /> */}
+
 
         </>
     )

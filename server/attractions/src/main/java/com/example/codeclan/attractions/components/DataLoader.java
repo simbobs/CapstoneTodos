@@ -211,7 +211,8 @@ public class DataLoader implements ApplicationRunner {
         glasgowScienceCentre.setHasHeadphones(true);
         glasgowScienceCentre.setBusy(true);
         glasgowScienceCentre.setHasDisabledToilets(true);
-        attractionRepository.save(aberdeenArtGallery);
+       attractionRepository.save(glasgowScienceCentre);
+
 
         Attraction tollcrossFarm = new Attraction("Glasgow Tollcross Farm",
                 "Tollcross Children's Farm is an outstanding facility which will appeal to young and old alike. Regulars in the farm are Shire Horses, Shetland Ponies, rabbits, sheep, Highland Cattle and much more!",
@@ -257,7 +258,7 @@ public class DataLoader implements ApplicationRunner {
         queensPark.setBusy(true);
         attractionRepository.save(queensPark);
 
-        Attraction edinbrughZoo = new Attraction("Edinbrugh Zoo",
+        Attraction edinburghZoo = new Attraction("Edinburgh Zoo",
                 "The wildest visitor attraction in Scotland, Edinburgh Zoo is home to over 1,000 rare and beautiful animals from around the world and home to the UK's only giant pandas and koalas.",
                 "134 Corstorphine Rd, Corstorphine, Edinburgh EH12 6TS",
                 21.95,
@@ -269,20 +270,22 @@ public class DataLoader implements ApplicationRunner {
                 "https://i.ibb.co/Qpk12Ct/edinbrugh-zoo.jpg",
                 edinburgh,
                 AttractionType.ZOO);
-        attractionRepository.save(edinbrughZoo);
-        edinbrughZoo.addBusRoute("12");
-        edinbrughZoo.addBusRoute("26");
-        edinbrughZoo.addBusRoute("31");
-        edinbrughZoo.addBusRoute("900");
-        edinbrughZoo.addBusRoute("904");
-        edinbrughZoo.addBusRoute("909");
-        edinbrughZoo.setWheelchairAccessible(true);
-        edinbrughZoo.setHasParking(true);
-        edinbrughZoo.setHasHeadphones(true);
-        edinbrughZoo.setLoud(true);
-        edinbrughZoo.setBusy(true);
-        edinbrughZoo.setHasDisabledToilets(true);
-        attractionRepository.save(edinbrughZoo);
+
+        attractionRepository.save(edinburghZoo);
+        edinburghZoo.setWheelchairAccessible(true);
+        edinburghZoo.setHasParking(true);
+        edinburghZoo.setHasHeadphones(true);
+        edinburghZoo.setLoud(true);
+        edinburghZoo.setBusy(true);
+        edinburghZoo.addBusRoute("12");
+        edinburghZoo.addBusRoute("26");
+        edinburghZoo.addBusRoute("31");
+        edinburghZoo.addBusRoute("900");
+        edinburghZoo.addBusRoute("904");
+        edinburghZoo.addBusRoute("909");
+        edinburghZoo.setHasDisabledToilets(true);
+        attractionRepository.save(edinburghZoo);
+
 
         Attraction nationalMuseumofScotland = new Attraction("National Museum of Scotland",
                 "Explore the diversity of the natural world, world cultures, art and design, science and technology and Scottish history, all under one roof at the National Museum of Scotland.",
@@ -305,7 +308,7 @@ public class DataLoader implements ApplicationRunner {
         nationalMuseumofScotland.setBusy(true);
         nationalMuseumofScotland.setHasBSLSigner(true);
         nationalMuseumofScotland.setHasDisabledToilets(true);
-        attractionRepository.save(edinbrughZoo);
+          attractionRepository.save(nationalMuseumofScotland);
 
         Attraction dynamicEarth = new Attraction("Dynamic Earth",
                 "Dynamic Earth is an interactive science centre and visitor attraction which enables visitors to explore Earth’s history. Visual displays, lights, sounds, movement and temperature changes create a vibrant experience.",
