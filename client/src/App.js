@@ -48,8 +48,8 @@ function App() {
   }
 
   const addToFavourites = (index) => {
-    const copyAttractions = [...attractions];
-    const attraction = copyAttractions[index];
+    // const copyAttractions = [...attractions];
+    const attraction = attractions[index];
     console.log(attraction)
     const copyFavourites = [...favourites, attraction];
     setFavourites(copyFavourites);
@@ -99,8 +99,8 @@ function App() {
           <Route exact path="/" element={selectedAttraction ? <AttractionDetail attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />} />
 
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
-          
-          <Route path="/fave" element={<AttractionList attractions = {favourites} changeSelectedAttraction = {changeSelectedAttraction} goBackToList = {goBackToList} />}/>
+
+          <Route path="/fave" element={<AttractionList attractions={favourites} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} />} />
         </Routes>
       </Router>
     </>
