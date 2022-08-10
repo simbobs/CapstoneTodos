@@ -1,5 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
+import { deleteAttraction, editAttraction } from '../services/services';
+import EditForm from './EditForm';
 
 const Button = styled.button`
 background: transparent;
@@ -17,13 +19,24 @@ ${props =>
 `};
 `
 
-const SelectedAttraction = ({ attraction, goBackToList }) => {
+const SelectedAttraction = ({ removeAttraction, selectedAttraction, goBackToList, locations, updateAttraction }) => {
+
+    const handleDelete = () => {
+        deleteAttraction(selectedAttraction.id).then(() => {
+            removeAttraction(selectedAttraction.id);
+        }).then(() => {
+            goBackToList();
+        })
+    }
+
+
 
 
     return (
 
 
         <>
+
         <div className='attraction-info'>
             <h1> {attraction.name}</h1>
             <img src={'https://i.ibb.co/MPPJbKX/dundee.jpg'}/>
@@ -60,6 +73,13 @@ const SelectedAttraction = ({ attraction, goBackToList }) => {
 
 
         <Button primary onClick={goBackToList}>Back</Button>
+
+
+            <Button onClick={handleDelete}>Delete</Button>
+
+            <EditForm selectedAttraction={selectedAttraction} locations={locations} updateAttraction={updateAttraction} />
+
+
         </>
     )
 }

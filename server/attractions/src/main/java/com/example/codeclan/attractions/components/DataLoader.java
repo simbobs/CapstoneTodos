@@ -11,6 +11,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 @Profile("!test") //Run every time EXCEPT Tests
 
 @Component
@@ -59,6 +61,9 @@ public class DataLoader implements ApplicationRunner {
                 dundee,
                 AttractionType.MUSEUM);
         attractionRepository.save(vAndA);
+        vAndA.addBusRoute("5A");
+        vAndA.addBusRoute("73A");
+        vAndA.addBusRoute("73");
         vAndA.setWheelchairAccessible(true);
         vAndA.setEpilepsyFriendly(true);
         vAndA.setHasQuietRoom(true);
@@ -80,9 +85,14 @@ public class DataLoader implements ApplicationRunner {
                 dundee,
                 AttractionType.MUSEUM);
         attractionRepository.save(discoveryPoint);
+        discoveryPoint.addBusRoute("5A");
+        discoveryPoint.addBusRoute("16B");
+        discoveryPoint.addBusRoute("73");
+        discoveryPoint.addBusRoute("73A");
         discoveryPoint.setEpilepsyFriendly(true);
         discoveryPoint.setHasParking(true);
         discoveryPoint.setHasHeadphones(true);
+        discoveryPoint.setHasDisabledToilets(true);
         attractionRepository.save(discoveryPoint);
 
         Attraction dundeeScienceCentre = new Attraction("Dundee Science Centre",
@@ -98,11 +108,14 @@ public class DataLoader implements ApplicationRunner {
                 dundee,
                 AttractionType.MUSEUM);
         attractionRepository.save(dundeeScienceCentre);
+        dundeeScienceCentre.addBusRoute("1");
+        dundeeScienceCentre.addBusRoute("18");
         dundeeScienceCentre.setWheelchairAccessible(true);
         dundeeScienceCentre.setEpilepsyFriendly(true);
         dundeeScienceCentre.setHasParking(true);
         dundeeScienceCentre.setHasHeadphones(true);
         dundeeScienceCentre.setBusy(true);
+        dundeeScienceCentre.setHasDisabledToilets(true);
         attractionRepository.save(dundeeScienceCentre);
 
         Attraction aberdeenAdventureParks = new Attraction("Jump In Adventure Parks",
@@ -114,15 +127,17 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10.00 - 18.30",
                 true,
-                "https://ibb.co/K2CCs5b",
+                "https://i.ibb.co/7jFXDpJ/adventure-park.jpg",
                 aberdeen,
                 AttractionType.ENTERTAINMENT);
         attractionRepository.save(aberdeenAdventureParks);
+        aberdeenAdventureParks.addBusRoute("3");
         aberdeenAdventureParks.setEpilepsyFriendly(true);
         aberdeenAdventureParks.setHasQuietRoom(true);
         aberdeenAdventureParks.setHasParking(true);
         aberdeenAdventureParks.setLoud(true);
         aberdeenAdventureParks.setBusy(true);
+        aberdeenAdventureParks.setHasDisabledToilets(true);
         attractionRepository.save(aberdeenAdventureParks);
 
         Attraction aberdeenScienceCentre = new Attraction("Aberdeen Science Centre",
@@ -134,16 +149,18 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10.00 - 16.30",
                 true,
-                "https://ibb.co/cbH9Qkk",
+                "https://i.ibb.co/DRKythF/science-centre.jpg",
                 aberdeen,
                 AttractionType.MUSEUM);
         attractionRepository.save(aberdeenScienceCentre);
+        aberdeenScienceCentre.addBusRoute("13");
         aberdeenScienceCentre.setWheelchairAccessible(true);
         aberdeenScienceCentre.setEpilepsyFriendly(true);
         aberdeenScienceCentre.setHasQuietRoom(true);
         aberdeenScienceCentre.setHasParking(true);
         aberdeenScienceCentre.setHasHeadphones(true);
         aberdeenScienceCentre.setBusy(true);
+        aberdeenScienceCentre.setHasDisabledToilets(true);
         attractionRepository.save(aberdeenScienceCentre);
 
         Attraction aberdeenArtGallery = new Attraction("Aberdeen Art Gallery",
@@ -155,15 +172,20 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10.00 - 17.00",
                 true,
-                "https://ibb.co/nRLxX52",
+                "https://i.ibb.co/F00zqnV/art-gallery.jpg",
                 aberdeen,
                 AttractionType.MUSEUM);
         attractionRepository.save(aberdeenArtGallery);
+        aberdeenArtGallery.addBusRoute("1");
+        aberdeenArtGallery.addBusRoute("2");
+        aberdeenArtGallery.addBusRoute("17");
+        aberdeenArtGallery.addBusRoute("23");
         aberdeenArtGallery.setWheelchairAccessible(true);
         aberdeenArtGallery.setEpilepsyFriendly(true);
         aberdeenArtGallery.setHasQuietRoom(true);
         aberdeenArtGallery.setHasParking(true);
         aberdeenArtGallery.setHasHeadphones(true);
+        aberdeenArtGallery.setHasDisabledToilets(true);
         attractionRepository.save(aberdeenArtGallery);
 
         Attraction glasgowScienceCentre = new Attraction("Glasgow Science Centre",
@@ -175,16 +197,22 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10.00 - 17.00",
                 true,
-                "https://ibb.co/x5Xdytw",
+                "https://i.ibb.co/Y7VjXbc/glasgow-science-centre.jpg",
                 glasgow,
                 AttractionType.MUSEUM);
         attractionRepository.save(glasgowScienceCentre);
+        glasgowScienceCentre.addBusRoute("X19");
+        glasgowScienceCentre.addBusRoute("90");
+        glasgowScienceCentre.addBusRoute("23");
+        glasgowScienceCentre.addBusRoute("26");
         glasgowScienceCentre.setWheelchairAccessible(true);
         glasgowScienceCentre.setHasQuietRoom(true);
         glasgowScienceCentre.setHasParking(true);
         glasgowScienceCentre.setHasHeadphones(true);
         glasgowScienceCentre.setBusy(true);
-        attractionRepository.save(aberdeenArtGallery);
+        glasgowScienceCentre.setHasDisabledToilets(true);
+       attractionRepository.save(glasgowScienceCentre);
+
 
         Attraction tollcrossFarm = new Attraction("Glasgow Tollcross Farm",
                 "Tollcross Children's Farm is an outstanding facility which will appeal to young and old alike. Regulars in the farm are Shire Horses, Shetland Ponies, rabbits, sheep, Highland Cattle and much more!",
@@ -195,10 +223,12 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10.00 - 15.30",
                 false,
-                "https://ibb.co/mT0SgQG",
+                "https://i.ibb.co/L88b0z4/glasgow-tollcross-farm.jpg",
                 glasgow,
                 AttractionType.ZOO);
         attractionRepository.save(tollcrossFarm);
+        tollcrossFarm.addBusRoute("2");
+        tollcrossFarm.addBusRoute("240");
         tollcrossFarm.setWheelchairAccessible(true);
         tollcrossFarm.setEpilepsyFriendly(true);
         tollcrossFarm.setHasParking(true);
@@ -214,10 +244,13 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "07.00 - 10.00",
                 false,
-                "https://ibb.co/zm9RXXW",
+                "https://i.ibb.co/8m4VKP3/glasgow-queens-park.jpg",
                 glasgow,
                 AttractionType.PARK);
         attractionRepository.save(queensPark);
+        queensPark.addBusRoute("38");
+        queensPark.addBusRoute("57");
+        queensPark.addBusRoute("4");
         queensPark.setWheelchairAccessible(true);
         queensPark.setEpilepsyFriendly(true);
         queensPark.setHasParking(true);
@@ -225,7 +258,7 @@ public class DataLoader implements ApplicationRunner {
         queensPark.setBusy(true);
         attractionRepository.save(queensPark);
 
-        Attraction edinbrughZoo = new Attraction("Edinbrugh Zoo",
+        Attraction edinburghZoo = new Attraction("Edinburgh Zoo",
                 "The wildest visitor attraction in Scotland, Edinburgh Zoo is home to over 1,000 rare and beautiful animals from around the world and home to the UK's only giant pandas and koalas.",
                 "134 Corstorphine Rd, Corstorphine, Edinburgh EH12 6TS",
                 21.95,
@@ -234,16 +267,26 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10.00 - 18.00",
                 false,
-                "https://ibb.co/4Nmq7j1",
+                "https://i.ibb.co/Qpk12Ct/edinbrugh-zoo.jpg",
                 edinburgh,
                 AttractionType.ZOO);
+
+        attractionRepository.save(edinburghZoo);
+        edinburghZoo.setWheelchairAccessible(true);
+        edinburghZoo.setHasParking(true);
+        edinburghZoo.setHasHeadphones(true);
+        edinburghZoo.setLoud(true);
+        edinburghZoo.setBusy(true);
+       
+        edinbrughZoo.addBusRoute("12");
+        edinbrughZoo.addBusRoute("26");
+        edinbrughZoo.addBusRoute("31");
+        edinbrughZoo.addBusRoute("900");
+        edinbrughZoo.addBusRoute("904");
+        edinbrughZoo.addBusRoute("909");
+        edinbrughZoo.setHasDisabledToilets(true);
         attractionRepository.save(edinbrughZoo);
-        edinbrughZoo.setWheelchairAccessible(true);
-        edinbrughZoo.setHasParking(true);
-        edinbrughZoo.setHasHeadphones(true);
-        edinbrughZoo.setLoud(true);
-        edinbrughZoo.setBusy(true);
-        attractionRepository.save(edinbrughZoo);
+
 
         Attraction nationalMuseumofScotland = new Attraction("National Museum of Scotland",
                 "Explore the diversity of the natural world, world cultures, art and design, science and technology and Scottish history, all under one roof at the National Museum of Scotland.",
@@ -254,16 +297,19 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10.00 - 17.00",
                 true,
-                "https://ibb.co/MZrk2vj",
+                "https://i.ibb.co/2vF6w50/edinbrugh-national-museum.jpg",
                 edinburgh,
                 AttractionType.MUSEUM);
         attractionRepository.save(nationalMuseumofScotland);
+        nationalMuseumofScotland.addBusRoute("8");
+        nationalMuseumofScotland.addBusRoute("35");
         nationalMuseumofScotland.setWheelchairAccessible(true);
         nationalMuseumofScotland.setHasQuietRoom(true);
         nationalMuseumofScotland.setHasHeadphones(true);
         nationalMuseumofScotland.setBusy(true);
         nationalMuseumofScotland.setHasBSLSigner(true);
-        attractionRepository.save(edinbrughZoo);
+        nationalMuseumofScotland.setHasDisabledToilets(true);
+          attractionRepository.save(nationalMuseumofScotland);
 
         Attraction dynamicEarth = new Attraction("Dynamic Earth",
                 "Dynamic Earth is an interactive science centre and visitor attraction which enables visitors to explore Earth’s history. Visual displays, lights, sounds, movement and temperature changes create a vibrant experience.",
@@ -274,16 +320,25 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10.00 - 17.00",
                 true,
-                "https://ibb.co/gyY6VZF",
+                "https://i.ibb.co/KLWwmj9/dynamic-earth-edinbrugh.jpg",
                 edinburgh,
                 AttractionType.VISITOR_CENTRE);
         attractionRepository.save(dynamicEarth);
+        dynamicEarth.addBusRoute("26");
+        dynamicEarth.addBusRoute("35");
+        dynamicEarth.addBusRoute("43");
+        dynamicEarth.addBusRoute("X18");
+        dynamicEarth.addBusRoute("X22");
+        dynamicEarth.addBusRoute("X25");
+        dynamicEarth.addBusRoute("X38");
+        dynamicEarth.addBusRoute("X62");
         dynamicEarth.setWheelchairAccessible(true);
         dynamicEarth.setHasLift(true);
         dynamicEarth.setHasParking(true);
         nationalMuseumofScotland.setHasHeadphones(true);
         dynamicEarth.setLoud(true);
         dynamicEarth.setBusy(true);
+        nationalMuseumofScotland.setHasDisabledToilets(true);
         attractionRepository.save(dynamicEarth);
 
         Attraction thePeak = new Attraction("The Peak Stirling",
@@ -295,10 +350,11 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "06.00 - 21.00",
                 true,
-                "https://ibb.co/DppCVRP",
+                "https://i.ibb.co/4t01ZKs/the-peak-stirling.jpg",
                 stirling,
                 AttractionType.ENTERTAINMENT);
         attractionRepository.save(thePeak);
+        thePeak.addBusRoute("F16");
         thePeak.setWheelchairAccessible(true);
         thePeak.setHasLift(true);
         thePeak.setHasParking(true);
@@ -306,6 +362,51 @@ public class DataLoader implements ApplicationRunner {
         thePeak.setLoud(true);
         thePeak.setBusy(true);
         thePeak.setHasMakatonSigner(true);
+        thePeak.setHasDisabledToilets(true);
         attractionRepository.save(thePeak);
+
+        Attraction kingsPark = new Attraction("Kings Park",
+                "Scenic park with walking paths, an open field, tennis courts, a skate park, plus playgrounds and a cafe.",
+                "25 Albert Pl, Stirling FK8 2RF",
+                00.00,
+                00.00,
+                00.50,
+                true,
+                "always open",
+                false,
+                "https://i.ibb.co/YdVG58q/ba5a0abc694ea8d8736489f8dfe4aac5.jpg",
+                stirling,
+                AttractionType.PARK);
+        attractionRepository.save(kingsPark);
+        kingsPark.addBusRoute("P2");
+        kingsPark.setWheelchairAccessible(true);
+        kingsPark.setHasParking(true);
+        kingsPark.setHasHeadphones(true);
+        kingsPark.setLoud(true);
+        kingsPark.setBusy(true);
+        attractionRepository.save(kingsPark);
+
+        Attraction kelpies = new Attraction("Kelpies",
+                "The Kelpies are 30-metre-high horse-head sculptures depicting kelpies, located between Falkirk and Grangemouth, standing next to a new extension to the Forth and Clyde Canal, and near River Carron, in The Helix, a new parkland project built to connect 16 communities in the Falkirk Council Area, Scotland.",
+                "Visitor Centre The Helix, Falkirk FK2 7ZT",
+                00.00,
+                00.00,
+                00.00,
+                true,
+                "09:30-17:00",
+                false,
+                "https://i.ibb.co/BN5ny0w/kelpies.jpg",
+                stirling,
+                AttractionType.PARK);
+        attractionRepository.save(kelpies);
+        kelpies.addBusRoute("2");
+        kelpies.addBusRoute("F16");
+        kelpies.setWheelchairAccessible(true);
+        kelpies.setHasParking(true);
+        kelpies.setHasQuietRoom(true);
+        kelpies.setHasHeadphones(true);
+        kelpies.setBusy(true);
+        kelpies.setHasDisabledToilets(true);
+        attractionRepository.save(kingsPark);
     }
 }

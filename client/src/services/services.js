@@ -24,13 +24,13 @@ export const postAttraction = (payload) => {
 }
 
 export const deleteAttraction = (id) => {
-    return fetch(baseURL + "/api/attractions" + id, {
+    return fetch(baseURL + "/api/attractions/" + id, {
         method: 'DELETE'
     });
 };
 
 export const editAttraction = (attraction) => {
-    return fetch(baseURL + "/api/attractions" + attraction.id, {
+    return fetch(baseURL + "/api/attractions/" + attraction.id, {
         method: 'PUT',
         body: JSON.stringify(attraction),
         headers: {
