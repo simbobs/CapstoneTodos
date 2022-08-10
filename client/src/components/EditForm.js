@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import "../static/form.css";
+import { Navigate, useNavigate } from 'react-router-dom';
 
-const EditForm = ({ locations, selectedAttraction, updateAttraction }) => {
+const EditForm = ({ locations, selectedAttraction, setSelectedAttraction, updateAttraction }) => {
+
+    const navigate = useNavigate();
 
     const [attraction, setAttraction] = useState({
         id: selectedAttraction.id,
@@ -57,7 +60,10 @@ const EditForm = ({ locations, selectedAttraction, updateAttraction }) => {
         event.preventDefault();
 
         const tempFormData = attraction;
-        updateAttraction(tempFormData)
+        updateAttraction(tempFormData);
+        setSelectedAttraction(tempFormData);
+        navigate("/");
+
     }
 
     //seeing if this will help with state issues

@@ -85,9 +85,9 @@ function App() {
           <Route exact path="/" element={selectedAttraction ? <AttractionDetail attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />} />
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
-          <Route path="/edit" element={<EditForm selectedAttraction={selectedAttraction} locations={locations} updateAttraction={updateAttraction} />} />
+          <Route path="/edit" element={<EditForm selectedAttraction={selectedAttraction} setSelectedAttraction={setSelectedAttraction} locations={locations} updateAttraction={updateAttraction} />} />
 
-          <Route path="/about" element={<About/>}></Route>
+          <Route path="/about" element={<About />}></Route>
         </Routes>
       </Router>
 

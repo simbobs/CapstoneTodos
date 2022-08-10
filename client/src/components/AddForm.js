@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { postAttraction } from '../services/services.js'
 import "../static/form.css"
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
 
+    const navigate = useNavigate();
 
     const [attraction, setAttraction] = useState({
         name: "",
@@ -66,6 +67,7 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
         });
 
         setSelectedAttraction(null);
+        navigate("/");
 
 
 
