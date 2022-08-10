@@ -12,7 +12,11 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToFavourites, ind
 
     // Adds to favourites state
 
-    const handleFavourite = () => {
+    const handleFavourite = (event) => {
+        const index = event.target.value;
+        addToFavourites(index);
+        console.log(event.target.value)
+        
 
     }
 
@@ -22,7 +26,7 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToFavourites, ind
             <h2>{attraction.name}</h2>
             <div className="button-group">
                 <button onClick={handleClick} value={index}>Select</button>
-                <button onClick={handleFavourite}>Add to Faves</button>
+                <button onClick={handleFavourite} value = {index}>Add to Faves</button>
             </div>
         </div>
     )
