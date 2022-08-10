@@ -11,7 +11,7 @@ const EditForm = ({locations, selectedAttraction}) => {
         concessionEntryPrice: selectedAttraction.concessionEntryPrice,
         freeEntryForCarers: selectedAttraction.freeEntryForCarers,
         openingHours: selectedAttraction.openingHours,
-        isIndoors: selectedAttraction.isIndoors,
+        indoors: selectedAttraction.indoors,
         image: selectedAttraction.image,
         location: selectedAttraction.location,
         attractionType: selectedAttraction.attractionType
@@ -28,7 +28,6 @@ const EditForm = ({locations, selectedAttraction}) => {
     }
 
     const handleLocation = (event) => {
-        console.log(event.target)
         const index = event.target.value;
         const selectedLocation = locations[index];
         let copiedAttraction = {...attraction};
@@ -44,6 +43,16 @@ const EditForm = ({locations, selectedAttraction}) => {
         // a function will be passed here to update top level state
         // we will need an update function here
         
+    }
+
+    //seeing if this will help with state issues
+    const handleCheckbox = (event) => {
+       
+        let objectKey = event.target.name;
+        let copiedAttraction = {...attraction};
+        copiedAttraction[objectKey] = event.target.checked;
+
+      
     }
 
 
@@ -65,18 +74,31 @@ const EditForm = ({locations, selectedAttraction}) => {
                 <input type ="float" placeholder="Concession Price" name="concessionEntryPrice" onChange={handleChange} value={attraction.concessionEntryPrice}/>
 
                 <label>Free Entry for Carers?</label>
-                {selectedAttraction.freeEntryForCarers ? <input type="checkbox" checked name="freeEntryForCarers" onChange={handleChange} value="true"></input>:
-                <input type="checkbox" name="freeEntryForCarers" onChange={handleChange} value="true"></input>}
+                <input type="checkbox" name="freeEntryForCarers" defaultChecked={attraction.freeEntryForCarers} onChange={handleCheckbox} value={attraction.freeEntryForCarers}></input>
         
                 <input type ="text" placeholder="Opening Hours" name="openingHours" onChange={handleChange} value={attraction.openingHours}/>
+
                 <label>Indoor Venue?</label>
-                {selectedAttraction.isIndoors ? <input type="checkbox" checked name="isIndoors" onChange={handleChange} value="true"></input> :
-                <input type="checkbox" name="isIndoors" onChange={handleChange} value="true"></input>}
+                <input type="checkbox" name="isIndoors" defaultChecked={attraction.indoors} onChange={handleCheckbox} value={attraction.indoors}></input>
+
                
                 <input type="text" placeholder="Image Url" name="image" onChange={handleChange} value={attraction.image} />
                 <select name="location" onChange={handleLocation} defaultValue="select-location">
                         <option disabled value="select-location">Select a City</option>
                             {locationOptions}
+
+                </select>
+                <select name="attractionType" onChange={handleChange} defaultValue="select-attraction-type">
+                        <option defaultValue={attraction.attractionType}>{attraction.attractionType}</option>
+                        <option value="MUSEUM">Museum</option>
+                        <option value="PARK">Park</option>
+                        <option value="SAFARI_PARK">Safari Park</option>
+                        <option value="ZOO">Zoo</option>
+                        <option value="ENTERTAINMENT">Entertainment</option>
+                        <option value="HISTORICAL">Historical</option>
+                        <option value="NATIONAL_TRUST">National Trust</option>
+                        <option value="VISITOR_CENTRE">Visitor Centre</option>
+                        <option value="CASTLE">Castle</option>
 
                 </select>
 
@@ -86,7 +108,7 @@ const EditForm = ({locations, selectedAttraction}) => {
 
 </form>
 
-{/* this needs the checkboxes to be fixed so that they can be edited
+{/* 
 will also need to do logic on server side to get the enum data. loop over enum and see if what is being returned is the same as the enum type */}
 
 </>

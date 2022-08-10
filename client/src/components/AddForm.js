@@ -14,7 +14,7 @@ const AddForm = ({locations, onCreate}) => {
         isIndoors: false,
         image: "",
         location: null,
-        attractionType: null
+        attractionType: ""
 
     })
 
@@ -70,6 +70,19 @@ const AddForm = ({locations, onCreate}) => {
                 <select name="location" onChange={handleLocation} defaultValue="select-location">
                         <option disabled value="select-location">Select a City</option>
                             {locationOptions}
+
+                </select>
+                <select name="attractionType" onChange={handleChange} defaultValue="select-attraction-type">
+                        <option disabled value="select-category">Select A Category</option>
+                        <option value="MUSEUM">Museum</option>
+                        <option value="PARK">Park</option>
+                        <option value="SAFARI_PARK">Safari Park</option>
+                        <option value="ZOO">Zoo</option>
+                        <option value="ENTERTAINMENT">Entertainment</option>
+                        <option value="HISTORICAL">Historical</option>
+                        <option value="NATIONAL_TRUST">National Trust</option>
+                        <option value="VISITOR_CENTRE">Visitor Centre</option>
+                        <option value="CASTLE">Castle</option>
 
                 </select>
 
