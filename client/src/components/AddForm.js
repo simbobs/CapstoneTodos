@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { postAttraction } from '../services/services.js'
+import "../static/Form.css"
 
 const AddForm = ({ locations, onCreate }) => {
 
@@ -72,7 +73,7 @@ const AddForm = ({ locations, onCreate }) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className= "form" onSubmit={handleSubmit}>
                 <input type="text" placeholder="Name" name="name" onChange={handleChange} value={attraction.name} />
                 <textarea placeholder="Description" name="description" onChange={handleChange} value={attraction.description} />
                 <textarea placeholder="Address" name="address" onChange={handleChange} value={attraction.address} />
