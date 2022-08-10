@@ -20,6 +20,7 @@ const Navbar = () => {
                 <Link to="/"><span className="logo">Todos</span></Link>
                 <Link to="/add">Add attraction</Link>
                 <a href="#">Favourites list</a>
+                <Link to="/about">About</Link>
                 <a href="javascript:void(0);" className="icon" onClick={handleClick}>
                     <i className="fa fa-bars"></i>
                 </a>

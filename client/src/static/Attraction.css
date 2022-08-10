@@ -5,3 +5,7 @@
     align-items: center;
     margin-top: 5px;
 }
+
+.button-group {
+    list-style: none;
+}
