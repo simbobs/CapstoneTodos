@@ -63,6 +63,8 @@ public class Attraction {
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = true)
     private Location location;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "attraction_type")
     private AttractionType attractionType;
 
     public Attraction(String name, String description, String address, double adultEntryPrice, double childEntryPrice, double concessionEntryPrice, boolean freeEntryForCarers, String openingHours, boolean isIndoors, String image, Location location, AttractionType attractionType) {
@@ -164,7 +166,7 @@ public class Attraction {
         this.location = location;
     }
 
-    public boolean isFreeEntryForCarers() {
+    public boolean hasFreeEntryForCarers() {
         return freeEntryForCarers;
     }
 
@@ -228,7 +230,7 @@ public class Attraction {
         isEpilepsyFriendly = epilepsyFriendly;
     }
 
-    public boolean isHasQuietRoom() {
+    public boolean hasQuietRoom() {
         return hasQuietRoom;
     }
 
@@ -236,7 +238,7 @@ public class Attraction {
         this.hasQuietRoom = hasQuietRoom;
     }
 
-    public boolean isHasLift() {
+    public boolean hasLift() {
         return hasLift;
     }
 
@@ -244,7 +246,7 @@ public class Attraction {
         this.hasLift = hasLift;
     }
 
-    public boolean isHasParking() {
+    public boolean hasParking() {
         return hasParking;
     }
 
@@ -252,7 +254,7 @@ public class Attraction {
         this.hasParking = hasParking;
     }
 
-    public boolean isHasHeadphones() {
+    public boolean hasHeadphones() {
         return hasHeadphones;
     }
 
@@ -276,7 +278,7 @@ public class Attraction {
         isBusy = busy;
     }
 
-    public boolean isHasBSLSigner() {
+    public boolean hasBSLSigner() {
         return hasBSLSigner;
     }
 
@@ -284,13 +286,14 @@ public class Attraction {
         this.hasBSLSigner = hasBSLSigner;
     }
 
-    public boolean isHasMakatonSigner() {
+    public boolean hasMakatonSigner() {
         return hasMakatonSigner;
     }
 
     public void setHasMakatonSigner(boolean hasMakatonSigner) {
         this.hasMakatonSigner = hasMakatonSigner;
     }
+
 
     public boolean isHasDisabledToilets() {
         return hasDisabledToilets;
@@ -303,4 +306,5 @@ public class Attraction {
     public void addBusRoute(String bus){
         this.busRoutes.add(bus);
     }
+
 }
