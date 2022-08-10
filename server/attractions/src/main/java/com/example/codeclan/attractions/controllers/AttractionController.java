@@ -26,6 +26,7 @@ public class AttractionController {
         return new ResponseEntity(attractionRepository.findById(id), HttpStatus.OK);
     }
 
+
     @GetMapping(value = "/attractions")
     public ResponseEntity <List<Attraction>> findAttractionsByCity(
             @RequestParam(name = "city", required = false) String city,
@@ -50,22 +51,23 @@ public class AttractionController {
 
 
 
-//    @PostMapping(value = "/attractions")
-//    public ResponseEntity<Attraction> postAttraction(@RequestBody Attraction attraction){
-//        attractionRepository.save(attraction);
-//        return new ResponseEntity<>(attraction, HttpStatus.CREATED);
-//    }
+    @PostMapping(value = "/attractions")
+    public ResponseEntity<Attraction> postAttraction(@RequestBody Attraction attraction){
+        attractionRepository.save(attraction);
+        return new ResponseEntity<>(attraction, HttpStatus.CREATED);
+    }
 
-//    @PatchMapping(value = "/attractions/{id}")
-//    public ResponseEntity<Attraction> updateAttraction(@RequestBody Attraction attraction){
-//        attractionRepository.save(attraction);
-//        return new ResponseEntity<>(attraction, HttpStatus.OK);
-//    }
+    @PutMapping(value = "/attractions/{id}")
+    public ResponseEntity<Attraction> updateAttraction(@RequestBody Attraction attraction){
+        attractionRepository.save(attraction);
+        return new ResponseEntity<>(attraction, HttpStatus.OK);
+    }
 
-//    @DeleteMapping(value = "/attractions/{id}")
-//    public ResponseEntity<Attraction> deleteAttraction(@PathVariable Long id){
-//        Attraction found = attractionRepository.getOne(id);
-//        attractionRepository.delete(found);
-//        return new ResponseEntity<>(null, HttpStatus.OK);
-//    }
+    @DeleteMapping(value = "/attractions/{id}")
+    public ResponseEntity<Attraction> deleteAttraction(@PathVariable Long id){
+        Attraction found = attractionRepository.getOne(id);
+        attractionRepository.delete(found);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
 }
