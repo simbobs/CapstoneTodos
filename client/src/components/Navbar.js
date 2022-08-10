@@ -17,7 +17,7 @@ const Navbar = () => {
         <>
             <nav className="topnav" id="myTopnav">
 
-                <a href="#" className="logo">Todos</a>
+                <Link to="/"><span className="logo">Todos</span></Link>
                 <Link to="/add">Add attraction</Link>
                 <a href="#">Favourites list</a>
                 <a href="javascript:void(0);" className="icon" onClick={handleClick}>

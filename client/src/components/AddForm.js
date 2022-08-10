@@ -16,7 +16,7 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
         isIndoors: false,
         image: "",
         location: null,
-        attractionType: ""
+        // attractionType: ""
 
     })
 
@@ -42,6 +42,7 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
         console.log("we clicked submit");
         event.preventDefault();
         const tempFormData = attraction;
+        console.log(tempFormData);
         postAttraction(tempFormData).then((data) => {
             onCreate(data)
         })
@@ -94,22 +95,22 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
                     {locationOptions}
 
                 </select>
-                <select name="attractionType" onChange={handleChange} defaultValue="select-attraction-type">
-                        <option disabled value="select-category">Select A Category</option>
-                        <option value="MUSEUM">Museum</option>
-                        <option value="PARK">Park</option>
-                        <option value="SAFARI_PARK">Safari Park</option>
-                        <option value="ZOO">Zoo</option>
-                        <option value="ENTERTAINMENT">Entertainment</option>
-                        <option value="HISTORICAL">Historical</option>
-                        <option value="NATIONAL_TRUST">National Trust</option>
-                        <option value="VISITOR_CENTRE">Visitor Centre</option>
-                        <option value="CASTLE">Castle</option>
+                {/* <select name="attractionType" onChange={handleChange} defaultValue="select-attraction-type">
+                    <option disabled value="select-category">Select A Category</option>
+                    <option value="MUSEUM">Museum</option>
+                    <option value="PARK">Park</option>
+                    <option value="SAFARI_PARK">Safari Park</option>
+                    <option value="ZOO">Zoo</option>
+                    <option value="ENTERTAINMENT">Entertainment</option>
+                    <option value="HISTORICAL">Historical</option>
+                    <option value="NATIONAL_TRUST">National Trust</option>
+                    <option value="VISITOR_CENTRE">Visitor Centre</option>
+                    <option value="CASTLE">Castle</option>
 
-                </select>
+                </select> */}
 
 
-                <Link to="/"><button type="submit">Add</button></Link>
+                <button type="submit">Add</button>
 
 
 
