@@ -277,15 +277,14 @@ public class DataLoader implements ApplicationRunner {
         edinburghZoo.setHasHeadphones(true);
         edinburghZoo.setLoud(true);
         edinburghZoo.setBusy(true);
-       
-        edinbrughZoo.addBusRoute("12");
-        edinbrughZoo.addBusRoute("26");
-        edinbrughZoo.addBusRoute("31");
-        edinbrughZoo.addBusRoute("900");
-        edinbrughZoo.addBusRoute("904");
-        edinbrughZoo.addBusRoute("909");
-        edinbrughZoo.setHasDisabledToilets(true);
-        attractionRepository.save(edinbrughZoo);
+        edinburghZoo.addBusRoute("12");
+        edinburghZoo.addBusRoute("26");
+        edinburghZoo.addBusRoute("31");
+        edinburghZoo.addBusRoute("900");
+        edinburghZoo.addBusRoute("904");
+        edinburghZoo.addBusRoute("909");
+        edinburghZoo.setHasDisabledToilets(true);
+        attractionRepository.save(edinburghZoo);
 
 
         Attraction nationalMuseumofScotland = new Attraction("National Museum of Scotland",
