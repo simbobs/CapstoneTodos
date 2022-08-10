@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { postAttraction } from '../services/services.js'
+import { Link } from 'react-router-dom';
 
-const AddForm = ({ locations, onCreate }) => {
+const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
 
     const [attraction, setAttraction] = useState({
         name: "",
@@ -58,7 +59,10 @@ const AddForm = ({ locations, onCreate }) => {
             location: null,
             attractionType: null
 
-        })
+        });
+
+        setSelectedAttraction(null);
+
 
 
     }
@@ -105,7 +109,7 @@ const AddForm = ({ locations, onCreate }) => {
                 </select>
 
 
-                <button type="submit">Add</button>
+                <Link to="/"><button type="submit">Add</button></Link>
 
 
 
