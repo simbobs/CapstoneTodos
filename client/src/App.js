@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { getAttractions, getLocations, editAttraction } from './services/services.js'
 import AddForm from './components/AddForm';
 import EditForm from './components/EditForm';
+import About from './components/About';
 
 // import Request from './helpers/request';
 
@@ -21,19 +22,12 @@ function App() {
   useEffect(() => {
     getAttractions()
       .then(attractions => setAttractions(attractions))
-
-
   }, [])
 
   useEffect(() => {
     getLocations()
       .then(locations => setLocations(locations))
-
-
   }, [])
-
-
-
 
   // const getAttractions = () => {
   //   const request = new Request()
@@ -56,8 +50,6 @@ function App() {
   const goBackToList = () => {
     setSelectedAttraction(null);
   }
-
-
 
   // using state to see if our form works
   const createAttraction = (attraction) => {
@@ -85,19 +77,17 @@ function App() {
 
   }
 
-
-
-
   return (
     <>
       <Router>
         <Navbar setSelectedAttraction={setSelectedAttraction} />
         <Routes>
           <Route exact path="/" element={selectedAttraction ? <AttractionDetail attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />} />
-
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
+
           <Route path="/edit" element={<EditForm selectedAttraction={selectedAttraction} locations={locations} updateAttraction={updateAttraction} />} />
 
+          <Route path="/about" element={<About/>}></Route>
         </Routes>
       </Router>
 

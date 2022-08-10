@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { postAttraction } from '../services/services.js'
+import "../static/Form.css"
 import { Link } from 'react-router-dom';
+
 
 const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
 
@@ -78,7 +80,7 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className= "form" onSubmit={handleSubmit}>
                 <input type="text" placeholder="Name" name="name" onChange={handleChange} value={attraction.name} />
                 <textarea placeholder="Description" name="description" onChange={handleChange} value={attraction.description} />
                 <textarea placeholder="Address" name="address" onChange={handleChange} value={attraction.address} />
