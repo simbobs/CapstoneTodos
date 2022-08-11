@@ -74,10 +74,24 @@ class AttractionsApplicationTests {
 	}
 
 	@Test
+	public void canFindByFreeEntryForAdults(){
+		List<Attraction> foundAttractions = attractionRepository.findFreeAttractionsByAdultEntryPrice(0.00);
+		assertEquals(0.00, foundAttractions.get(0).getAdultEntryPrice());
+		assertEquals(7, foundAttractions.size());
+	}
+
+	@Test
 	public void canFindByFreeEntryForChildren(){
-		List<Attraction> foundAttractions = attractionRepository.findAttractionsByChildEntryPrice(0.00);
+		List<Attraction> foundAttractions = attractionRepository.findFreeAttractionsByChildEntryPrice(0.00);
 		assertEquals(0.00, foundAttractions.get(0).getChildEntryPrice());
 		assertEquals(8, foundAttractions.size());
+	}
+
+	@Test
+	public void canFindByFreeConcessionEntryPrice(){
+		List<Attraction> foundAttractions = attractionRepository.findFreeAttractionsByConcessionEntryPrice(0.00);
+		assertEquals(0.00, foundAttractions.get(0).getConcessionEntryPrice());
+		assertEquals(7, foundAttractions.size());
 	}
 
 	@Test

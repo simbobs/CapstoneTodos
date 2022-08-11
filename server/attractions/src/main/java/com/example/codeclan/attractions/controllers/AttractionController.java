@@ -33,7 +33,9 @@ public class AttractionController {
             @RequestParam(name = "city", required = false) String city,
             @RequestParam(name = "attraction_type", required = false) AttractionType attractionType,
             @RequestParam(name = "isIndoors", required = false) boolean isIndoors,
-            @RequestParam(name = "child_entry_price", required = false) Double childEntryPrice,
+            @RequestParam(name = "adultEntryPrice", required = false) Double adultEntryPrice,
+            @RequestParam(name = "childEntryPrice", required = false) Double childEntryPrice,
+            @RequestParam(name = "concessionEntryPrice", required = false) Double concessionEntryPrice,
             @RequestParam(name = "isWheelchairAccessible", required = false) boolean isWheelchairAccessible,
             @RequestParam(name = "freeEntryForCarers", required = false) boolean freeEntryForCarers,
             @RequestParam(name = "isEpilepsyFriendly", required = false) boolean isEpilepsyFriendly,
@@ -47,7 +49,7 @@ public class AttractionController {
             @RequestParam(name = "hasMakatonSigner", required = false) boolean hasMakatonSigner,
             @RequestParam(name = "hasDisabledToilets", required = false) boolean hasDisabledToilets){
 
-        if (isWheelchairAccessible == true) {
+        if (isWheelchairAccessible == true){
             return new ResponseEntity<>(attractionRepository.findAttractionsByIsWheelchairAccessible(true), HttpStatus.OK);
         }
         if (freeEntryForCarers == true){
@@ -56,10 +58,16 @@ public class AttractionController {
         if (city != null) {
             return new ResponseEntity<>(attractionRepository.findAttractionsByLocationCity(city), HttpStatus.OK);
         }
-        if (childEntryPrice != null) {
-            return new ResponseEntity<>(attractionRepository.findAttractionsByChildEntryPrice(childEntryPrice), HttpStatus.OK);
+        if (adultEntryPrice != null){
+            return new ResponseEntity<>(attractionRepository.findFreeAttractionsByAdultEntryPrice(adultEntryPrice), HttpStatus.OK);
         }
-        if (attractionType != null) {
+        if (childEntryPrice != null){
+            return new ResponseEntity<>(attractionRepository.findFreeAttractionsByChildEntryPrice(childEntryPrice), HttpStatus.OK);
+        }
+        if (concessionEntryPrice != null){
+            return new ResponseEntity<>(attractionRepository.findFreeAttractionsByConcessionEntryPrice(concessionEntryPrice), HttpStatus.OK);
+        }
+        if (attractionType != null){
             return new ResponseEntity<>(attractionRepository.findAttractionsByAttractionType(attractionType), HttpStatus.OK);
         }
         if (isEpilepsyFriendly == true){
@@ -74,7 +82,7 @@ public class AttractionController {
         if (hasParking == true){
             return new ResponseEntity<>(attractionRepository.findAttractionsByHasParking(true), HttpStatus.OK);
         }
-        if (isIndoors == true) {
+        if (isIndoors == true){
             return new ResponseEntity<>(attractionRepository.findAttractionsByIsIndoors(true), HttpStatus.OK);
         }
         if (hasHeadphones == true){

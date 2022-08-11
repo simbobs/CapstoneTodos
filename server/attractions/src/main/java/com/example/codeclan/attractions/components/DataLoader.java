@@ -372,7 +372,7 @@ public class DataLoader implements ApplicationRunner {
                 "25 Albert Pl, Stirling FK8 2RF",
                 00.00,
                 00.00,
-                00.50,
+                00.00,
                 true,
                 "always open",
                 false,

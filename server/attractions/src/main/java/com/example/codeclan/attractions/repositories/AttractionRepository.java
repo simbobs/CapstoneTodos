@@ -16,7 +16,9 @@ public interface AttractionRepository extends JpaRepository <Attraction, Long> {
     List<Attraction> findAttractionsByAttractionType(AttractionType attractionType);
     List<Attraction> findAttractionsByIsWheelchairAccessible(boolean isWheelchairAccessible);
     List<Attraction> findAttractionsByIsIndoors(boolean isIndoors);
-    List<Attraction> findAttractionsByChildEntryPrice(Double childEntryPrice);
+    List<Attraction> findFreeAttractionsByAdultEntryPrice(Double adultEntryPrice);
+    List<Attraction> findFreeAttractionsByChildEntryPrice(Double childEntryPrice);
+    List<Attraction> findFreeAttractionsByConcessionEntryPrice(Double concessionEntryPrice);
     List<Attraction> findAttractionsByFreeEntryForCarers(boolean freeEntryForCarers);
     List<Attraction> findAttractionsByIsEpilepsyFriendly(boolean isEpilepsyFriendly);
     List<Attraction> findAttractionsByHasQuietRoom(boolean hasQuietRoom);
