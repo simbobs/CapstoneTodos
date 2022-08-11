@@ -3,9 +3,11 @@ package com.example.codeclan.attractions.models;
 import com.example.codeclan.attractions.enums.AttractionType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "attractions")
@@ -63,6 +65,15 @@ public class Attraction {
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = true)
     private Location location;
+    @JsonIgnoreProperties({"attractions"})
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "attractions_users",
+            joinColumns = {@JoinColumn(name = "attraction_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)}
+    )
+    private List<User> users;
     @Enumerated(EnumType.STRING)
     @Column(name = "attraction_type")
     private AttractionType attractionType;
@@ -79,6 +90,7 @@ public class Attraction {
         this.isIndoors = isIndoors;
         this.image = image;
         this.location = location;
+        this.users = new ArrayList<>();
         this.attractionType = attractionType;
         this.busRoutes = new ArrayList<>();
         this.isWheelchairAccessible = false;
@@ -307,4 +319,15 @@ public class Attraction {
         this.busRoutes.add(bus);
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public void addUsers(User user){
+        this.users.add(user);
+    }
 }
