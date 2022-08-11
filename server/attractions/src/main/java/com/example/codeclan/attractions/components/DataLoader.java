@@ -3,8 +3,10 @@ package com.example.codeclan.attractions.components;
 import com.example.codeclan.attractions.enums.AttractionType;
 import com.example.codeclan.attractions.models.Attraction;
 import com.example.codeclan.attractions.models.Location;
+import com.example.codeclan.attractions.models.User;
 import com.example.codeclan.attractions.repositories.AttractionRepository;
 import com.example.codeclan.attractions.repositories.LocationRepository;
+import com.example.codeclan.attractions.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -23,6 +25,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     LocationRepository locationRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     AttractionType attractionType;
 
@@ -409,5 +414,10 @@ public class DataLoader implements ApplicationRunner {
         kelpies.setLoud(true);
         kelpies.setHasDisabledToilets(true);
         attractionRepository.save(kelpies);
+
+        User jonny = new User("Jonny","ABC123");
+        userRepository.save(jonny);
+        jonny.addAttraction(kelpies);
+        userRepository.save(jonny);
     }
 }
