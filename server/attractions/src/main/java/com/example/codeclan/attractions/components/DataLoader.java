@@ -67,6 +67,7 @@ public class DataLoader implements ApplicationRunner {
         vAndA.setWheelchairAccessible(true);
         vAndA.setEpilepsyFriendly(true);
         vAndA.setHasQuietRoom(true);
+        vAndA.setHasLift(true);
         vAndA.setHasParking(true);
         vAndA.setHasHeadphones(true);
         attractionRepository.save(vAndA);
@@ -112,6 +113,7 @@ public class DataLoader implements ApplicationRunner {
         dundeeScienceCentre.addBusRoute("18");
         dundeeScienceCentre.setWheelchairAccessible(true);
         dundeeScienceCentre.setEpilepsyFriendly(true);
+        dundeeScienceCentre.setHasLift(true);
         dundeeScienceCentre.setHasParking(true);
         dundeeScienceCentre.setHasHeadphones(true);
         dundeeScienceCentre.setBusy(true);
@@ -157,6 +159,7 @@ public class DataLoader implements ApplicationRunner {
         aberdeenScienceCentre.setWheelchairAccessible(true);
         aberdeenScienceCentre.setEpilepsyFriendly(true);
         aberdeenScienceCentre.setHasQuietRoom(true);
+        aberdeenScienceCentre.setHasLift(true);
         aberdeenScienceCentre.setHasParking(true);
         aberdeenScienceCentre.setHasHeadphones(true);
         aberdeenScienceCentre.setBusy(true);
@@ -183,6 +186,7 @@ public class DataLoader implements ApplicationRunner {
         aberdeenArtGallery.setWheelchairAccessible(true);
         aberdeenArtGallery.setEpilepsyFriendly(true);
         aberdeenArtGallery.setHasQuietRoom(true);
+        aberdeenArtGallery.setHasLift(true);
         aberdeenArtGallery.setHasParking(true);
         aberdeenArtGallery.setHasHeadphones(true);
         aberdeenArtGallery.setHasDisabledToilets(true);
@@ -207,11 +211,12 @@ public class DataLoader implements ApplicationRunner {
         glasgowScienceCentre.addBusRoute("26");
         glasgowScienceCentre.setWheelchairAccessible(true);
         glasgowScienceCentre.setHasQuietRoom(true);
+        glasgowScienceCentre.setHasLift(true);
         glasgowScienceCentre.setHasParking(true);
         glasgowScienceCentre.setHasHeadphones(true);
         glasgowScienceCentre.setBusy(true);
         glasgowScienceCentre.setHasDisabledToilets(true);
-       attractionRepository.save(glasgowScienceCentre);
+        attractionRepository.save(glasgowScienceCentre);
 
 
         Attraction tollcrossFarm = new Attraction("Glasgow Tollcross Farm",
@@ -232,7 +237,6 @@ public class DataLoader implements ApplicationRunner {
         tollcrossFarm.setWheelchairAccessible(true);
         tollcrossFarm.setEpilepsyFriendly(true);
         tollcrossFarm.setHasParking(true);
-        tollcrossFarm.setHasHeadphones(true);
         attractionRepository.save(tollcrossFarm);
 
         Attraction queensPark = new Attraction("Glasgow Queens Park",
@@ -254,7 +258,6 @@ public class DataLoader implements ApplicationRunner {
         queensPark.setWheelchairAccessible(true);
         queensPark.setEpilepsyFriendly(true);
         queensPark.setHasParking(true);
-        queensPark.setHasHeadphones(true);
         queensPark.setBusy(true);
         attractionRepository.save(queensPark);
 
@@ -274,7 +277,6 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(edinburghZoo);
         edinburghZoo.setWheelchairAccessible(true);
         edinburghZoo.setHasParking(true);
-        edinburghZoo.setHasHeadphones(true);
         edinburghZoo.setLoud(true);
         edinburghZoo.setBusy(true);
         edinburghZoo.addBusRoute("12");
@@ -304,11 +306,12 @@ public class DataLoader implements ApplicationRunner {
         nationalMuseumofScotland.addBusRoute("35");
         nationalMuseumofScotland.setWheelchairAccessible(true);
         nationalMuseumofScotland.setHasQuietRoom(true);
+        nationalMuseumofScotland.setHasLift(true);
         nationalMuseumofScotland.setHasHeadphones(true);
         nationalMuseumofScotland.setBusy(true);
         nationalMuseumofScotland.setHasBSLSigner(true);
         nationalMuseumofScotland.setHasDisabledToilets(true);
-          attractionRepository.save(nationalMuseumofScotland);
+        attractionRepository.save(nationalMuseumofScotland);
 
         Attraction dynamicEarth = new Attraction("Dynamic Earth",
                 "Dynamic Earth is an interactive science centre and visitor attraction which enables visitors to explore Earth’s history. Visual displays, lights, sounds, movement and temperature changes create a vibrant experience.",
@@ -334,10 +337,10 @@ public class DataLoader implements ApplicationRunner {
         dynamicEarth.setWheelchairAccessible(true);
         dynamicEarth.setHasLift(true);
         dynamicEarth.setHasParking(true);
-        nationalMuseumofScotland.setHasHeadphones(true);
+        dynamicEarth.setHasHeadphones(true);
         dynamicEarth.setLoud(true);
         dynamicEarth.setBusy(true);
-        nationalMuseumofScotland.setHasDisabledToilets(true);
+        dynamicEarth.setHasDisabledToilets(true);
         attractionRepository.save(dynamicEarth);
 
         Attraction thePeak = new Attraction("The Peak Stirling",
@@ -369,7 +372,7 @@ public class DataLoader implements ApplicationRunner {
                 "25 Albert Pl, Stirling FK8 2RF",
                 00.00,
                 00.00,
-                00.50,
+                00.00,
                 true,
                 "always open",
                 false,
@@ -380,7 +383,6 @@ public class DataLoader implements ApplicationRunner {
         kingsPark.addBusRoute("P2");
         kingsPark.setWheelchairAccessible(true);
         kingsPark.setHasParking(true);
-        kingsPark.setHasHeadphones(true);
         kingsPark.setLoud(true);
         kingsPark.setBusy(true);
         attractionRepository.save(kingsPark);
@@ -403,9 +405,9 @@ public class DataLoader implements ApplicationRunner {
         kelpies.setWheelchairAccessible(true);
         kelpies.setHasParking(true);
         kelpies.setHasQuietRoom(true);
-        kelpies.setHasHeadphones(true);
         kelpies.setBusy(true);
+        kelpies.setLoud(true);
         kelpies.setHasDisabledToilets(true);
-        attractionRepository.save(kingsPark);
+        attractionRepository.save(kelpies);
     }
 }
