@@ -1,7 +1,9 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
+import AttractionList from '../containers/AttractionList';
 import { deleteAttraction, editAttraction } from '../services/services';
 import EditForm from './EditForm';
+import { Link } from 'react-router-dom'
 
 const Button = styled.button`
 background: transparent;
@@ -29,17 +31,15 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
         })
     }
 
-
-
-
     return (
-
 
         <>
 
             <div className='attraction-info'>
+
                 <h1> {attraction.name}</h1>
-                <img src={'https://i.ibb.co/MPPJbKX/dundee.jpg'} />
+                <img src={attraction.image} />
+
                 <p> <b>About:</b> {attraction.description}</p>
                 <p> <b>Address:</b> {attraction.address}</p>
                 <p> <b>Adult:</b> £{attraction.adultEntryPrice}</p>
@@ -53,7 +53,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                     {attraction.indoors ? <b>Indoor Facilities</b> : null}
                 </div>
                 <p> <b>Attraction Type:</b>{attraction.attractionType}</p>
-                {/* logic needed to produce a symbol based on whether or not the attraction has these accesibility features. */}
+                
             </div>
             <div>
                 {attraction.wheelchairAccessible ? <img src={''} /> : null}
@@ -76,6 +76,8 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
 
             <Button onClick={handleDelete}>Delete</Button>
+
+            <Link to="/edit">Edit</Link>
 
             {/* <EditForm selectedAttraction={selectedAttraction} locations={locations} updateAttraction={updateAttraction} /> */}
 
