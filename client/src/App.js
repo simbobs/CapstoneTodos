@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useNavigate } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import AttractionDetail from './components/AttractionDetail';
@@ -6,6 +6,9 @@ import AttractionList from './containers/AttractionList';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { getAttractions, getLocations, editAttraction } from './services/services.js'
 import AddForm from './components/AddForm';
+import EditForm from './components/EditForm';
+import About from './components/About';
+import Filter from './components/Filter';
 
 // import Request from './helpers/request';
 
@@ -16,23 +19,20 @@ function App() {
   const [selectedAttraction, setSelectedAttraction] = useState(null);
   const [favourites, setFavourites] = useState([]);
 
+  //this is our filtered list state
+  const [filtered, setFiltered] = useState([])
+
   // renders info on application load
   useEffect(() => {
     getAttractions()
+
       .then(attractions => setAttractions(attractions))
-
-
   }, [])
 
   useEffect(() => {
     getLocations()
       .then(locations => setLocations(locations))
-
-
   }, [])
-
-
-
 
   // const getAttractions = () => {
   //   const request = new Request()
@@ -46,17 +46,18 @@ function App() {
     setSelectedAttraction(attraction);
   }
 
-  const addToFavourites = (attraction) => {
-    const copyList = [...favourites];
-    copyList.push(attraction);
-    setFavourites(copyList);
+  const addToFavourites = (index) => {
+    // const copyAttractions = [...attractions];
+    const attraction = attractions[index];
+    console.log(attraction)
+    const copyFavourites = [...favourites, attraction];
+    setFavourites(copyFavourites);
+    console.log(favourites.length)
   }
 
   const goBackToList = () => {
     setSelectedAttraction(null);
   }
-
-
 
   // using state to see if our form works
   const createAttraction = (attraction) => {
@@ -84,20 +85,33 @@ function App() {
 
   }
 
-
-
+  //this updates our filter list
+  const createFilteredList = (list) => {
+    setFiltered(list);
+    
+  }
 
   return (
     <>
       <Router>
-        <Navbar />
+        <Navbar setSelectedAttraction={setSelectedAttraction} />
         <Routes>
           <Route exact path="/" element={selectedAttraction ? <AttractionDetail attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />} />
-
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
+
+
+          <Route path="/fave" element={<AttractionList attractions={favourites} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} />} />
+
+          <Route path="/edit" element={<EditForm selectedAttraction={selectedAttraction} setSelectedAttraction={setSelectedAttraction} locations={locations} updateAttraction={updateAttraction} />} />
+
+          <Route path="/about" element={<About />}></Route>
+
+
+          <Route path="/filter" element={<Filter locations={locations} attractions={attractions} filtered={filtered} filter={createFilteredList} />} />
 
         </Routes>
       </Router>
+
     </>
   )
 }

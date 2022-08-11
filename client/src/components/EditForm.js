@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import "../static/Form.css";
+import { Navigate, useNavigate } from 'react-router-dom';
 
-const EditForm = ({ locations, selectedAttraction, updateAttraction }) => {
+const EditForm = ({ locations, selectedAttraction, setSelectedAttraction, updateAttraction }) => {
+
+    const navigate = useNavigate();
 
     const [attraction, setAttraction] = useState({
         id: selectedAttraction.id,
@@ -56,24 +60,24 @@ const EditForm = ({ locations, selectedAttraction, updateAttraction }) => {
         event.preventDefault();
 
         const tempFormData = attraction;
-        updateAttraction(tempFormData)
-        // .then((data) => {
-        //     onCreate(data)
-        // })
-
-
+        updateAttraction(tempFormData);
+        setSelectedAttraction(tempFormData);
+        navigate("/");
 
     }
 
     //seeing if this will help with state issues
     const handleCheckbox = (event) => {
-       
+
         let objectKey = event.target.name;
-        let copiedAttraction = {...attraction};
+        let copiedAttraction = { ...attraction };
         copiedAttraction[objectKey] = event.target.checked;
 
-      
+
     }
+
+    // busRoutes: selectedAttraction.busRoutes,
+
 
 
 
@@ -82,27 +86,103 @@ const EditForm = ({ locations, selectedAttraction, updateAttraction }) => {
 
     })
 
+    const busOptions = selectedAttraction.busRoutes.map((bus, index) => {
+        return <li>{bus}</li>
+
+    })
+
     return (
 
         <>
-            <form onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
                 <input type="text" placeholder="Name" name="name" onChange={handleChange} value={attraction.name} />
                 <textarea placeholder="Description" name="description" onChange={handleChange} value={attraction.description} />
                 <textarea placeholder="Address" name="address" onChange={handleChange} value={attraction.address} />
+                <label>Nearby Bus Routes</label>
+                <ul>{busOptions}</ul>
                 <input type="float" placeholder="Adult Price" name="adultEntryPrice" onChange={handleChange} value={attraction.adultEntryPrice} />
                 <input type="float" placeholder="Child Price" name="childEntryPrice" onChange={handleChange} value={attraction.childEntryPrice} />
                 <input type="float" placeholder="Concession Price" name="concessionEntryPrice" onChange={handleChange} value={attraction.concessionEntryPrice} />
 
-                <label>Free Entry for Carers?</label>
+
+
 
                 <input type="checkbox" name="freeEntryForCarers" defaultChecked={attraction.freeEntryForCarers} onChange={handleCheckbox} value={attraction.freeEntryForCarers}></input>
-        
-                <input type ="text" placeholder="Opening Hours" name="openingHours" onChange={handleChange} value={attraction.openingHours}/>
 
-                <label>Indoor Venue?</label>
-                <input type="checkbox" name="isIndoors" defaultChecked={attraction.indoors} onChange={handleCheckbox} value={attraction.indoors}></input>
+                <input type="text" placeholder="Opening Hours" name="openingHours" onChange={handleChange} value={attraction.openingHours} />
 
-               
+
+                <div className="checkbox">
+                    <label>Free Entry for Carers?</label>
+                    <input type="checkbox" name="freeEntryForCarers" defaultChecked={attraction.freeEntryForCarers} onChange={handleCheckbox} value={attraction.freeEntryForCarers}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label>Indoor Venue?</label>
+                    <input type="checkbox" name="isIndoors" defaultChecked={attraction.indoors} onChange={handleCheckbox} value={attraction.indoors}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label>Has Quiet Room?</label>
+                    <input type="checkbox" name="hasQuietRoom" defaultChecked={attraction.hasQuietRoom} onChange={handleCheckbox} value={attraction.hasQuietRoom}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label>Has a Lift? </label>
+                    <input type="checkbox" name="hasLift" defaultChecked={attraction.hasLift} onChange={handleCheckbox} value={attraction.hasLift}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label>Indoor Venue?</label>
+                    <input type="checkbox" name="isIndoors" defaultChecked={attraction.indoors} onChange={handleCheckbox} value={attraction.indoors}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label>Car Park?</label>
+                    <input type="checkbox" name="hasParking" defaultChecked={attraction.hasParking} onChange={handleCheckbox} value={attraction.hasParking}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label>Noise Cancelling Headphones available?</label>
+                    <input type="checkbox" name="hasHeadphones" defaultChecked={attraction.hasHeadphones} onChange={handleCheckbox} value={attraction.hasHeadphones}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label> Disabled Toilets Available? </label>
+                    <input type="checkbox" name="hasDisabledToilets" defaultChecked={attraction.hasDisabledToilets} onChange={handleCheckbox} value={attraction.hasDisabledToilets}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label>BSL signers on premises?</label>
+                    <input type="checkbox" name="hasBSLSigner" defaultChecked={attraction.hasBSLSigner} onChange={handleCheckbox} value={attraction.hasBSLSigner}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label>Makaton signers on premises?</label>
+                    <input type="checkbox" name="hasMakatonSigner" defaultChecked={attraction.hasMakatonSigner} onChange={handleCheckbox} value={attraction.hasMakatonSigner}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label>Is wheelchair accessible? </label>
+                    <input type="checkbox" name="wheelchairAccessible" defaultChecked={attraction.wheelchairAccessible} onChange={handleCheckbox} value={attraction.wheelchairAccessible}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label>Epilepsy friendly?</label>
+                    <input type="checkbox" name="epilepsyFriendly" defaultChecked={attraction.epilepsyFriendly} onChange={handleCheckbox} value={attraction.epilepsyFriendly}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label>Is it busy? </label>
+                    <input type="checkbox" name="busy" defaultChecked={attraction.busy} onChange={handleCheckbox} value={attraction.busy}></input>
+                </div>
+
+                <div className="checkbox">
+                    <label>It this a loud venue? </label>
+                    <input type="checkbox" name="loud" defaultChecked={attraction.loud} onChange={handleCheckbox} value={attraction.loud}></input>
+                </div>
+
+
                 <input type="text" placeholder="Image Url" name="image" onChange={handleChange} value={attraction.image} />
                 <select name="location" onChange={handleLocation} defaultValue="select-location">
                     <option disabled value="select-location">Select a City</option>
@@ -110,16 +190,16 @@ const EditForm = ({ locations, selectedAttraction, updateAttraction }) => {
 
                 </select>
                 <select name="attractionType" onChange={handleChange} defaultValue="select-attraction-type">
-                        <option defaultValue={attraction.attractionType}>{attraction.attractionType}</option>
-                        <option value="MUSEUM">Museum</option>
-                        <option value="PARK">Park</option>
-                        <option value="SAFARI_PARK">Safari Park</option>
-                        <option value="ZOO">Zoo</option>
-                        <option value="ENTERTAINMENT">Entertainment</option>
-                        <option value="HISTORICAL">Historical</option>
-                        <option value="NATIONAL_TRUST">National Trust</option>
-                        <option value="VISITOR_CENTRE">Visitor Centre</option>
-                        <option value="CASTLE">Castle</option>
+                    <option defaultValue={attraction.attractionType}>{attraction.attractionType}</option>
+                    <option value="MUSEUM">Museum</option>
+                    <option value="PARK">Park</option>
+                    <option value="SAFARI_PARK">Safari Park</option>
+                    <option value="ZOO">Zoo</option>
+                    <option value="ENTERTAINMENT">Entertainment</option>
+                    <option value="HISTORICAL">Historical</option>
+                    <option value="NATIONAL_TRUST">National Trust</option>
+                    <option value="VISITOR_CENTRE">Visitor Centre</option>
+                    <option value="CASTLE">Castle</option>
 
                 </select>
 
@@ -130,7 +210,7 @@ const EditForm = ({ locations, selectedAttraction, updateAttraction }) => {
 
             </form>
 
-            {/* this needs the checkboxes to be fixed so that they can be edited
+            {/*
 
 will also need to do logic on server side to get the enum data. loop over enum and see if what is being returned is the same as the enum type */}
 

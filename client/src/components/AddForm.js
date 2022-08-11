@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import { postAttraction } from '../services/services.js'
-import { Link } from 'react-router-dom';
+import "../static/Form.css"
+import { useNavigate } from 'react-router-dom';
+
 
 const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
+
+    const navigate = useNavigate();
 
     const [attraction, setAttraction] = useState({
         name: "",
@@ -42,6 +46,7 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
         console.log("we clicked submit");
         event.preventDefault();
         const tempFormData = attraction;
+        console.log(tempFormData);
         postAttraction(tempFormData).then((data) => {
             onCreate(data)
         })
@@ -57,11 +62,12 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
             isIndoors: false,
             image: "",
             location: null,
-            attractionType: null
+            attractionType: ""
 
         });
 
         setSelectedAttraction(null);
+        navigate("/");
 
 
 
@@ -76,7 +82,7 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
                 <input type="text" placeholder="Name" name="name" onChange={handleChange} value={attraction.name} />
                 <textarea placeholder="Description" name="description" onChange={handleChange} value={attraction.description} />
                 <textarea placeholder="Address" name="address" onChange={handleChange} value={attraction.address} />
@@ -95,21 +101,21 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
 
                 </select>
                 <select name="attractionType" onChange={handleChange} defaultValue="select-attraction-type">
-                        <option disabled value="select-category">Select A Category</option>
-                        <option value="MUSEUM">Museum</option>
-                        <option value="PARK">Park</option>
-                        <option value="SAFARI_PARK">Safari Park</option>
-                        <option value="ZOO">Zoo</option>
-                        <option value="ENTERTAINMENT">Entertainment</option>
-                        <option value="HISTORICAL">Historical</option>
-                        <option value="NATIONAL_TRUST">National Trust</option>
-                        <option value="VISITOR_CENTRE">Visitor Centre</option>
-                        <option value="CASTLE">Castle</option>
+                    <option disabled value="select-category">Select A Category</option>
+                    <option value="MUSEUM">Museum</option>
+                    <option value="PARK">Park</option>
+                    <option value="SAFARI_PARK">Safari Park</option>
+                    <option value="ZOO">Zoo</option>
+                    <option value="ENTERTAINMENT">Entertainment</option>
+                    <option value="HISTORICAL">Historical</option>
+                    <option value="NATIONAL_TRUST">National Trust</option>
+                    <option value="VISITOR_CENTRE">Visitor Centre</option>
+                    <option value="CASTLE">Castle</option>
 
                 </select>
 
 
-                <Link to="/"><button type="submit">Add</button></Link>
+                <button type="submit">Add</button>
 
 
 
