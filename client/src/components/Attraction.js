@@ -12,7 +12,11 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToFavourites, ind
 
     // Adds to favourites state
 
-    const handleFavourite = () => {
+    const handleFavourite = (event) => {
+        const index = event.target.value;
+        addToFavourites(index);
+        console.log(event.target.value)
+
 
     }
 
@@ -20,8 +24,13 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToFavourites, ind
         <div className="individual-item">
             <img src={attraction.image} alt={attraction.name} width="280px" height="180px" />
             <div className="button-group">
+
                 <li onClick={handleClick}> {attraction.name}</li>
-                <button onClick={handleFavourite}>Add to Faves</button>
+                <br>
+
+                </br>
+                <br></br>
+                <button onClick={handleFavourite} value={index}>Add to Faves</button>
             </div>
         </div>
     )

@@ -24,7 +24,10 @@ const Navbar = (setSelectedAttraction) => {
 
                 <Link to="/" onClick={handleBack}>Todos</Link>
                 <Link to="/add">Add attraction</Link>
-                <a href="#">Favourites list</a>
+
+                <Link to="/fave">Favourites List</Link>
+
+
                 <Link to="/about">About</Link>
                 <a href="#" className="icon" onClick={handleClick}>
                     <i className="fa fa-bars"></i>

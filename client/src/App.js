@@ -25,6 +25,7 @@ function App() {
   // renders info on application load
   useEffect(() => {
     getAttractions()
+
       .then(attractions => setAttractions(attractions))
   }, [])
 
@@ -45,10 +46,13 @@ function App() {
     setSelectedAttraction(attraction);
   }
 
-  const addToFavourites = (attraction) => {
-    const copyList = [...favourites];
-    copyList.push(attraction);
-    setFavourites(copyList);
+  const addToFavourites = (index) => {
+    // const copyAttractions = [...attractions];
+    const attraction = attractions[index];
+    console.log(attraction)
+    const copyFavourites = [...favourites, attraction];
+    setFavourites(copyFavourites);
+    console.log(favourites.length)
   }
 
   const goBackToList = () => {
@@ -95,11 +99,16 @@ function App() {
           <Route exact path="/" element={selectedAttraction ? <AttractionDetail attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />} />
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
+
+          <Route path="/fave" element={<AttractionList attractions={favourites} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} />} />
+
           <Route path="/edit" element={<EditForm selectedAttraction={selectedAttraction} setSelectedAttraction={setSelectedAttraction} locations={locations} updateAttraction={updateAttraction} />} />
 
           <Route path="/about" element={<About />}></Route>
 
+
           <Route path="/filter" element={<Filter locations={locations} attractions={attractions} filtered={filtered} filter={createFilteredList} />} />
+
         </Routes>
       </Router>
 
