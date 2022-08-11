@@ -19,7 +19,7 @@ const Navbar = () => {
 
                 <a href="#" className="logo">Todos</a>
                 <Link to="/add">Add attraction</Link>
-                <a href="#">Favourites list</a>
+                <Link to="/fave">Favourites List</Link>
                 <a href="javascript:void(0);" className="icon" onClick={handleClick}>
                     <i className="fa fa-bars"></i>
                 </a>
