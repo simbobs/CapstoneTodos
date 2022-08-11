@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface AttractionRepository extends JpaRepository <Attraction, Long> {
 
-    List<Attraction> findAttractionsByLocationCity(String city);
+
     List<Attraction> findAttractionsByAttractionType(AttractionType attractionType);
     List<Attraction> findAttractionsByIsWheelchairAccessible(boolean isWheelchairAccessible);
     List<Attraction> findAttractionsByIsIndoors(boolean isIndoors);
@@ -30,5 +30,7 @@ public interface AttractionRepository extends JpaRepository <Attraction, Long> {
     List<Attraction> findAttractionsByHasBSLSigner(boolean hasBSLSigner);
     List<Attraction> findAttractionsByHasMakatonSigner(boolean hasMakatonSigner);
     List<Attraction> findAttractionsByHasDisabledToilets(boolean hasDisabledToilets);
+    List<Attraction> findAttractionsByChildEntryPriceAndLocationCity(Double childEntryPrice, String city);
+    List<Attraction> findAttractionsByLocationCity(String city);
 
 }

@@ -55,8 +55,9 @@ public class AttractionController {
         if (freeEntryForCarers == true){
             return new ResponseEntity<>(attractionRepository.findAttractionsByFreeEntryForCarers(true), HttpStatus.OK);
         }
-        if (city != null) {
-            return new ResponseEntity<>(attractionRepository.findAttractionsByLocationCity(city), HttpStatus.OK);
+        if (childEntryPrice != null && city != null){
+            List<Attraction> foundAttractions = attractionRepository.findAttractionsByChildEntryPriceAndLocationCity(childEntryPrice, city);
+            return new ResponseEntity<>(foundAttractions, HttpStatus.OK);
         }
         if (adultEntryPrice != null){
             return new ResponseEntity<>(attractionRepository.findFreeAttractionsByAdultEntryPrice(adultEntryPrice), HttpStatus.OK);
@@ -102,6 +103,9 @@ public class AttractionController {
         }
         if (hasDisabledToilets == true){
             return new ResponseEntity<>(attractionRepository.findAttractionsByHasDisabledToilets(true), HttpStatus.OK);
+        }
+        if (city != null) {
+            return new ResponseEntity<>(attractionRepository.findAttractionsByLocationCity(city), HttpStatus.OK);
         }
 
         return new ResponseEntity<>(attractionRepository.findAll(), HttpStatus.OK);
