@@ -8,6 +8,7 @@ import { getAttractions, getLocations, editAttraction } from './services/service
 import AddForm from './components/AddForm';
 import EditForm from './components/EditForm';
 import About from './components/About';
+import Filter from './components/Filter';
 
 // import Request from './helpers/request';
 
@@ -17,6 +18,9 @@ function App() {
   const [attractions, setAttractions] = useState([])
   const [selectedAttraction, setSelectedAttraction] = useState(null);
   const [favourites, setFavourites] = useState([]);
+
+  //this is our filtered list state
+  const [filtered, setFiltered] = useState([])
 
   // renders info on application load
   useEffect(() => {
@@ -81,6 +85,12 @@ function App() {
 
   }
 
+  //this updates our filter list
+  const createFilteredList = (list) => {
+    setFiltered(list);
+    
+  }
+
   return (
     <>
       <Router>
@@ -95,6 +105,9 @@ function App() {
           <Route path="/edit" element={<EditForm selectedAttraction={selectedAttraction} setSelectedAttraction={setSelectedAttraction} locations={locations} updateAttraction={updateAttraction} />} />
 
           <Route path="/about" element={<About />}></Route>
+
+
+          <Route path="/filter" element={<Filter locations={locations} attractions={attractions} filtered={filtered} filter={createFilteredList} />} />
 
         </Routes>
       </Router>
