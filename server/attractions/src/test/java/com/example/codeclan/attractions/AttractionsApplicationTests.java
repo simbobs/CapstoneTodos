@@ -205,4 +205,10 @@ class AttractionsApplicationTests {
 		assertEquals(true, foundAttractions.get(0).getHasDisabledToilets());
 		assertEquals(11, foundAttractions.size());
 	}
+
+	@Test
+	public void canFindByHasChildEntryPriceAndLocationCity(){
+		List<Attraction> foundAttractions = attractionRepository.findAttractionsByChildEntryPriceAndLocationCity(0.00, "Edinburgh");
+		assertEquals(2, foundAttractions.size());
+	}
 }
