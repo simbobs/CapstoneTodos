@@ -1,7 +1,10 @@
 import React from 'react'
+import { useState } from 'react'
+import { editUser } from '../services/services';
 import '../static/Attraction.css'
 
-const Attraction = ({ attraction, changeSelectedAttraction, addToFavourites, index }) => {
+const Attraction = ({ attraction, changeSelectedAttraction, addToUserFavourites, index }) => {
+
 
     // Changes selectedAttraction state
 
@@ -14,8 +17,9 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToFavourites, ind
 
     const handleFavourite = (event) => {
         const index = event.target.value;
-        addToFavourites(index);
+        addToUserFavourites(index);
         console.log(event.target.value)
+        // editUser(attraction);
 
 
     }

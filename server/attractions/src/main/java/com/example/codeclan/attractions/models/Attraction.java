@@ -1,6 +1,7 @@
 package com.example.codeclan.attractions.models;
 
 import com.example.codeclan.attractions.enums.AttractionType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
@@ -65,7 +66,8 @@ public class Attraction {
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = true)
     private Location location;
-    @JsonIgnoreProperties({"attractions"})
+
+    @JsonBackReference
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
