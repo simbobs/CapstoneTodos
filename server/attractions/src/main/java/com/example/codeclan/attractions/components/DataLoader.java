@@ -417,7 +417,8 @@ public class DataLoader implements ApplicationRunner {
 
         User jonny = new User("Jonny","ABC123");
         userRepository.save(jonny);
-        jonny.addAttraction(kelpies);
-        userRepository.save(jonny);
+//        jonny.addAttraction(kelpies);
+//        jonny.addAttraction(kingsPark);
+//        userRepository.save(jonny);
     }
 }

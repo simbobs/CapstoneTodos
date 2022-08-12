@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
     <list default="true" id="25f7c00a-94ed-441c-88e0-0aca99395b0c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/AddForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/AddForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/Attraction.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/Attraction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/EditForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/EditForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/services/services.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/services/services.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/controllers/AttractionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/controllers/AttractionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/repositories/AttractionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/repositories/AttractionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attractions/src/test/java/com/example/codeclan/attractions/AttractionsApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/attractions/src/test/java/com/example/codeclan/attractions/AttractionsApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/components/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/components/DataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/models/Attraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/models/Attraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/attractions/src/main/java/com/example/codeclan/attractions/models/User.java" afterDir="false" />
     </list>
-
-
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -25,7 +25,8 @@ public class User {
 //    private List<Comment> comments;
     @Column(name = "password")
     private String password;
-    @JsonBackReference
+
+    @JsonIgnoreProperties({"users"})
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
@@ -37,8 +38,6 @@ public class User {
 
     public User(String name, String password) {
         this.name = name;
-//        this.favourites = new ArrayList<>();
-//        this.comments = new ArrayList<>();
         this.password = password;
         this.attractions = new ArrayList<>();
     }
@@ -62,22 +61,6 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
-
-//    public List<Attraction> getFavourites() {
-//        return favourites;
-//    }
-//
-//    public void setFavourites(List<Attraction> favourites) {
-//        this.favourites = favourites;
-//    }
-
-//    public List<Comment> getComments() {
-//        return comments;
-//    }
-//
-//    public void setComments(List<Comment> comments) {
-//        this.comments = comments;
-//    }
 
     public String getPassword() {
         return password;

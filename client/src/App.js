@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import AttractionDetail from './components/AttractionDetail';
 import AttractionList from './containers/AttractionList';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { getAttractions, getLocations, editAttraction } from './services/services.js'
+import { getAttractions, getLocations, editAttraction, getUser, editUser } from './services/services.js'
 import AddForm from './components/AddForm';
 import EditForm from './components/EditForm';
 import About from './components/About';
@@ -17,7 +17,8 @@ function App() {
   const [locations, setLocations] = useState([])
   const [attractions, setAttractions] = useState([])
   const [selectedAttraction, setSelectedAttraction] = useState(null);
-  const [favourites, setFavourites] = useState([]);
+  // const [favourites, setFavourites] = useState([]);
+  const [user, setUser] = useState({});
 
   //this is our filtered list state
   const [filtered, setFiltered] = useState([])
@@ -34,6 +35,10 @@ function App() {
       .then(locations => setLocations(locations))
   }, [])
 
+  useEffect(() => {
+    getUser().then(user => setUser(user[0]));
+  })
+
   // const getAttractions = () => {
   //   const request = new Request()
   //   request.get("/api/attractions")
@@ -46,14 +51,37 @@ function App() {
     setSelectedAttraction(attraction);
   }
 
-  const addToFavourites = (index) => {
-    // const copyAttractions = [...attractions];
+  const addToUserFavourites = (index) => {
+    // finding the attraction
     const attraction = attractions[index];
-    console.log(attraction)
-    const copyFavourites = [...favourites, attraction];
-    setFavourites(copyFavourites);
-    console.log(favourites.length)
+    // console.log(attraction)
+    // const copyFavourites = [...favourites, attraction];
+    // setFavourites(copyFavourites);
+    const userCopy = { ...user }
+    userCopy.attractions.push(attraction)
+    console.log(userCopy);
+    setUser(userCopy);
+    console.log("This should be the list of faves", user.attractions);
+    editUser(userCopy)
+    // .then((data) => {
+    //   setUser(data);
+
+    // })
+
+
+
   }
+
+  //update user 2.0
+  // const updateUser = () => {
+  //   const userCopy = [...user];
+  //   userCopy.attractions = favourites;
+  //   editUser
+  //   setUser(userCopy);
+
+  // }
+
+  // console.log("the user now has favouritesList length:", userCopy.attractions.length)
 
   const goBackToList = () => {
     setSelectedAttraction(null);
@@ -85,10 +113,16 @@ function App() {
 
   }
 
+  // update the user to add a new attraction into its favourites list
+  // const updateUser = (editedUser) => {
+  //   editUser(editedUser);
+  //   setUser(editedUser);
+  // }
+
   //this updates our filter list
   const createFilteredList = (list) => {
     setFiltered(list);
-    
+
   }
 
   return (
@@ -96,11 +130,11 @@ function App() {
       <Router>
         <Navbar setSelectedAttraction={setSelectedAttraction} />
         <Routes>
-          <Route exact path="/" element={selectedAttraction ? <AttractionDetail attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />} />
+          <Route exact path="/" element={selectedAttraction ? <AttractionDetail attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList} />} />
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
 
-          <Route path="/fave" element={<AttractionList attractions={favourites} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} />} />
+          <Route path="/fave" element={<AttractionList attractions={user.attractions} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} />} />
 
           <Route path="/edit" element={<EditForm selectedAttraction={selectedAttraction} setSelectedAttraction={setSelectedAttraction} locations={locations} updateAttraction={updateAttraction} />} />
 
