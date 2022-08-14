@@ -4,6 +4,7 @@ import AttractionList from '../containers/AttractionList';
 import { deleteAttraction, editAttraction } from '../services/services';
 import EditForm from './EditForm';
 import { Link } from 'react-router-dom'
+import CommentList from '../containers/CommentList';
 
 const Button = styled.button`
 background: transparent;
@@ -21,7 +22,13 @@ ${props =>
 `};
 `
 
-const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locations, updateAttraction }) => {
+const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locations, updateAttraction, comments, user, addNewComment }) => {
+
+    const findCommentsForThisAttraction = () => {
+        const commentsForThisAttraction = comments.filter(comment => comment.attraction[0].id == attraction.id);
+        console.log(commentsForThisAttraction);
+        return commentsForThisAttraction;
+    }
 
     const handleDelete = () => {
         deleteAttraction(attraction.id).then(() => {
@@ -53,7 +60,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                     {attraction.indoors ? <b>Indoor Facilities</b> : null}
                 </div>
                 <p> <b>Attraction Type:</b>{attraction.attractionType}</p>
-                
+
             </div>
             <div>
                 {attraction.wheelchairAccessible ? <img src={''} /> : null}
@@ -71,6 +78,8 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 {attraction.hasHeadphones ? <img src={''} /> : null}
             </div>
 
+            <Button onClick={findCommentsForThisAttraction}>Try me</Button>
+
 
             <Button primary onClick={goBackToList}>Back</Button>
 
@@ -78,8 +87,9 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
             <Button onClick={handleDelete}>Delete</Button>
 
             <Link to="/edit">Edit</Link>
+            <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
 
-            {/* <EditForm selectedAttraction={selectedAttraction} locations={locations} updateAttraction={updateAttraction} /> */}
+
 
 
         </>

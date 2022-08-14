@@ -2,9 +2,11 @@ package com.example.codeclan.attractions.components;
 
 import com.example.codeclan.attractions.enums.AttractionType;
 import com.example.codeclan.attractions.models.Attraction;
+import com.example.codeclan.attractions.models.Comment;
 import com.example.codeclan.attractions.models.Location;
 import com.example.codeclan.attractions.models.User;
 import com.example.codeclan.attractions.repositories.AttractionRepository;
+import com.example.codeclan.attractions.repositories.CommentRepository;
 import com.example.codeclan.attractions.repositories.LocationRepository;
 import com.example.codeclan.attractions.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    CommentRepository commentRepository;
 
     AttractionType attractionType;
 
@@ -417,8 +422,8 @@ public class DataLoader implements ApplicationRunner {
 
         User jonny = new User("Jonny","ABC123");
         userRepository.save(jonny);
-//        jonny.addAttraction(kelpies);
-//        jonny.addAttraction(kingsPark);
-//        userRepository.save(jonny);
+
+        Comment comment = new Comment("Cammy", kelpies, 4.5, "I don't know what all the fuss is about.");
+        commentRepository.save(comment);
     }
 }
