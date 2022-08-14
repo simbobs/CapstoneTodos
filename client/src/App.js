@@ -8,7 +8,7 @@ import { getAttractions, getLocations, editAttraction, getUser, editUser } from 
 import AddForm from './components/AddForm';
 import EditForm from './components/EditForm';
 import About from './components/About';
-import Filter from './components/Filter';
+import Filter from './components/filterComponents/Filter';
 
 // import Request from './helpers/request';
 
