@@ -1,10 +1,10 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
-import AttractionList from '../containers/AttractionList';
 import { deleteAttraction, editAttraction } from '../services/services';
-import EditForm from './EditForm';
 import { Link } from 'react-router-dom'
 import CommentList from '../containers/CommentList';
+
+import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
 const Button = styled.button`
 background: transparent;
@@ -78,7 +78,23 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 {attraction.hasHeadphones ? <img src={''} /> : null}
             </div>
 
-            <Button onClick={findCommentsForThisAttraction}>Try me</Button>
+
+            <div id="map">
+
+            <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+            <TileLayer
+                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                 />
+            <Marker position={[51.505, -0.09]}>
+             <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+            </Marker>
+            </MapContainer>
+
+            </div>
+
 
 
             <Button primary onClick={goBackToList}>Back</Button>

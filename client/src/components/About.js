@@ -1,5 +1,7 @@
 import React from 'react'
-import '../static/About.css'
+import '../static/About.css';
+
+
 
 const About = () => {
   return (
@@ -40,6 +42,10 @@ const About = () => {
         Louise Archibald: https://github.com/louarchibald
         </li>
         </div>
+
+        
+
+        
     </>
   )
 }
