@@ -163,16 +163,36 @@ const Filter = (({filtered, attractions, locations, filter}) => {
 
         <h2>Filter By Individual Needs</h2>
 
-        <label>Indoor Venue?</label>
+        <label>Indoor Venue</label>
         <input type="checkbox" name="isIndoors" onChange={handleSelect} value="true"></input>
-        {/* <select defaultName="selected" defaultValue="select-needs" onChange={handleSelect} >
-            <option value="select-needs">accessibility needs</option>
-            <option name="freeEntryForCarers" value="true">Is Free For Carers</option>
-            <option name="isIndoors" value="true">Is Indoors</option>
-            <option name="hasQuietRoom" value="true">Has A Quiet Room</option>
-            
-        </select> */}
-      
+
+        <label>Wheelchair accessible</label>
+        <input type="checkbox" name="isWheelchairAccessible" onChange={handleSelect} value="true"></input>
+
+        <label>Epilepsy Friendly</label>
+        <input type="checkbox" name="isEpilepsyFriendly" onChange={handleSelect} value="true"></input>
+
+        <label>Quiet Room</label>
+        <input type="checkbox" name="hasQuietRoom" onChange={handleSelect} value="true"></input>
+
+        <label>Lift</label>
+        <input type="checkbox" name="hasLift" onChange={handleSelect} value="true"></input>
+
+        <label>Parking</label>
+        <input type="checkbox" name="hasParking" onChange={handleSelect} value="true"></input>
+
+        <label>Noise Cancelling Headphones available</label>
+        <input type="checkbox" name="hasHeadphones" onChange={handleSelect} value="true"></input>
+
+        <label>BSL signers on premises</label>
+        <input type="checkbox" name="hasBSLSigner" onChange={handleSelect} value="true"></input>
+
+        <label>Makaton signers on premises</label>
+        <input type="checkbox" name="hasMakatonSigner" onChange={handleSelect} value="true"></input>
+
+        <label>disabled toilets</label>
+        <input type="checkbox" name="hasDisabledToilets" onChange={handleSelect} value="true"></input>
+
       {/* this filters by checkbox*/}
 
 
