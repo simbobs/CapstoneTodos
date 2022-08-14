@@ -10,6 +10,7 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToUserFavourites,
 
     const handleClick = (event) => {
         const index = event.target.value;
+        console.log(index);
         changeSelectedAttraction(index);
     }
 
@@ -19,8 +20,6 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToUserFavourites,
         const index = event.target.value;
         addToUserFavourites(index);
         console.log(event.target.value)
-        // editUser(attraction);
-
 
     }
 
@@ -29,7 +28,7 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToUserFavourites,
             <img src={attraction.image} alt={attraction.name} width="280px" height="180px" />
             <div className="button-group">
 
-                <li onClick={handleClick}> {attraction.name}</li>
+                <li onClick={handleClick} value={index}> {attraction.name}</li>
                 <br>
 
                 </br>

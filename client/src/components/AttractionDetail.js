@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components';
 import { deleteAttraction, editAttraction } from '../services/services';
 import { Link } from 'react-router-dom'
+import CommentList from '../containers/CommentList';
 
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
@@ -21,7 +22,13 @@ ${props =>
 `};
 `
 
-const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locations, updateAttraction }) => {
+const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locations, updateAttraction, comments, user, addNewComment }) => {
+
+    const findCommentsForThisAttraction = () => {
+        const commentsForThisAttraction = comments.filter(comment => comment.attraction[0].id == attraction.id);
+        console.log(commentsForThisAttraction);
+        return commentsForThisAttraction;
+    }
 
     const handleDelete = () => {
         deleteAttraction(attraction.id).then(() => {
@@ -53,7 +60,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                     {attraction.indoors ? <b>Indoor Facilities</b> : null}
                 </div>
                 <p> <b>Attraction Type:</b>{attraction.attractionType}</p>
-                
+
             </div>
             <div>
                 {attraction.wheelchairAccessible ? <img src={''} /> : null}
@@ -70,6 +77,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
             <div>
                 {attraction.hasHeadphones ? <img src={''} /> : null}
             </div>
+
 
             <div id="map">
 
@@ -88,12 +96,15 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
             </div>
 
 
+
             <Button primary onClick={goBackToList}>Back</Button>
 
 
             <Button onClick={handleDelete}>Delete</Button>
 
             <Link to="/edit">Edit</Link>
+            <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
+
 
 
 
