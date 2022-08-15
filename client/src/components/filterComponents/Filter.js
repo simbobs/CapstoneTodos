@@ -5,7 +5,7 @@ import AttractionList from '../../containers/AttractionList';
 
 // USE THIS FILE
 
-const Filter = (({filtered, attractions, locations, filter, changeSelectedAttraction, addToUserFavourites, goBackToList}) => {
+const Filter = (({filtered, filter, attractions, locations, changeSelectedAttraction, addToUserFavourites, goBackToList}) => {
 
   const [checked, setChecked] = useState(null)
 
@@ -37,7 +37,7 @@ const handleSelect = (event) => {
 
     let listCopy;
 
-    if (filtered.length == 0){
+    if (filtered == null){
   listCopy = [...attractions]
   console.log("this is our list first statement", listCopy)
 } else {
@@ -55,14 +55,15 @@ const handleSelect = (event) => {
 //this is the onClick for the clear filter button
 const handleRefresh = () => {
   filter(null);
-  setChecked(false);
+  // Unsure if I still need this. If not- need to delete checked={checked} on checkboxes and state
+  // setChecked(false);
   
 }
 
-
+    //lou - this is inside a form so I can use the reset button on all the entries
     return(
         <>
-
+        <form> 
         {/* this filters by location */}
         <h2>Filter By Location</h2>
         <select defaultValue="select-location" onChange={handleChange}>
@@ -70,6 +71,8 @@ const handleRefresh = () => {
             {locationNodes}
         </select>
 
+
+       {/* this filters by checkbox*/}
         <h2>Filter By Individual Needs</h2>
 
         <label>Indoor Venue</label>
@@ -102,14 +105,22 @@ const handleRefresh = () => {
         <label>disabled toilets</label>
         <input type="checkbox" name="hasDisabledToilets" checked={checked} onChange={handleSelect} value="true"></input>
 
-      {/* this filters by checkbox*/}
+     
 
-        <button onClick={handleRefresh}>clear filters </button>
+        <button type="reset" onClick={handleRefresh}>clear filters </button>
+        </form>
 
 
-        {filtered ? <AttractionList attractions={filtered} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList}/>
- : 
-        <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList} />}
+        {filtered ? <AttractionList attractions={filtered} filtered= {filtered} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList}/>
+ :
+        <AttractionList attractions={attractions} filtered= {filtered} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList} />
+        }
+
+        
+        
+  
+
+
 
     
        </>
