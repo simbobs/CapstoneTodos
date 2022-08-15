@@ -8,6 +8,7 @@ import AddForm from './components/AddForm';
 import EditForm from './components/EditForm';
 import About from './components/About';
 import MainContainer from './containers/MainContainer';
+import FavouriteList from './components/FavouriteList';
 
 // import Request from './helpers/request';
 
@@ -37,24 +38,38 @@ function App() {
 
   useEffect(() => {
     getUser().then(user => setUser(user[0]));
-  })
+  },[])
 
   useEffect(() => {
     getComments()
       .then(data => setComments(data))
-  })
+  },[])
 
 
-  const changeSelectedAttraction = (index) => {
-    const attraction = attractions[index];
-    setSelectedAttraction(attraction);
+  const changeSelectedAttraction = (id) => {
+    const copyList = [...attractions];
+
+    let selectedList = copyList.filter((attraction) => {
+      return attraction["id"] == id
+    })
+
+    const selected = selectedList[0]
+
+    setSelectedAttraction(selected);
   }
 
-  const addToUserFavourites = (index) => {
+  const addToUserFavourites = (id) => {
     // finding the attraction
-    const attraction = attractions[index];
-    const userCopy = { ...user }
-    userCopy.attractions.push(attraction)
+    const copyList = [...attractions];
+
+    let selectedList = copyList.filter((attraction) => {
+      return attraction["id"] == id
+    })
+
+    const selected = selectedList[0]
+
+    const userCopy = {...user}
+    userCopy.attractions.push(selected)
     setUser(userCopy);
     editUser(userCopy)
   }
@@ -106,15 +121,15 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar setSelectedAttraction={setSelectedAttraction} />
+        <Navbar changeSelectedAttraction={changeSelectedAttraction} />
         <Routes>
-        <Route exact path="/" element={<MainContainer attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment}
+        <Route exact path="/" element={<MainContainer selectedAttraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment}
         attractions={attractions} filtered={filtered} filter={createFilteredList} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} />} />
     
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
 
-          <Route path="/fave" element={<AttractionList attractions={user.attractions} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} />} />
+          <Route path="/fave" element={<FavouriteList attractions={user.attractions} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} />} />
 
           <Route path="/edit" element={<EditForm selectedAttraction={selectedAttraction} setSelectedAttraction={setSelectedAttraction} locations={locations} updateAttraction={updateAttraction} />} />
 
