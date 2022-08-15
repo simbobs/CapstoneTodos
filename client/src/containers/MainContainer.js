@@ -14,7 +14,6 @@ const MainContainer = ({comments, user, addNewComment, locations, attractions, c
         </>  
     )
   
-    // {...filtered ? attractions={filtered} : attractions={attractions}}
 }
 
 export default MainContainer;
