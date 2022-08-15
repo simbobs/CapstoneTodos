@@ -23,6 +23,7 @@ ${props =>
 `};
 `
 
+
 const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locations, updateAttraction, comments, user, addNewComment }) => {
 
     // const [average, setAverage] = useState(3.5);
@@ -48,8 +49,16 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
         }).then(() => {
             goBackToList();
         })
+    
     }
 
+    const busList = attraction.busRoutes.map((bus) => {
+        return <ul>{bus}</ul>
+      
+    })
+
+
+    
     return (
 
         <>
@@ -71,9 +80,15 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 </div>
                 <p> <b>Opening Hours:</b> {attraction.openingHours}</p>
                 <div>
-                    {attraction.indoors ? <b>Indoor Facilities</b> : null}
+                    <p>{attraction.isIndoors ? <b>Indoor Facilities</b> : null}</p>
                 </div>
-                <p> <b>Attraction Type:</b>{attraction.attractionType}</p>
+                <div>    
+                    <p>{attraction.isBusy ? <b> Currently is Busy</b> : <b> Currently is Quiet</b>} </p>
+                </div>    
+                
+                <p> <b>Attraction Type:</b> {attraction.attractionType}</p>
+                <p> <b>Bus Routes:</b>{busList}</p>
+                
 
             </div>
             <div>
