@@ -1,18 +1,18 @@
-
-.attraction-info{
-    font-family: 'Baloo Bhaijaan';font-size: 22px;
+.attraction-info {
+    font-family: 'Baloo Bhaijaan';
+    font-size: 22px;
     /* text-transform: uppercase; */
     color: #B96AC9;
     justify-content: center;
 }
 
-.detail-header{
+.detail-header {
     text-transform: uppercase;
     margin-bottom: -9%;
     margin-left: -9%;
 }
 
-.attraction-info #desc{
+.attraction-info #desc {
     font-family: "PT Sans";
     color: black;
     text-align: left;
@@ -45,18 +45,20 @@
     top: 34%;
 }
 
-.attraction-type{
-    font-family: 'Baloo Thambi 2';font-size: 22px;
+.attraction-type {
+    font-family: 'Baloo Thambi 2';
+    font-size: 22px;
     text-align: left;
     padding-left: 12%;
     color: black;
     opacity: 50%;
 }
 
-.attraction-info #opening-hours{
+.attraction-info #opening-hours {
     color: black;
     letter-spacing: -0.5pt;
     font-size: 16pt;
+}
 
 #map {
     height: 100px;
