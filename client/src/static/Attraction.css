@@ -4,6 +4,10 @@
     justify-content: center;
     align-items: center;
     margin-top: 5px;
+    font-family: 'Baloo Bhaijaan';font-size: 22px;
+    text-transform: uppercase;
+    color: #B96AC9;
+    letter-spacing: -0.5pt;
 }
 
 .button-group {
