@@ -1,3 +1,63 @@
+
+.attraction-info{
+    font-family: 'Baloo Bhaijaan';font-size: 22px;
+    /* text-transform: uppercase; */
+    color: #B96AC9;
+    justify-content: center;
+}
+
+.detail-header{
+    text-transform: uppercase;
+    margin-bottom: -9%;
+    margin-left: -9%;
+}
+
+.attraction-info #desc{
+    font-family: "PT Sans";
+    color: black;
+    text-align: left;
+    letter-spacing: -0.5pt;
+    padding-left: 7%;
+    padding-right: 7%;
+    line-height: normal;
+
+}
+
+.line {
+    border-top: 1.5px solid black;
+    border-radius: 5px;
+    margin-left: 7%;
+    margin-right: 7%;
+    opacity: 50%;
+}
+
+#image {
+    margin-bottom: -8%;
+}
+
+.vl {
+    border-left: 3px solid #B96AC9;
+    display: flex;
+    height: 70px;
+    position: absolute;
+    left: 11%;
+    margin-left: -5%;
+    top: 34%;
+}
+
+.attraction-type{
+    font-family: 'Baloo Thambi 2';font-size: 22px;
+    text-align: left;
+    padding-left: 12%;
+    color: black;
+    opacity: 50%;
+}
+
+.attraction-info #opening-hours{
+    color: black;
+    letter-spacing: -0.5pt;
+    font-size: 16pt;
+
 #map {
     height: 100px;
 
