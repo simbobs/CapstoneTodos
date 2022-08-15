@@ -20,8 +20,8 @@ function App() {
   const [user, setUser] = useState({});
   const [comments, setComments] = useState([]);
 
-  //this is our filtered list state
-  const [filtered, setFiltered] = useState([])
+  //this is our filtered list state - needs to be set to null for logic to work
+  const [filtered, setFiltered] = useState(null)
 
   // renders info on application load
   useEffect(() => {
@@ -29,6 +29,7 @@ function App() {
 
       .then(attractions => setAttractions(attractions))
   }, [])
+
 
   useEffect(() => {
     getLocations()
@@ -108,7 +109,9 @@ function App() {
       <Router>
         <Navbar setSelectedAttraction={setSelectedAttraction} />
         <Routes>
-          <Route exact path="/" element={selectedAttraction ? <AttractionDetail attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList} />} />
+          <Route exact path="/" element={selectedAttraction ? <AttractionDetail attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment} /> : 
+          <Filter locations={locations} attractions={attractions} filtered={filtered} filter={createFilteredList} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList} />} />
+    
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
 
@@ -119,7 +122,7 @@ function App() {
           <Route path="/about" element={<About />}></Route>
 
 
-          <Route path="/filter" element={<Filter locations={locations} attractions={attractions} filtered={filtered} filter={createFilteredList} />} />
+          {/* <Route path="/filter" element={} /> */}
 
         </Routes>
       </Router>

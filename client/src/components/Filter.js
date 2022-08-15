@@ -3,9 +3,9 @@ import React from 'react';
 import AttractionList from '../containers/AttractionList';
 
 
+//DONT USE THIS ONE
 
-
-const Filter = (({filtered, attractions, locations, filter}) => {
+const Filter = (({filtered, attractions, locations, filter, changeSelectedAttraction, addToUserFavourites, goBackToList}) => {
 
   
 
@@ -107,7 +107,10 @@ const Filter = (({filtered, attractions, locations, filter}) => {
 
        
 
-        {filtered ? <AttractionList attractions={filtered} /> : null}
+        {filtered ? <AttractionList attractions={filtered} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList}/>
+ : 
+        <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList} />}
+
 
     
        </>

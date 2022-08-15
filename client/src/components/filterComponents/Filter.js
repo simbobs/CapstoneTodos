@@ -3,9 +3,9 @@ import React, {useState} from 'react';
 import AttractionList from '../../containers/AttractionList';
 
 
+// USE THIS FILE
 
-
-const Filter = (({filtered, attractions, locations, filter}) => {
+const Filter = (({filtered, attractions, locations, filter, changeSelectedAttraction, addToUserFavourites, goBackToList}) => {
 
   const [checked, setChecked] = useState(null)
 
@@ -107,7 +107,9 @@ const handleRefresh = () => {
         <button onClick={handleRefresh}>clear filters </button>
 
 
-        {filtered ? <AttractionList attractions={filtered} /> : null}
+        {filtered ? <AttractionList attractions={filtered} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList}/>
+ : 
+        <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList} />}
 
     
        </>
