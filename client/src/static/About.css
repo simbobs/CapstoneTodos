@@ -97,6 +97,12 @@ body {
 	opacity: 0.6;
 }
 
+
+.dev-text {
+    list-style: none;
+}
+
+
 .tilesWrap li:before {
 	content: '';
 	position: absolute;
@@ -136,4 +142,5 @@ background: linear-gradient(to right, #ffc500, #c21500);
 	background: #FC354C;
 background: -webkit-linear-gradient(to right, #0ABFBC, #FC354C);
 background: linear-gradient(to right, #0ABFBC, #FC354C);
+
 }

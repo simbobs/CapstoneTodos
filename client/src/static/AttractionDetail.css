@@ -1,3 +1,8 @@
+
+.leaflet-container {
+    width: 100vw;
+    height: 70vh;
+}
 .attraction-info {
     font-family: 'Baloo Bhaijaan';
     font-size: 22px;
@@ -60,7 +65,3 @@
     font-size: 16pt;
 }
 
-#map {
-    height: 100px;
-
-}

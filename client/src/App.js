@@ -67,14 +67,79 @@ function App() {
     setSelectedAttraction(attraction);
   }
 
-  const addToUserFavourites = (index) => {
+  const addToUserFavourites = (attraction) => {
     // finding the attraction
-    const attraction = attractions[index];
+    // const attraction = attractions[index];
+    // console.log("attraction id is", attraction.id);
     const userCopy = { ...user }
-    userCopy.attractions.push(attraction)
+    userCopy.attractions.push(attraction);
+    console.log(userCopy.attractions);
     setUser(userCopy);
-    editUser(userCopy)
+    editUser(userCopy);
+    // check if userCopy includes attraction
+    // for (let i = 0; i < userCopy.attractions.length; i++) {
+    //   if (userCopy.attractions[i].id == attraction.id) {
+    //     console.log("it's here")
+    //     const getIndex = userCopy.attractions.indexOf(attraction);
+    //     userCopy.attractions.splice(getIndex, 1);
+    //     setUser(userCopy);
+    //     editUser(userCopy)
+    //   } else {
+    //     console.log("it's not here");
+    //     userCopy.attractions.push(attraction);
+    //     setUser(userCopy);
+    //     editUser(userCopy);
+    //   }
   }
+  // if (userCopy.attractions.includes(attraction)) {
+  //   console.log("it's here")
+  //   const getIndex = userCopy.attractions.indexOf(attraction);
+  //   userCopy.attractions.splice(getIndex, 1);
+  //   setUser(userCopy);
+  //   editUser(userCopy);
+  // } else {
+  //   console.log("it's not here");
+  //   userCopy.attractions.push(attraction)
+  //   setUser(userCopy);
+  //   editUser(userCopy)
+  // }
+  // for (let i = 0; i < userCopy.attractions.length; i++) {
+  //   console.log(userCopy.attractions[i]);
+  //   if (userCopy.attractions[i].id == attraction.id) {
+  //     console.log("this one is already here")
+  //   } else {
+  //     console.log("it aint here")
+  //     userCopy.attractions.push(attraction)
+  //     setUser(userCopy);
+  //     editUser(userCopy)
+  //   }
+  // }
+  // if (userCopy.attractions.includes(attraction)) {
+  //   // if it does then get it removed
+  //   const getIndex = userCopy.attractions.indexOf(attraction);
+  //   console.log("get index is", getIndex);
+  //   userCopy.attractions.splice(getIndex, 1);
+  //   console.log("faves list is", userCopy.attractions)
+  //   setUser(userCopy);
+  //   editUser(userCopy);
+  // } else {
+  //   // if it doesn't then get it added
+  //   userCopy.attractions.push(attraction)
+  //   setUser(userCopy);
+  //   editUser(userCopy)
+  // }
+
+  const deleteFromUserFavourites = (attraction) => {
+    // const attraction = attractions[index];
+    // console.log("attraction id is", attraction.id);
+    const userCopy = { ...user }
+    userCopy.attractions.pop(attraction);
+    console.log(userCopy.attractions);
+    setUser(userCopy);
+    editUser(userCopy);
+  }
+
+
 
 
   const goBackToList = () => {
@@ -139,9 +204,11 @@ function App() {
           <button onClick={toggleTheme}>Toggle Theme</button>
         </div>
         <Routes>
+
         <Route exact path="/" element={<MainContainer attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment}
-        attractions={attractions} filtered={filtered} filter={createFilteredList} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} />} />
+        attractions={attractions} filtered={filtered} filter={createFilteredList} changeSelectedAttraction={changeSelectedAttraction} deleteFromUserFavourites={deleteFromUserFavourites} addToUserFavourites={addToUserFavourites} />} />
     
+
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
 

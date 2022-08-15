@@ -8,6 +8,7 @@ import '../static/AttractionDetail.css'
 
 import CommentList from '../containers/CommentList';
 import { useState } from 'react';
+// import StarRatings from './react-star-ratings';
 
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
@@ -31,7 +32,7 @@ ${props =>
 
 const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locations, updateAttraction, comments, user, addNewComment }) => {
 
-    // const [average, setAverage] = useState(3.5);
+
 
     const findAverageRating = () => {
         const filteredComments = comments.filter(comment => comment.attraction.id == attraction.id);
@@ -84,7 +85,14 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 <hr className='line' />
                 <p>ENTRY PRICES:</p>
 
-         
+                {/* <StarRatings
+                    rating={stars}
+                    starRatedColor="blue"
+                    numberOfStars={5}
+                    name='rating'
+                /> */}
+
+        
                 <p> <b>Adult:</b> £{attraction.adultEntryPrice}</p>
                 <p> <b>Child:</b> £{attraction.childEntryPrice}</p>
                 <p> <b>Concession:</b> £{attraction.concessionEntryPrice}</p>
@@ -129,15 +137,13 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
             <div id="map">
 
-                <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+                <MapContainer center={[56.45739364245968, -2.966974304745474]} zoom={16} scrollWheelZoom={false}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={[51.505, -0.09]}>
-                        <Popup>
-                            A pretty CSS3 popup. <br /> Easily customizable.
-                        </Popup>
+                    <Marker position={[56.45739364245968, -2.966974304745474]}>
+                        <Popup>{attraction.name}</Popup>
                     </Marker>
                 </MapContainer>
 

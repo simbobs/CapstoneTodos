@@ -1,12 +1,14 @@
 import React from 'react'
 import Attraction from '../components/Attraction'
 
-const AttractionList = ({ filtered, attractions, changeSelectedAttraction, addToUserFavourites, goBackToList }) => {
+
+const AttractionList = ({ filtered, attractions, changeSelectedAttraction, addToUserFavourites, deleteFromUserFavourites, user, goBackToList }) => {
+
 
     // Aqib, these are attraction nodes...
 
     const attractionNodes = attractions.map((attraction, index) => {
-        return <Attraction key={index} index={index} attraction={attraction} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList} />
+        return <Attraction key={index} index={index} user={user} attraction={attraction} attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} deleteFromUserFavourites={deleteFromUserFavourites} goBackToList={goBackToList} />
     })
 
     return (
