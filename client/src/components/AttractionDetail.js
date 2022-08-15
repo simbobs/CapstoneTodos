@@ -4,6 +4,7 @@ import { deleteAttraction, editAttraction } from '../services/services';
 import { Link } from 'react-router-dom'
 import CommentList from '../containers/CommentList';
 import { useState } from 'react';
+// import StarRatings from './react-star-ratings';
 
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
@@ -60,6 +61,13 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 <img src={attraction.image} />
 
                 <p>{stars} stars out of 5</p>
+
+                {/* <StarRatings
+                    rating={stars}
+                    starRatedColor="blue"
+                    numberOfStars={5}
+                    name='rating'
+                /> */}
 
                 <p> <b>About:</b> {attraction.description}</p>
                 <p> <b>Address:</b> {attraction.address}</p>
