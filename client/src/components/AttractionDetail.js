@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { deleteAttraction, editAttraction } from '../services/services';
 import { Link } from 'react-router-dom'
 import CommentList from '../containers/CommentList';
+import { useState } from 'react';
 
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
@@ -24,11 +25,22 @@ ${props =>
 
 const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locations, updateAttraction, comments, user, addNewComment }) => {
 
-    const findCommentsForThisAttraction = () => {
-        const commentsForThisAttraction = comments.filter(comment => comment.attraction[0].id == attraction.id);
-        console.log(commentsForThisAttraction);
-        return commentsForThisAttraction;
+    // const [average, setAverage] = useState(3.5);
+
+    const findAverageRating = () => {
+        const filteredComments = comments.filter(comment => comment.attraction.id == attraction.id);
+
+        let averageRating = filteredComments.reduce((acc, current) => (acc + current.rating), 0) / filteredComments.length;
+
+        if (!averageRating) {
+            averageRating = 3.5;
+        }
+
+        return averageRating;
     }
+
+    const stars = findAverageRating();
+
 
     const handleDelete = () => {
         deleteAttraction(attraction.id).then(() => {
@@ -46,6 +58,8 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
                 <h1> {attraction.name}</h1>
                 <img src={attraction.image} />
+
+                <p>{stars} stars out of 5</p>
 
                 <p> <b>About:</b> {attraction.description}</p>
                 <p> <b>Address:</b> {attraction.address}</p>
@@ -81,17 +95,17 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
             <div id="map">
 
-            <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
-            <TileLayer
-                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                 />
-            <Marker position={[51.505, -0.09]}>
-             <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-            </Marker>
-            </MapContainer>
+                <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={[51.505, -0.09]}>
+                        <Popup>
+                            A pretty CSS3 popup. <br /> Easily customizable.
+                        </Popup>
+                    </Marker>
+                </MapContainer>
 
             </div>
 
