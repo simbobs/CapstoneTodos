@@ -1,10 +1,15 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
-import AttractionList from '../containers/AttractionList';
 import { deleteAttraction, editAttraction } from '../services/services';
-import EditForm from './EditForm';
 import { Link } from 'react-router-dom'
+
 import '../static/AttractionDetail.css'
+
+
+import CommentList from '../containers/CommentList';
+import { useState } from 'react';
+
+import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
 
 const Button = styled.button`
@@ -23,7 +28,25 @@ ${props =>
 `};
 `
 
-const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locations, updateAttraction }) => {
+
+const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locations, updateAttraction, comments, user, addNewComment }) => {
+
+    // const [average, setAverage] = useState(3.5);
+
+    const findAverageRating = () => {
+        const filteredComments = comments.filter(comment => comment.attraction.id == attraction.id);
+
+        let averageRating = filteredComments.reduce((acc, current) => (acc + current.rating), 0) / filteredComments.length;
+
+        if (!averageRating) {
+            averageRating = 3.5;
+        }
+
+        return averageRating;
+    }
+
+    const stars = findAverageRating();
+
 
     const handleDelete = () => {
         deleteAttraction(attraction.id).then(() => {
@@ -31,8 +54,16 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
         }).then(() => {
             goBackToList();
         })
+    
     }
 
+    const busList = attraction.busRoutes.map((bus) => {
+        return <ul>{bus}</ul>
+      
+    })
+
+
+    
     return (
 
         <>
@@ -41,15 +72,19 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
             <div className='attraction-info'>
 
+
                 <div class="vl"></div>
                 <img id="image" width="90%" height="auto" src={attraction.image}/>
                 <h1 className='detail-header'> {attraction.name}</h1>
+                 <p>{stars} stars out of 5</p>
                 <p className='attraction-type'>{attraction.attractionType}</p>
                 <p id='desc'>{attraction.description}</p>
                 <hr className='line' />
                 <p id='opening-hours'><b>OPENING HOURS:</b>{attraction.openingHours}</p>
                 <hr className='line' />
                 <p>ENTRY PRICES:</p>
+
+         
                 <p> <b>Adult:</b> £{attraction.adultEntryPrice}</p>
                 <p> <b>Child:</b> £{attraction.childEntryPrice}</p>
                 <p> <b>Concession:</b> £{attraction.concessionEntryPrice}</p>
@@ -58,10 +93,20 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 </div>
                 <p> <b>Opening Hours:</b> {attraction.openingHours}</p>
                 <div>
-                    {attraction.indoors ? <b>Indoor Facilities</b> : null}
+                    <p>{attraction.isIndoors ? <b>Indoor Facilities</b> : null}</p>
                 </div>
+
                 <p> <b>Address:</b> {attraction.address}</p>
+
+                <div>    
+                    <p>{attraction.isBusy ? <b> Currently is Busy</b> : <b> Currently is Quiet</b>} </p>
+                </div>    
                 
+               
+                <p> <b>Bus Routes:</b>{busList}</p>
+
+                
+
             </div>
             <div>
                 {attraction.wheelchairAccessible ? <img src={''} /> : null}
@@ -82,14 +127,33 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
             
 
 
+            <div id="map">
+
+                <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={[51.505, -0.09]}>
+                        <Popup>
+                            A pretty CSS3 popup. <br /> Easily customizable.
+                        </Popup>
+                    </Marker>
+                </MapContainer>
+
+            </div>
+
+
+
             <Button primary onClick={goBackToList}>Back</Button>
 
 
             <Button onClick={handleDelete}>Delete</Button>
 
             <Link to="/edit">Edit</Link>
+            <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
 
-            {/* <EditForm selectedAttraction={selectedAttraction} locations={locations} updateAttraction={updateAttraction} /> */}
+
 
 
         </>

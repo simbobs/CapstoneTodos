@@ -1,8 +1,10 @@
 package com.example.codeclan.attractions.models;
 
 import com.example.codeclan.attractions.enums.AttractionType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -18,6 +20,11 @@ public class Attraction {
     private Long id;
     @Column(name = "name")
     private String name;
+
+    @JsonBackReference(value="attractionComments")
+    @OneToMany(mappedBy="attraction", fetch=FetchType.LAZY)
+    private List<Comment> comments = new ArrayList<>();
+
     @Column(name = "description", length = 1024)
     private String description;
     @Column(name = "address")
@@ -65,7 +72,8 @@ public class Attraction {
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = true)
     private Location location;
-    @JsonIgnoreProperties({"attractions"})
+
+    @JsonBackReference(value="users-attractions")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
@@ -330,4 +338,14 @@ public class Attraction {
     public void addUsers(User user){
         this.users.add(user);
     }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public void addComment(Comment comment){this.comments.add(comment);}
 }

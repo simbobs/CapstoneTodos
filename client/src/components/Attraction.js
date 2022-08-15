@@ -1,12 +1,16 @@
 import React from 'react'
+import { useState } from 'react'
+import { editUser } from '../services/services';
 import '../static/Attraction.css'
 
-const Attraction = ({ attraction, changeSelectedAttraction, addToFavourites, index }) => {
+const Attraction = ({ attraction, changeSelectedAttraction, addToUserFavourites, index }) => {
+
 
     // Changes selectedAttraction state
 
     const handleClick = (event) => {
         const index = event.target.value;
+        console.log(index);
         changeSelectedAttraction(index);
     }
 
@@ -14,9 +18,8 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToFavourites, ind
 
     const handleFavourite = (event) => {
         const index = event.target.value;
-        addToFavourites(index);
+        addToUserFavourites(index);
         console.log(event.target.value)
-
 
     }
 
@@ -25,7 +28,7 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToFavourites, ind
             <img src={attraction.image} alt={attraction.name} width="280px" height="180px" />
             <div className="button-group">
 
-                <li onClick={handleClick}> {attraction.name}</li>
+                <li onClick={handleClick} value={index}> {attraction.name}</li>
                 <br>
 
                 </br>

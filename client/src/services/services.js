@@ -13,6 +13,11 @@ export const getLocations = () => {
 
 }
 
+export const getUser = () => {
+    return fetch(baseURL + "/api/users")
+        .then(res => res.json())
+}
+
 export const postAttraction = (payload) => {
     return fetch(baseURL + "/api/attractions", {
         method: 'POST',
@@ -21,6 +26,15 @@ export const postAttraction = (payload) => {
     })
         .then(res => res.json())
 
+}
+
+export const postComment = (payload) => {
+    return fetch(baseURL + "/api/comments", {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(res => res.json())
 }
 
 export const deleteAttraction = (id) => {
@@ -40,4 +54,19 @@ export const editAttraction = (attraction) => {
         .then(res => res.json());
 }
 
+export const editUser = (user) => {
+    return fetch(baseURL + "/api/users/" + user.id, {
+        method: 'PUT',
+        body: JSON.stringify(user),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => res.json());
+}
+
+export const getComments = () => {
+    return fetch(baseURL + "/api/comments")
+        .then(res => res.json())
+}
 

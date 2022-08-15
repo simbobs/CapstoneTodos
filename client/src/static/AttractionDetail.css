@@ -1,3 +1,4 @@
+
 .attraction-info{
     font-family: 'Baloo Bhaijaan';font-size: 22px;
     /* text-transform: uppercase; */
@@ -56,4 +57,8 @@
     color: black;
     letter-spacing: -0.5pt;
     font-size: 16pt;
+
+#map {
+    height: 100px;
+
 }
