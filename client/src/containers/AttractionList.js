@@ -12,7 +12,9 @@ const AttractionList = ({ attractions, changeSelectedAttraction, addToFavourites
     return (
         <div className="list-container">
             {attractionNodes}
+
         </div>
+        
     )
 }
 

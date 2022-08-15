@@ -4,6 +4,8 @@ import AttractionList from '../containers/AttractionList';
 import { deleteAttraction, editAttraction } from '../services/services';
 import EditForm from './EditForm';
 import { Link } from 'react-router-dom'
+import '../static/AttractionDetail.css'
+
 
 const Button = styled.button`
 background: transparent;
@@ -34,14 +36,20 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
     return (
 
         <>
+            <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans" />
+            <link href='https://fonts.googleapis.com/css?family=Baloo Thambi 2' rel='stylesheet'></link>
 
             <div className='attraction-info'>
 
-                <h1> {attraction.name}</h1>
-                <img src={attraction.image} />
-
-                <p> <b>About:</b> {attraction.description}</p>
-                <p> <b>Address:</b> {attraction.address}</p>
+                <div class="vl"></div>
+                <img id="image" width="90%" height="auto" src={attraction.image}/>
+                <h1 className='detail-header'> {attraction.name}</h1>
+                <p className='attraction-type'>{attraction.attractionType}</p>
+                <p id='desc'>{attraction.description}</p>
+                <hr className='line' />
+                <p id='opening-hours'><b>OPENING HOURS:</b>{attraction.openingHours}</p>
+                <hr className='line' />
+                <p>ENTRY PRICES:</p>
                 <p> <b>Adult:</b> £{attraction.adultEntryPrice}</p>
                 <p> <b>Child:</b> £{attraction.childEntryPrice}</p>
                 <p> <b>Concession:</b> £{attraction.concessionEntryPrice}</p>
@@ -52,7 +60,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 <div>
                     {attraction.indoors ? <b>Indoor Facilities</b> : null}
                 </div>
-                <p> <b>Attraction Type:</b>{attraction.attractionType}</p>
+                <p> <b>Address:</b> {attraction.address}</p>
                 
             </div>
             <div>
@@ -70,6 +78,8 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
             <div>
                 {attraction.hasHeadphones ? <img src={''} /> : null}
             </div>
+
+            
 
 
             <Button primary onClick={goBackToList}>Back</Button>
