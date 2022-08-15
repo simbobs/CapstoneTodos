@@ -1,7 +1,44 @@
 .attraction-info{
    text-align: center;
+   z-index: 2;
 }
 
 b{
     size: 20px;
 }
+
+.light-dark-mode {
+    color: var(--text-primary);
+    background-color: var(--background);
+    font-size: large;
+    font-weight: bold;
+    padding: 20px;
+    height: calc(100vh - 40px);
+    transition: all .5s;
+    z-index: 1;
+  }
+  
+.button {
+    color: var(--text-primary);
+    background-color: var(--background);
+    border: 2px var(--text-primary) solid;
+    float: right;
+    transition: all .5s;
+}
+
+.customHeart:hover {
+    fill: #c9c7c7 !important;
+    transition: fill 0.1s;
+  }
+  .customHeart:active {
+    fill: #a5a5a5 !important;
+    transition: fill 0.1s;
+  }
+  .active.customHeart:hover {
+    fill: rgb(231, 53, 104) !important;
+    transition: fill 0.1s;
+  }
+  .active.customHeart:active {
+    fill: rgb(231, 53, 104) !important;
+    transition: fill 0.1s;
+  }

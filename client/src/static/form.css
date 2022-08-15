@@ -3,6 +3,10 @@
     flex-wrap: wrap;
     flex-direction: column;
     flex-grow: 1;
+    width: 85%;
+
+
+
 }
 
 .checkbox{

@@ -9,6 +9,9 @@ import AddForm from './components/AddForm';
 import EditForm from './components/EditForm';
 import About from './components/About';
 import Filter from './components/Filter';
+import './darkMode.css'
+
+
 
 // import Request from './helpers/request';
 
@@ -18,9 +21,13 @@ function App() {
   const [attractions, setAttractions] = useState([])
   const [selectedAttraction, setSelectedAttraction] = useState(null);
   const [favourites, setFavourites] = useState([]);
+  const [theme, setTheme] = useState(
+    localStorage.getItem('theme')|| 'light')
+  
+
 
   //this is our filtered list state
-  const [filtered, setFiltered] = useState([])
+  const [filtered, setFiltered] = useState('[]')
 
   // renders info on application load
   useEffect(() => {
@@ -33,6 +40,11 @@ function App() {
     getLocations()
       .then(locations => setLocations(locations))
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+    document.body.className = theme;
+  }, [theme])
 
   // const getAttractions = () => {
   //   const request = new Request()
@@ -91,10 +103,37 @@ function App() {
     
   }
 
+  //trying out randomiser here
+  // const showRandomAttraction = () => {
+  //   const attractionListCopy = []
+  //   for (let i = 0; 1 < 2; i++) {
+  //     const randomIndexAttraction = Math.floor(Math.random() * attractions.length)
+  //     attractionListCopy.push(attractions[randomIndexAttraction])
+  //   }
+  //   setRandomAttraction(attractionListCopy);
+  // }
+
+  const toggleTheme = () => {
+    
+    if (theme === 'light') {
+      setTheme ('dark');
+    } else {
+      setTheme ('light');
+    }
+  }
+  
+  
+
   return (
     <>
+      
+      
+
       <Router>
         <Navbar setSelectedAttraction={setSelectedAttraction} />
+        <div className={`App ${theme}`}>
+          <button onClick={toggleTheme}>Toggle Theme</button>
+        </div>
         <Routes>
           <Route exact path="/" element={selectedAttraction ? <AttractionDetail attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToFavourites={addToFavourites} goBackToList={goBackToList} />} />
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
@@ -111,7 +150,6 @@ function App() {
 
         </Routes>
       </Router>
-
     </>
   )
 }

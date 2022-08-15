@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../static/Attraction.css'
+
+
 
 const Attraction = ({ attraction, changeSelectedAttraction, addToFavourites, index }) => {
 
@@ -19,6 +21,7 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToFavourites, ind
 
 
     }
+
 
     return (
         <div className="individual-item">
