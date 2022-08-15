@@ -5,7 +5,7 @@ import AttractionList from '../../containers/AttractionList';
 
 // USE THIS FILE
 
-const Filter = (({filtered, attractions, locations, filter, changeSelectedAttraction, addToUserFavourites, goBackToList}) => {
+const Filter = (({filtered, filter, attractions, locations, changeSelectedAttraction, addToUserFavourites, goBackToList}) => {
 
   const [checked, setChecked] = useState(null)
 
@@ -37,7 +37,7 @@ const handleSelect = (event) => {
 
     let listCopy;
 
-    if (filtered.length == 0){
+    if (filtered == null){
   listCopy = [...attractions]
   console.log("this is our list first statement", listCopy)
 } else {
@@ -111,9 +111,16 @@ const handleRefresh = () => {
         </form>
 
 
-        {filtered ? <AttractionList attractions={filtered} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList}/>
- : 
-        <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList} />}
+        {filtered ? <AttractionList attractions={filtered} filtered= {filtered} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList}/>
+ :
+        <AttractionList attractions={attractions} filtered= {filtered} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList} />
+        }
+
+        
+        
+  
+
+
 
     
        </>
