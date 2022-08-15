@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useNavigate } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import AttractionDetail from './components/AttractionDetail';
 import AttractionList from './containers/AttractionList';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { getAttractions, getLocations, editAttraction, getUser, editUser, getComments } from './services/services.js'
 import AddForm from './components/AddForm';
 import EditForm from './components/EditForm';
 import About from './components/About';
+import MainContainer from './containers/MainContainer';
+
+
 import Filter from './components/filterComponents/Filter';
+
+
 
 // import Request from './helpers/request';
 
@@ -20,8 +24,12 @@ function App() {
   const [user, setUser] = useState({});
   const [comments, setComments] = useState([]);
 
-  //this is our filtered list state
-  const [filtered, setFiltered] = useState([])
+  //this is our filtered list state - needs to be set to null for logic to work
+  const [filtered, setFiltered] = useState(null)
+
+  // state for light-dark-mode
+  const [theme, setTheme] = useState(
+    localStorage.getItem('theme')|| 'light')
 
   // renders info on application load
   useEffect(() => {
@@ -30,10 +38,18 @@ function App() {
       .then(attractions => setAttractions(attractions))
   }, [])
 
+
   useEffect(() => {
     getLocations()
       .then(locations => setLocations(locations))
   }, [])
+
+  // use effect for light dark mode
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+    document.body.className = theme;
+  }, [theme])
+
 
   useEffect(() => {
     getUser().then(user => setUser(user[0]));
@@ -43,6 +59,7 @@ function App() {
     getComments()
       .then(data => setComments(data))
   })
+
 
 
   const changeSelectedAttraction = (index) => {
@@ -168,12 +185,30 @@ function App() {
 
   }
 
+  const toggleTheme = () => {
+    
+    if (theme === 'light') {
+      setTheme ('dark');
+    } else {
+      setTheme ('light');
+    }
+  }
+
   return (
     <>
+  
       <Router>
         <Navbar setSelectedAttraction={setSelectedAttraction} />
+
+        <div className={`App ${theme}`}>
+          <button onClick={toggleTheme}>Toggle Theme</button>
+        </div>
         <Routes>
-          <Route exact path="/" element={selectedAttraction ? <AttractionDetail attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment} /> : <AttractionList attractions={attractions} user={user} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} deleteFromUserFavourites={deleteFromUserFavourites} goBackToList={goBackToList} />} />
+
+        <Route exact path="/" element={<MainContainer attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment}
+        attractions={attractions} filtered={filtered} filter={createFilteredList} changeSelectedAttraction={changeSelectedAttraction} deleteFromUserFavourites={deleteFromUserFavourites} addToUserFavourites={addToUserFavourites} />} />
+    
+
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
 
@@ -184,7 +219,7 @@ function App() {
           <Route path="/about" element={<About />}></Route>
 
 
-          <Route path="/filter" element={<Filter locations={locations} attractions={attractions} filtered={filtered} filter={createFilteredList} />} />
+          {/* <Route path="/filter" element={} /> */}
 
         </Routes>
       </Router>
