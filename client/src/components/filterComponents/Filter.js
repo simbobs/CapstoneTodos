@@ -55,14 +55,15 @@ const handleSelect = (event) => {
 //this is the onClick for the clear filter button
 const handleRefresh = () => {
   filter(null);
-  setChecked(false);
+  // Unsure if I still need this. If not- need to delete checked={checked} on checkboxes and state
+  // setChecked(false);
   
 }
 
-
+    //lou - this is inside a form so I can use the reset button on all the entries
     return(
         <>
-
+        <form> 
         {/* this filters by location */}
         <h2>Filter By Location</h2>
         <select defaultValue="select-location" onChange={handleChange}>
@@ -70,6 +71,8 @@ const handleRefresh = () => {
             {locationNodes}
         </select>
 
+
+       {/* this filters by checkbox*/}
         <h2>Filter By Individual Needs</h2>
 
         <label>Indoor Venue</label>
@@ -102,9 +105,10 @@ const handleRefresh = () => {
         <label>disabled toilets</label>
         <input type="checkbox" name="hasDisabledToilets" checked={checked} onChange={handleSelect} value="true"></input>
 
-      {/* this filters by checkbox*/}
+     
 
-        <button onClick={handleRefresh}>clear filters </button>
+        <button type="reset" onClick={handleRefresh}>clear filters </button>
+        </form>
 
 
         {filtered ? <AttractionList attractions={filtered} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList}/>
