@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "../static/Form.css";
+import "../static/form.css"
 import { Navigate, useNavigate } from 'react-router-dom';
 
 const EditForm = ({ locations, selectedAttraction, setSelectedAttraction, updateAttraction }) => {
