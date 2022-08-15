@@ -46,6 +46,9 @@ const CommentList = ({ comments, user, attraction, addNewComment }) => {
 
     const filteredComments = comments.filter(comment => comment.attraction.id == attraction.id);
 
+    // const averageRating = filteredComments.reduce((acc, current) => (acc + current.rating), 0) / filteredComments.length;
+    // setAverage(averageRating);
+
     const commentNodes = filteredComments.map((comment, index) => {
         return <Comment key={index} index={index} comment={comment} />
     })
