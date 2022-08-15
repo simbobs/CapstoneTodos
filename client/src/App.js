@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useNavigate } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import AttractionDetail from './components/AttractionDetail';
 import AttractionList from './containers/AttractionList';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { getAttractions, getLocations, editAttraction, getUser, editUser, getComments } from './services/services.js'
 import AddForm from './components/AddForm';
 import EditForm from './components/EditForm';
 import About from './components/About';
+import MainContainer from './containers/MainContainer';
 
 
 import Filter from './components/filterComponents/Filter';
+
 
 
 // import Request from './helpers/request';
@@ -23,8 +24,8 @@ function App() {
   const [user, setUser] = useState({});
   const [comments, setComments] = useState([]);
 
-  //this is our filtered list state
-  const [filtered, setFiltered] = useState([])
+  //this is our filtered list state - needs to be set to null for logic to work
+  const [filtered, setFiltered] = useState(null)
 
   // state for light-dark-mode
   const [theme, setTheme] = useState(
@@ -36,6 +37,7 @@ function App() {
 
       .then(attractions => setAttractions(attractions))
   }, [])
+
 
   useEffect(() => {
     getLocations()
@@ -137,7 +139,9 @@ function App() {
           <button onClick={toggleTheme}>Toggle Theme</button>
         </div>
         <Routes>
-          <Route exact path="/" element={selectedAttraction ? <AttractionDetail attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment} /> : <AttractionList attractions={attractions} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList} />} />
+        <Route exact path="/" element={<MainContainer attraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment}
+        attractions={attractions} filtered={filtered} filter={createFilteredList} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} />} />
+    
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
 
@@ -148,7 +152,7 @@ function App() {
           <Route path="/about" element={<About />}></Route>
 
 
-          <Route path="/filter" element={<Filter locations={locations} attractions={attractions} filtered={filtered} filter={createFilteredList} />} />
+          {/* <Route path="/filter" element={} /> */}
 
         </Routes>
       </Router>
