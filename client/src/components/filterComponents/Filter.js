@@ -1,11 +1,13 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import AttractionList from '../../containers/AttractionList';
 
 
 
 
 const Filter = (({filtered, attractions, locations, filter}) => {
+
+  const [checked, setChecked] = useState(null)
 
 
     //this loops over our locations
@@ -15,15 +17,9 @@ const Filter = (({filtered, attractions, locations, filter}) => {
     })
 
 
-
-
-
-
+    // this handles the location list
     const handleChange = (event) => {
-        console.log(event.target.value);
-
         const index = event.target.value;
-
         const selectedLocation = locations[index];
         const filteredList = selectedLocation.attractions;
 
@@ -32,123 +28,36 @@ const Filter = (({filtered, attractions, locations, filter}) => {
       
     }
 
-    //this v confusing but we see if this works
-
-    // const handleSelect = (event) => {
-    //     const filteredCopy =[...filtered];
-
-    //     const name = event.target.name;
-
-        
-    //     const newList = filteredCopy.filter((item) => {
-    //         let keyValue;
-    //         const keys = Object.keys(item);
-
-    //         keys.filter((key) => {
-    //             if (key === name){
-    //                 keyValue = item[key];
-                    
-    //             } 
-    //         });
-    //         console.log("this is the keyvalue", keyValue)
-
-    //         if (keyValue === event.target.value){
-    //             return item;
-    //         }
-
-    //     })
-
-    //     filter(newList);
-      
-    // }
 
 
-  const handleSelect = (event) => {
-  const filteredListCopy = [...filtered];
-  let accessibilityList;
-  console.log("calling name a level up", event.target.name)
-  const eventName = event.target.name;
-  const eventValue = event.target.value;
 
-  const item = filteredListCopy[0]
-  console.log("this is the item", item)
-  const newItem = item[event.target.value];
 
-  let newList = filteredListCopy.filter((item) => {
+// this handles the checkboxes and updates the filter list
+const handleSelect = (event) => {
 
-    // console.log("this name",item[event.target.name]) -- this effin works
-    
-    return item[event.target.name] === Boolean(event.target.value);
+    let listCopy;
+
+    if (filtered.length == 0){
+  listCopy = [...attractions]
+  console.log("this is our list first statement", listCopy)
+} else {
+  listCopy = [...filtered] 
+  console.log("this is if the filter", listCopy)
+}
+  let newList = listCopy.filter((item) => {
+  return item[event.target.name] === Boolean(event.target.value);
   });
 
   filter(newList)
 
 }
 
+//this is the onClick for the clear filter button
+const handleRefresh = () => {
+  filter(null);
+  setChecked(false);
   
-
-
-
-
-    //   const keys = Object.keys(item);
-    //   console.log("this is the key at index 4", keys[7])
-    //   console.log("this is the event.target.name", event.target.name)
-    //   console.log("this is the event.target.value", event.target.value)
-    //   console.log("this is the value at item[name]", item[name])
-    //   console.log("type of value", typeof(event.target.value))
-        // console.log("key", keys[16])
-      
-      
-//console.log and see if both conditions are being seeing
-
-
-
-
-
-    
-
-  
-
-  
-// using this as reference
-//   if (keys[0]=== name && item[name] == event.target.value){
-//     console.log(item);
-// } else if (keys[1]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[2]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[3]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[4]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[5]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[6]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[7]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[8]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[9]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[10]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[11]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[12]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[13]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[14]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else if (keys[15]=== name && item[name] == event.target.value){
-//   console.log(item)
-// } else {
-//   return false;
-// }
-
-
-
+}
 
 
     return(
@@ -164,36 +73,38 @@ const Filter = (({filtered, attractions, locations, filter}) => {
         <h2>Filter By Individual Needs</h2>
 
         <label>Indoor Venue</label>
-        <input type="checkbox" name="isIndoors" onChange={handleSelect} value="true"></input>
+        <input type="checkbox" name="isIndoors" checked={checked} onChange={handleSelect} value="true"></input>
 
         <label>Wheelchair accessible</label>
-        <input type="checkbox" name="isWheelchairAccessible" onChange={handleSelect} value="true"></input>
+        <input type="checkbox" name="isWheelchairAccessible" checked={checked}  onChange={handleSelect} value="true"></input>
 
         <label>Epilepsy Friendly</label>
-        <input type="checkbox" name="isEpilepsyFriendly" onChange={handleSelect} value="true"></input>
+        <input type="checkbox" name="isEpilepsyFriendly" checked={checked} onChange={handleSelect} value="true"></input>
 
         <label>Quiet Room</label>
-        <input type="checkbox" name="hasQuietRoom" onChange={handleSelect} value="true"></input>
+        <input type="checkbox" name="hasQuietRoom" checked={checked} onChange={handleSelect} value="true"></input>
 
         <label>Lift</label>
-        <input type="checkbox" name="hasLift" onChange={handleSelect} value="true"></input>
+        <input type="checkbox" name="hasLift"  checked={checked} onChange={handleSelect} value="true"></input>
 
         <label>Parking</label>
-        <input type="checkbox" name="hasParking" onChange={handleSelect} value="true"></input>
+        <input type="checkbox" name="hasParking" checked={checked} onChange={handleSelect} value="true"></input>
 
         <label>Noise Cancelling Headphones available</label>
-        <input type="checkbox" name="hasHeadphones" onChange={handleSelect} value="true"></input>
+        <input type="checkbox" name="hasHeadphones" checked={checked} onChange={handleSelect} value="true"></input>
 
         <label>BSL signers on premises</label>
-        <input type="checkbox" name="hasBSLSigner" onChange={handleSelect} value="true"></input>
+        <input type="checkbox" name="hasBSLSigner" checked={checked} onChange={handleSelect} value="true"></input>
 
         <label>Makaton signers on premises</label>
-        <input type="checkbox" name="hasMakatonSigner" onChange={handleSelect} value="true"></input>
+        <input type="checkbox" name="hasMakatonSigner" checked={checked} onChange={handleSelect} value="true"></input>
 
         <label>disabled toilets</label>
-        <input type="checkbox" name="hasDisabledToilets" onChange={handleSelect} value="true"></input>
+        <input type="checkbox" name="hasDisabledToilets" checked={checked} onChange={handleSelect} value="true"></input>
 
       {/* this filters by checkbox*/}
+
+        <button onClick={handleRefresh}>clear filters </button>
 
 
         {filtered ? <AttractionList attractions={filtered} /> : null}
