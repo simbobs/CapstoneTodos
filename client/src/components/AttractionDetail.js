@@ -7,10 +7,13 @@ import '../static/AttractionDetail.css'
 
 
 import CommentList from '../containers/CommentList';
+
 import { useState } from 'react';
 // import StarRatings from './react-star-ratings';
 
+
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+import'leaflet/dist/leaflet.css';
 
 
 const Button = styled.button`
@@ -137,6 +140,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
             <div id="map">
 
+
                 <MapContainer center={[56.45739364245968, -2.966974304745474]} zoom={16} scrollWheelZoom={false}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -146,6 +150,9 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                         <Popup>{attraction.name}</Popup>
                     </Marker>
                 </MapContainer>
+
+
+       
 
             </div>
 
