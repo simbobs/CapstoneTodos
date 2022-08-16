@@ -81,11 +81,6 @@ function App() {
     setSelectedAttraction(selected);
   }
 
-  const bringBackList = () => {
-    setSelectedAttraction(null);
-
-  }
-
   const addToUserFavourites = (id) => {
     // finding the attraction
     const copyList = [...attractions];
@@ -186,7 +181,9 @@ function App() {
 
       <Router>
 
-        <Navbar selectedAttraction={selectedAttraction} bringBackList={bringBackList} userLoggedIn={userLoggedIn} />
+
+        <Navbar selectedAttraction={selectedAttraction} goBackToList={goBackToList} />
+
 
         <div className={`App ${theme}`}>
           <button onClick={toggleTheme}>Toggle Theme</button>
