@@ -81,17 +81,15 @@ iframe {
 .attraction-info #opening-hours {
     letter-spacing: -0.5pt;
     font-size: 16pt;
+    
 }
 
-/* #map {
-    height: 100px;
+/* forms for comments */
 
-} */
-
-.review-form{
+.light .review-form {
     display: flex;
    flex-wrap: wrap;
-   width: 85%;
+   width: 95%;
    margin-left: auto;
    margin-right: auto;
    justify-content: space-around;
@@ -99,8 +97,15 @@ iframe {
 
 }
 
-#pic{
-    object-fit: scale-down;
+.dark .review-form {
+    display: flex;
+   flex-wrap: wrap;
+   width: 95%;
+   margin-left: auto;
+   margin-right: auto;
+   justify-content: space-around;
+   font-family: 'Baloo Thambi 2';
+
 }
 
 .light #entry-heading{
@@ -114,16 +119,11 @@ iframe {
 
 .light #prices{
     margin-bottom: -6%;
-    opacity: 50%;
+
 }
 
 .light #concession-price{
     margin-bottom: -6%;
-    opacity: 50%;
-}
-
-.light #carers{
-    opacity: 50%;
 }
 
 .dark #prices{
@@ -144,6 +144,16 @@ iframe {
     margin-bottom: 10px;
 }
 
+.dark input[type='float']{
+    width: 85%;
+    background-color: white;
+    opacity: 85%;
+    font-family: 'Baloo Thambi 2';
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
 .light input[type='text']{
     width: 85%;
     background-color: white;
@@ -153,6 +163,80 @@ iframe {
     padding: 10px;
     margin-bottom: 10px;
 }
+
+.leaflet-container{
+    height: 400px;
+}
+
+.bus-container{
+    display: inline-flex;
+}
+
+#bus-routes{
+    display: inline-flex;
+}
+
+.light #bus-routes-header{
+    display: inline-flex;
+    color: #B96AC9;
+}
+
+.light #address-header{
+    color: #B96AC9;
+}
+
+#address-deets{
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.light #comments-text{
+    width: 85%;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: 'Baloo Thambi 2';
+}
+
+.dark #comments-text{
+    width: 85%;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: 'Baloo Thambi 2';
+    opacity: 85%;
+}
+
+#comment-name{
+    float: inline-start;
+    color: blue;
+    align-items: flex-start;
+}
+
+#comments-list-wrapper{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-color: chartreuse;
+    width: 90%;
+}
+
+
+
+.comments-section{
+    display: flex;
+}
+
+
+
+
+
+
+
+
 
 
 
