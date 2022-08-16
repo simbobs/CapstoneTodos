@@ -2,7 +2,7 @@ import React from 'react'
 import '../static/Navbar.css'
 import { Link } from 'react-router-dom';
 
-const Navbar = (changeSelectedAttraction, selectedAttraction) => {
+const Navbar = (bringBackList, selectedAttraction) => {
 
     const handleClick = () => {
         var x = document.getElementById("myTopnav");
@@ -15,7 +15,7 @@ const Navbar = (changeSelectedAttraction, selectedAttraction) => {
 
     const handleBack = () => {
         if (selectedAttraction) {
-            changeSelectedAttraction(null);
+            bringBackList();
         }
     }
 

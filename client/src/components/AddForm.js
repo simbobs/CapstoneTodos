@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { postAttraction } from '../services/services.js'
-import "../static/Form.css"
+import "../static/form.css"
 import { useNavigate } from 'react-router-dom';
 
 
@@ -107,20 +107,20 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
                 <input id='form-hours' type="text" placeholder="Opening Hours" name="openingHours" onChange={handleChange} value={attraction.openingHours} />
                 <input id='image-form' type="text" placeholder="Image Url" name="image" onChange={handleChange} value={attraction.image} />
                 <input id='adult-price-form' type="float" placeholder="Adult Price" name="adultEntryPrice" onChange={handleChange} />
-                <input id='child-price-form' type="float" placeholder="Child Price" name="childEntryPrice" onChange={handleChange}  />
-                <input id='concession-price-form' type="float" placeholder="Concession Price" name="concessionEntryPrice" onChange={handleChange}  />
+                <input id='child-price-form' type="float" placeholder="Child Price" name="childEntryPrice" onChange={handleChange} />
+                <input id='concession-price-form' type="float" placeholder="Concession Price" name="concessionEntryPrice" onChange={handleChange} />
                 <label>Free Entry For Carers</label>
                 <input type="checkbox" name="freeEntryForCarers" onChange={handleChange} value="true"></input>
                 <label>Indoor Venue</label>
                 <input type="checkbox" name="isIndoors" onChange={handleChange} value="true"></input>
-                
+
 
                 <button className='add-button' type="submit">Add Attraction</button>
-                
-              
-                
 
-                
+
+
+
+
 
 
 
