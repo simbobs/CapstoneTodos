@@ -1,7 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 
+const Button = styled.button`
+background: transparent;
+border-radius: 3px;
+border: 2px solid #B96AC9;
+color: #B96AC9;
+margin: 0 1em;
+padding: 0.25em 1em;
+font-family: 'Baloo Bhaijaan';
+
+${props =>
+        props.primary &&
+        css`
+  background: #B96AC9;
+  color: white;
+`};
+`
 
 
 
@@ -20,7 +37,7 @@ const UserLogin = ({ user }) => {
 
                     <input id='form-hours' type="password" placeholder="Password"></input>
 
-                    <Link to="/home"><button className='add-button'>LOGIN</button></Link>
+                    <Link to="/home"><Button>LOGIN</Button></Link>
 
 
                 </form>
