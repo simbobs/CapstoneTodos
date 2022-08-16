@@ -13,7 +13,7 @@ import { useState } from 'react';
 
 
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
-import'leaflet/dist/leaflet.css';
+import 'leaflet/dist/leaflet.css';
 
 
 const Button = styled.button`
@@ -62,7 +62,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
     }
 
     const busList = attraction.busRoutes.map((bus) => {
-        return <ul>{bus}</ul>
+        return <li>{bus}</li>
 
     })
 
@@ -78,12 +78,12 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
             <div className='attraction-info'>
 
 
-                <div class="vl"></div>
+                <div className="vl"></div>
 
-                
+
                 <iframe className='image' width='350px' height='200px'
                     id="pic" src={attraction.image}
-                    marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0">
+                    marginWidth="0" marginHeight="0" frameBorder="0" vspace="0" hspace="0">
                 </iframe>
                 <h1 className='detail-header'> {attraction.name}</h1>
                 <p className='attraction-type'>{attraction.attractionType}  |  {stars} stars out of 5</p>
@@ -98,9 +98,9 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 {/* <p> <b>Child:</b> £{attraction.childEntryPrice}</p> */}
                 <p id='concession-price'>Concession: £{attraction.concessionEntryPrice}</p>
 
-                    {attraction.freeEntryForCarers ? <b>Free for Carers</b> : null}
-                    <hr className='line' />
-                
+                {attraction.freeEntryForCarers ? <b>Free for Carers</b> : null}
+                <hr className='line' />
+
                 <div>
                     <p>{attraction.isIndoors ? <b>Indoor Facilities</b> : null}</p>
                     <hr className='line' />
@@ -113,7 +113,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 </div>
 
 
-                <p> <b>Bus Routes:</b>{busList}</p>
+                <p> <b>Bus Routes:</b></p><ul>{busList}</ul>
 
 
 
@@ -152,12 +152,12 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 </MapContainer>
 
 
-            </div> 
+            </div>
 
 
-       
 
-   
+
+
 
             <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
 

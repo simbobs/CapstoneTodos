@@ -2,7 +2,7 @@ import React from 'react'
 import '../static/Navbar.css'
 import { Link } from 'react-router-dom';
 
-const Navbar = (bringBackList, selectedAttraction) => {
+const Navbar = (bringBackList, selectedAttraction, userLoggedIn) => {
 
     const handleClick = () => {
         var x = document.getElementById("myTopnav");
@@ -16,6 +16,7 @@ const Navbar = (bringBackList, selectedAttraction) => {
     const handleBack = () => {
         if (selectedAttraction) {
             bringBackList();
+            userLoggedIn();
         }
     }
 
