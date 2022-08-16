@@ -2,19 +2,22 @@
     font-family: 'Baloo Bhaijaan';
     font-size: 22px;
     /* text-transform: uppercase; */
-    color: #B96AC9;
     justify-content: center;
 }
 
 .detail-header {
+    display: flex;
+    flex-wrap: wrap;
     text-transform: uppercase;
-    margin-bottom: -9%;
-    margin-left: -9%;
+    /* margin-bottom: -9%; */
+    margin-left: 10%;
+    font-size: 30pt;
+
 }
 
 .attraction-info #desc {
     font-family: "PT Sans";
-    color: black;
+    /* color: black; */
     text-align: left;
     letter-spacing: -0.5pt;
     padding-left: 7%;
@@ -31,11 +34,12 @@
     opacity: 50%;
 }
 
-#image {
+iframe {
     margin-bottom: -8%;
 }
 
 .vl {
+    display: inline-block;
     border-left: 3px solid #B96AC9;
     display: flex;
     height: 70px;
@@ -50,17 +54,65 @@
     font-size: 22px;
     text-align: left;
     padding-left: 12%;
-    color: black;
     opacity: 50%;
+    letter-spacing: -0.5pt;
 }
 
 .attraction-info #opening-hours {
-    color: black;
     letter-spacing: -0.5pt;
     font-size: 16pt;
 }
 
-#map {
+/* #map {
     height: 100px;
 
+} */
+
+.review-form{
+    display: flex;
+   flex-wrap: wrap;
+   width: 85%;
+   margin-left: auto;
+   margin-right: auto;
+   justify-content: space-around;
+   font-family: 'Baloo Thambi 2';
+
 }
+
+#pic{
+    object-fit: scale-down;
+}
+
+#entry-heading{
+    margin-bottom: -6%;
+}
+
+#prices{
+    margin-bottom: -6%;
+}
+
+#concession-price{
+    margin-bottom: 0%;
+}
+
+.light input[type='float']{
+    width: 85%;
+    background-color: white;
+    opacity: 100%;
+    font-family: 'Baloo Thambi 2';
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.light input[type='text']{
+    width: 85%;
+    background-color: white;
+    opacity: 100%;
+    font-family: 'Baloo Thambi 2';
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
