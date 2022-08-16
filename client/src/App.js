@@ -10,6 +10,11 @@ import About from './components/About';
 import MainContainer from './containers/MainContainer';
 import FavouriteList from './components/FavouriteList';
 
+
+import Filter from './components/filterComponents/Filter';
+
+
+
 // import Request from './helpers/request';
 
 function App() {
@@ -23,6 +28,10 @@ function App() {
   //this is our filtered list state - needs to be set to null for logic to work
   const [filtered, setFiltered] = useState(null)
 
+  // state for light-dark-mode
+  const [theme, setTheme] = useState(
+    localStorage.getItem('theme')|| 'light')
+
   // renders info on application load
   useEffect(() => {
     getAttractions()
@@ -35,6 +44,13 @@ function App() {
     getLocations()
       .then(locations => setLocations(locations))
   }, [])
+
+  // use effect for light dark mode
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+    document.body.className = theme;
+  }, [theme])
+
 
   useEffect(() => {
     getUser().then(user => setUser(user[0]));
@@ -70,9 +86,73 @@ function App() {
 
     const userCopy = {...user}
     userCopy.attractions.push(selected)
+
     setUser(userCopy);
-    editUser(userCopy)
+    editUser(userCopy);
+    // check if userCopy includes attraction
+    // for (let i = 0; i < userCopy.attractions.length; i++) {
+    //   if (userCopy.attractions[i].id == attraction.id) {
+    //     console.log("it's here")
+    //     const getIndex = userCopy.attractions.indexOf(attraction);
+    //     userCopy.attractions.splice(getIndex, 1);
+    //     setUser(userCopy);
+    //     editUser(userCopy)
+    //   } else {
+    //     console.log("it's not here");
+    //     userCopy.attractions.push(attraction);
+    //     setUser(userCopy);
+    //     editUser(userCopy);
+    //   }
   }
+  // if (userCopy.attractions.includes(attraction)) {
+  //   console.log("it's here")
+  //   const getIndex = userCopy.attractions.indexOf(attraction);
+  //   userCopy.attractions.splice(getIndex, 1);
+  //   setUser(userCopy);
+  //   editUser(userCopy);
+  // } else {
+  //   console.log("it's not here");
+  //   userCopy.attractions.push(attraction)
+  //   setUser(userCopy);
+  //   editUser(userCopy)
+  // }
+  // for (let i = 0; i < userCopy.attractions.length; i++) {
+  //   console.log(userCopy.attractions[i]);
+  //   if (userCopy.attractions[i].id == attraction.id) {
+  //     console.log("this one is already here")
+  //   } else {
+  //     console.log("it aint here")
+  //     userCopy.attractions.push(attraction)
+  //     setUser(userCopy);
+  //     editUser(userCopy)
+  //   }
+  // }
+  // if (userCopy.attractions.includes(attraction)) {
+  //   // if it does then get it removed
+  //   const getIndex = userCopy.attractions.indexOf(attraction);
+  //   console.log("get index is", getIndex);
+  //   userCopy.attractions.splice(getIndex, 1);
+  //   console.log("faves list is", userCopy.attractions)
+  //   setUser(userCopy);
+  //   editUser(userCopy);
+  // } else {
+  //   // if it doesn't then get it added
+  //   userCopy.attractions.push(attraction)
+  //   setUser(userCopy);
+  //   editUser(userCopy)
+  // }
+
+  const deleteFromUserFavourites = (attraction) => {
+    // const attraction = attractions[index];
+    // console.log("attraction id is", attraction.id);
+    const userCopy = { ...user }
+    userCopy.attractions.pop(attraction);
+    console.log(userCopy.attractions);
+    setUser(userCopy);
+    editUser(userCopy);
+  }
+
+
 
 
   const goBackToList = () => {
@@ -118,14 +198,30 @@ function App() {
 
   }
 
+  const toggleTheme = () => {
+    
+    if (theme === 'light') {
+      setTheme ('dark');
+    } else {
+      setTheme ('light');
+    }
+  }
+
   return (
     <>
+  
       <Router>
+
         <Navbar changeSelectedAttraction={changeSelectedAttraction} />
+        <div className={`App ${theme}`}>
+          <button onClick={toggleTheme}>Toggle Theme</button>
+        </div>
         <Routes>
         <Route exact path="/" element={<MainContainer selectedAttraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment}
         attractions={attractions} filtered={filtered} filter={createFilteredList} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} />} />
+
     
+
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
 

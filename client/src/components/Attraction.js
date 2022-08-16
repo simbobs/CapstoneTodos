@@ -3,7 +3,9 @@ import { useState } from 'react'
 import { editUser } from '../services/services';
 import '../static/Attraction.css'
 
-const Attraction = ({ attraction, changeSelectedAttraction, addToUserFavourites, index }) => {
+const Attraction = ({ attraction, attractions, user, changeSelectedAttraction, addToUserFavourites, index, deleteFromUserFavourites }) => {
+
+    // const [inFaves, setInFaves] = useState(false);
 
 
     // Changes selectedAttraction state
@@ -18,8 +20,15 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToUserFavourites,
 
     const handleFavourite = (event) => {
         const index = event.target.value;
-        addToUserFavourites(index);
-        console.log(event.target.value)
+        const attraction = attractions[index]
+        const userAttractions = user.attractions
+        if (userAttractions.includes(attraction)) {
+            deleteFromUserFavourites(attraction);
+        } else {
+            addToUserFavourites(attraction);
+        }
+
+
 
     }
 
@@ -33,7 +42,9 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToUserFavourites,
 
                 </br>
                 <br></br>
+
                 <button onClick={handleFavourite} value={attraction.id}>Add to Faves</button>
+
             </div>
         </div>
     )
