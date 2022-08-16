@@ -33,17 +33,18 @@ const UserLogin = ({ user }) => {
     return (
         <>
             <div className="user-login">
-                <h1 id='add-form-header'>WELCOME TO TODOS</h1>
-                <form className="form">
-                    <input id='form-name' type="textbox" placeholder="Username"></input>
-                    <br />
+                <h1 className="login-header">WELCOME TO TODOS</h1>
+                <form className="login-form">
+                    <input className="form-name" type="textbox" placeholder="Username"></input>
+                    <br></br>
 
-                    <input id='form-hours' type="password" placeholder="Password"></input>
-
-                    <Link to="/home"><Button>LOGIN</Button></Link>
-
-
+                    <input className="form-name" type="password" placeholder="Password"></input>
                 </form>
+
+                <Link to="/home"><Button>LOGIN</Button></Link>
+
+
+
             </div>
 
         </>

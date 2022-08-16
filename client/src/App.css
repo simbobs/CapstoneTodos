@@ -54,12 +54,3 @@ b {
     float: right;
     transition: all .5s;
 }
-
-.user-login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    width: 100vw;
-    height: 80vh;
-}
