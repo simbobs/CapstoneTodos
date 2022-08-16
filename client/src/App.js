@@ -19,6 +19,7 @@ function App() {
   const [selectedAttraction, setSelectedAttraction] = useState(null);
   const [user, setUser] = useState({});
   const [comments, setComments] = useState([]);
+  const [favourites, setFavourites] = useState(user.attractions)
 
   //this is our filtered list state - needs to be set to null for logic to work
   const [filtered, setFiltered] = useState(null)
@@ -69,9 +70,31 @@ function App() {
     const selected = selectedList[0]
 
     const userCopy = {...user}
-    userCopy.attractions.push(selected)
-    setUser(userCopy);
-    editUser(userCopy)
+
+    let userList = user.attractions.filter((attraction) => {
+      return selected == attraction
+      
+    })
+
+
+
+    if(userList.length == 1){
+      const index = userCopy.attractions.indexOf(selected)
+      console.log("i am the index", index)
+      userCopy.attractions.splice(index, 1);
+      setUser(userCopy);
+      editUser(userCopy);
+
+    }else
+    {
+      userCopy.attractions.push(selected)
+      setUser(userCopy);
+      editUser(userCopy);
+      console.log("you got else baby")
+
+    }
+   
+   
   }
 
 
@@ -121,7 +144,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar changeSelectedAttraction={changeSelectedAttraction} />
+        <Navbar/>
         <Routes>
         <Route exact path="/" element={<MainContainer selectedAttraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment}
         attractions={attractions} filtered={filtered} filter={createFilteredList} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} />} />
@@ -129,7 +152,7 @@ function App() {
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
 
-          <Route path="/fave" element={<FavouriteList attractions={user.attractions} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} />} />
+          <Route path="/fave" element={<AttractionList attractions={user.attractions} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} />} />
 
           <Route path="/edit" element={<EditForm selectedAttraction={selectedAttraction} setSelectedAttraction={setSelectedAttraction} locations={locations} updateAttraction={updateAttraction} />} />
 

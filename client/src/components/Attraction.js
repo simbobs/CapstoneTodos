@@ -10,7 +10,7 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToUserFavourites,
 
     const handleClick = (event) => {
         const id = event.target.value;
-        console.log(index);
+        // console.log(index);
         changeSelectedAttraction(id);
     }
 
@@ -19,7 +19,7 @@ const Attraction = ({ attraction, changeSelectedAttraction, addToUserFavourites,
     const handleFavourite = (event) => {
         const index = event.target.value;
         addToUserFavourites(index);
-        console.log(event.target.value)
+    
 
     }
 
