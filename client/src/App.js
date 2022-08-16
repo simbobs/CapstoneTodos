@@ -78,7 +78,7 @@ function App() {
     const copyList = [...attractions];
 
     let selectedList = copyList.filter((attraction) => {
-      return attraction["id"] == id
+      return attraction["id"] == parseInt(id)
     })
 
     const selected = selectedList[0]
@@ -87,7 +87,7 @@ function App() {
 
 
     let userList = user.attractions.filter((attraction) => {
-      return selected == attraction
+      return attraction["id"] == parseInt(id)
 
     })
 
@@ -188,7 +188,7 @@ function App() {
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
 
-          <Route path="/fave" element={<AttractionList attractions={user.attractions} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} />} />
+          <Route path="/fave" element={<AttractionList attractions={user.attractions} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} addToUserFavourites={addToUserFavourites} />} />
 
           <Route path="/edit" element={<EditForm selectedAttraction={selectedAttraction} setSelectedAttraction={setSelectedAttraction} locations={locations} updateAttraction={updateAttraction} />} />
 
