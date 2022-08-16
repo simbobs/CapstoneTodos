@@ -73,6 +73,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
         <>
             <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans" />
             <link href='https://fonts.googleapis.com/css?family=Baloo Thambi 2' rel='stylesheet'></link>
+            <link href='https://fonts.googleapis.com/css?family=Baloo Bhaijaan' rel='stylesheet'></link>
 
             <div className='attraction-info'>
 
@@ -97,7 +98,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 {/* <p> <b>Child:</b> £{attraction.childEntryPrice}</p> */}
                 <p id='concession-price'>Concession: £{attraction.concessionEntryPrice}</p>
 
-                    {attraction.freeEntryForCarers ? <b>Free For Carers</b> : null}
+                    {attraction.freeEntryForCarers ? <b>Free for Carers</b> : null}
                     <hr className='line' />
                 
                 <div>
@@ -135,7 +136,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
 
 
-
+            <p> <b>Address:</b> {attraction.address}</p>
             <div id="map">
 
 
