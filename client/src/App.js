@@ -11,8 +11,6 @@ import MainContainer from './containers/MainContainer';
 
 
 
-import Filter from './components/filterComponents/Filter';
-
 
 
 // import Request from './helpers/request';
@@ -31,7 +29,7 @@ function App() {
 
   // state for light-dark-mode
   const [theme, setTheme] = useState(
-    localStorage.getItem('theme')|| 'light')
+    localStorage.getItem('theme') || 'light')
 
   // renders info on application load
   useEffect(() => {
@@ -55,12 +53,12 @@ function App() {
 
   useEffect(() => {
     getUser().then(user => setUser(user[0]));
-  },[])
+  }, [])
 
   useEffect(() => {
     getComments()
       .then(data => setComments(data))
-  },[])
+  }, [])
 
 
   const changeSelectedAttraction = (id) => {
@@ -75,6 +73,11 @@ function App() {
     setSelectedAttraction(selected);
   }
 
+  const bringBackList = () => {
+    setSelectedAttraction(null);
+
+  }
+
   const addToUserFavourites = (id) => {
     // finding the attraction
     const copyList = [...attractions];
@@ -85,36 +88,35 @@ function App() {
 
     const selected = selectedList[0]
 
-    const userCopy = {...user}
+    const userCopy = { ...user }
 
 
     let userList = user.attractions.filter((attraction) => {
       return selected == attraction
-      
+
     })
 
 
 
-    if(userList.length == 1){
+    if (userList.length == 1) {
       const index = userCopy.attractions.indexOf(selected)
       console.log("i am the index", index)
       userCopy.attractions.splice(index, 1);
       setUser(userCopy);
       editUser(userCopy);
 
-    }else
-    {
+    } else {
       userCopy.attractions.push(selected)
       setUser(userCopy);
       editUser(userCopy);
       console.log("you got else baby")
 
     }
-   
-   
+
+
 
   }
-  
+
 
 
 
@@ -163,30 +165,30 @@ function App() {
   }
 
   const toggleTheme = () => {
-    
+
     if (theme === 'light') {
-      setTheme ('dark');
+      setTheme('dark');
     } else {
-      setTheme ('light');
+      setTheme('light');
     }
   }
 
   return (
     <>
-  
+
       <Router>
 
-        <Navbar/>
+        <Navbar selectedAttraction={selectedAttraction} bringBackList={bringBackList} />
 
         <div className={`App ${theme}`}>
           <button onClick={toggleTheme}>Toggle Theme</button>
         </div>
 
         <Routes>
-        <Route exact path="/" element={<MainContainer selectedAttraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment}
-        attractions={attractions} filtered={filtered} filter={createFilteredList} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} />} />
+          <Route exact path="/" element={<MainContainer selectedAttraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment}
+            attractions={attractions} filtered={filtered} filter={createFilteredList} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} />} />
 
-    
+
 
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 

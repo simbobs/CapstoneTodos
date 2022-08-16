@@ -6,13 +6,10 @@
     margin-top: 5px;
     font-family: 'Baloo Bhaijaan';font-size: 22px;
     text-transform: uppercase;
-    color: #B96AC9;
     letter-spacing: -0.5pt;
+
 }
 
-hr.solid {
-    border-top: 3px solid #B96AC9;
-}
 
 .button-group {
     list-style: none;
