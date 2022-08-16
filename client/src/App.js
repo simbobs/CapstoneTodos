@@ -12,6 +12,7 @@ import MainContainer from './containers/MainContainer';
 
 
 
+
 // import Request from './helpers/request';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
   const [selectedAttraction, setSelectedAttraction] = useState(null);
   const [user, setUser] = useState({});
   const [comments, setComments] = useState([]);
+
 
   //this is our filtered list state - needs to be set to null for logic to work
   const [filtered, setFiltered] = useState(null)
