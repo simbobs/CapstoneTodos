@@ -18,15 +18,15 @@ import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 const Button = styled.button`
 background: transparent;
 border-radius: 3px;
-border: 2px solid palevioletred;
-color: palevioletred;
+border: 2px solid #B96AC9;
+color: #B96AC9;
 margin: 0 1em;
 padding: 0.25em 1em;
 
 ${props =>
         props.primary &&
         css`
-  background: palevioletred;
+  background: #B96AC9;
   color: white;
 `};
 `
@@ -181,7 +181,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
                 <Button onClick={handleDelete}>Delete</Button>
 
-                <Link to="/edit">Edit</Link>
+                <Link to="/edit"><Button>Edit</Button></Link>
 
             </div>
 
