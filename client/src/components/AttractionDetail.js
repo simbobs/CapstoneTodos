@@ -7,13 +7,10 @@ import '../static/AttractionDetail.css'
 
 
 import CommentList from '../containers/CommentList';
-
 import { useState } from 'react';
 // import StarRatings from './react-star-ratings';
 
-
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
-import'leaflet/dist/leaflet.css';
 
 
 const Button = styled.button`
@@ -58,90 +55,81 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
         }).then(() => {
             goBackToList();
         })
-
+    
     }
 
     const busList = attraction.busRoutes.map((bus) => {
         return <ul>{bus}</ul>
-
+      
     })
 
 
-
+    
     return (
 
         <>
             <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans" />
             <link href='https://fonts.googleapis.com/css?family=Baloo Thambi 2' rel='stylesheet'></link>
-            <link href='https://fonts.googleapis.com/css?family=Baloo Bhaijaan' rel='stylesheet'></link>
 
             <div className='attraction-info'>
 
 
                 <div class="vl"></div>
-
-                
-                <iframe className='image' width='350px' height='200px'
-                    id="pic" src={attraction.image}
-                    marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0">
-                </iframe>
+                <img id="image" width="90%" height="auto" src={attraction.image}/>
                 <h1 className='detail-header'> {attraction.name}</h1>
-                <p className='attraction-type'>{attraction.attractionType}  |  {stars} stars out of 5</p>
-
+                 <p>{stars} stars out of 5</p>
+                <p className='attraction-type'>{attraction.attractionType}</p>
                 <p id='desc'>{attraction.description}</p>
                 <hr className='line' />
-                <p id='opening-hours'><b>OPENING HOURS:&nbsp;&nbsp;</b>{attraction.openingHours}</p>
+                <p id='opening-hours'><b>OPENING HOURS:</b>{attraction.openingHours}</p>
                 <hr className='line' />
+                <p>ENTRY PRICES:</p>
 
-                <p id='entry-heading'>ENTRY PRICES:</p>
-                <p id='prices'>Adult: £{attraction.adultEntryPrice}&nbsp;  &nbsp; Child: £{attraction.childEntryPrice}</p>
-                {/* <p> <b>Child:</b> £{attraction.childEntryPrice}</p> */}
-                <p id='concession-price'>Concession: £{attraction.concessionEntryPrice}</p>
+                {/* <StarRatings
+                    rating={stars}
+                    starRatedColor="blue"
+                    numberOfStars={5}
+                    name='rating'
+                /> */}
 
-                    {attraction.freeEntryForCarers ? <b>Free for Carers</b> : null}
-                    <hr className='line' />
-                
+        
+                <p> <b>Adult:</b> £{attraction.adultEntryPrice}</p>
+                <p> <b>Child:</b> £{attraction.childEntryPrice}</p>
+                <p> <b>Concession:</b> £{attraction.concessionEntryPrice}</p>
+                <div>
+                    {attraction.freeEntryForCarers ? <b>Free For Carers</b> : null}
+                </div>
+                <p> <b>Opening Hours:</b> {attraction.openingHours}</p>
                 <div>
                     <p>{attraction.isIndoors ? <b>Indoor Facilities</b> : null}</p>
-                    <hr className='line' />
                 </div>
 
                 <p> <b>Address:</b> {attraction.address}</p>
 
-                <div>
+                <div>    
                     <p>{attraction.isBusy ? <b> Currently is Busy</b> : <b> Currently is Quiet</b>} </p>
-                </div>
-
-
+                </div>    
+                
+               
                 <p> <b>Bus Routes:</b>{busList}</p>
-
-
-
             </div>
             <div>
-                {attraction.wheelchairAccessible ? <b>Wheelchair Accessible</b> : null}
+                {attraction.wheelchairAccessible ? <img src={''} /> : null}
             </div>
             <div>
-                {attraction.epilepsyFriendly ? <b>Epilepsy Friendly</b> : null}
+                {attraction.epilepsyFriendly ? <img src={''} /> : null}
             </div>
             <div>
-                {attraction.hasQuietRoom ? <b>Has A Quiet Room</b> : null}
+                {attraction.hasQuietRoom ? <img src={''} /> : null}
             </div>
             <div>
-                {attraction.hasParking ? <b>Parking Available</b> : null}
+                {attraction.hasParking ? <img src={''} /> : null}
             </div>
             <div>
-                {attraction.hasHeadphones ? <b>Sensory Headphones Available</b> : null}
+                {attraction.hasHeadphones ? <img src={''} /> : null}
             </div>
-
-
-
-            <p> <b>Address:</b> {attraction.address}</p>
             <div id="map">
-
-
                 <MapContainer center={[attraction.latitude, attraction.longitude]} zoom={16} scrollWheelZoom={false}>
-
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -150,27 +138,11 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                         <Popup>{attraction.name}</Popup>
                     </Marker>
                 </MapContainer>
-
-
-            </div> 
-
-
-       
-
-   
-
-            <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
-
+            </div>
             <Button primary onClick={goBackToList}>Back</Button>
-
-
             <Button onClick={handleDelete}>Delete</Button>
-
             <Link to="/edit">Edit</Link>
-
-
-
-
+            <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
         </>
     )
 }
