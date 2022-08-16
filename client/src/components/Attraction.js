@@ -27,9 +27,7 @@ const Attraction = ({ attraction, attractions, user, changeSelectedAttraction, a
 
     return (
         <>
-        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans" />
-        <link href='https://fonts.googleapis.com/css?family=Baloo Thambi 2' rel='stylesheet'></link>
-        <link href='https://fonts.googleapis.com/css?family=Baloo Bhaijaan' rel='stylesheet'></link>
+        
 
         <div>
             <div className="individual-item">
