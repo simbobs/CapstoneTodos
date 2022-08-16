@@ -13,9 +13,12 @@ const FavouriteList = ({ attractions, changeSelectedAttraction, goBackToList }) 
 
         //this handles the list to filter
 
+        user.attractions ?
+
         <div className="list-container">
             {attractionNodes}
-        </div> 
+        </div> :
+        <p> no favourites </p>
 
 
         
