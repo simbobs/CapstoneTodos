@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 
 
+
+
 const UserLogin = ({ user }) => {
 
 
@@ -11,14 +13,14 @@ const UserLogin = ({ user }) => {
     return (
         <>
             <div>
-                <form>
-                    <label>Username</label>
-                    <input type="textbox"></input>
+                <h1 id='add-form-header'>WELCOME TO TODOS</h1>
+                <form className="form">
+                    <input id='form-name' type="textbox" placeholder="Username"></input>
+                    <br />
 
-                    <label>Password</label>
-                    <input type="password"></input>
+                    <input id='form-hours' type="password" placeholder="Password"></input>
 
-                    <Link to="/home">login</Link>
+                    <Link to="/home"><button className='add-button'>LOGIN</button></Link>
 
 
                 </form>
