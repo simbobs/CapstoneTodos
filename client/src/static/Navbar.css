@@ -1,12 +1,12 @@
 .topnav {
     overflow: hidden;
-    background-color: #C9D7F8;
+    background-color: #B96AC9;
 }
 
 .topnav a {
     float: left;
     display: block;
-    color: #E84855;
+    color: #ffffff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -24,6 +24,7 @@
 
 .topnav .icon {
     display: none;
+    color: white;
 }
 
 @media screen and (max-width: 600px) {
