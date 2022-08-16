@@ -67,7 +67,10 @@ public class Attraction {
     private boolean hasMakatonSigner;
     @Column(name = "hasDisabledToilets")
     private boolean hasDisabledToilets;
-
+    @Column(name = "latitude")
+    private double latitude;
+    @Column(name = "longitude")
+    private double longitude;
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = true)
@@ -86,7 +89,7 @@ public class Attraction {
     @Column(name = "attraction_type")
     private AttractionType attractionType;
 
-    public Attraction(String name, String description, String address, double adultEntryPrice, double childEntryPrice, double concessionEntryPrice, boolean freeEntryForCarers, String openingHours, boolean isIndoors, String image, Location location, AttractionType attractionType) {
+    public Attraction(String name, String description, String address, double adultEntryPrice, double childEntryPrice, double concessionEntryPrice, boolean freeEntryForCarers, String openingHours, boolean isIndoors, String image, double latitude, double longitude, Location location, AttractionType attractionType) {
         this.name = name;
         this.description = description;
         this.address = address;
@@ -97,6 +100,8 @@ public class Attraction {
         this.openingHours = openingHours;
         this.isIndoors = isIndoors;
         this.image = image;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.location = location;
         this.users = new ArrayList<>();
         this.attractionType = attractionType;
@@ -348,4 +353,20 @@ public class Attraction {
     }
 
     public void addComment(Comment comment){this.comments.add(comment);}
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
 }
