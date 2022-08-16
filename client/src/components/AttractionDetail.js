@@ -2,7 +2,6 @@ import React from 'react'
 import styled, { css } from 'styled-components';
 import { deleteAttraction, editAttraction } from '../services/services';
 import { Link } from 'react-router-dom'
-
 import '../static/AttractionDetail.css'
 
 
@@ -11,6 +10,7 @@ import { useState } from 'react';
 // import StarRatings from './react-star-ratings';
 
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+
 
 
 const Button = styled.button`
@@ -59,8 +59,9 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
     }
 
     const busList = attraction.busRoutes.map((bus) => {
-        return <ul>{bus}</ul>
-      
+
+        return <li>{bus}</li>
+
     })
 
 
@@ -68,81 +69,120 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
     return (
 
         <>
-            <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans" />
-            <link href='https://fonts.googleapis.com/css?family=Baloo Thambi 2' rel='stylesheet'></link>
+
+
 
             <div className='attraction-info'>
 
 
-                <div class="vl"></div>
-                <img id="image" width="90%" height="auto" src={attraction.image}/>
+
+                <div className="vl"></div>
+
+
+
+                <iframe className='image' width='350px' height='200px'
+                    id="pic" src={attraction.image}
+                    marginWidth="0" marginHeight="0" frameBorder="0" vspace="0" hspace="0">
+                </iframe>
                 <h1 className='detail-header'> {attraction.name}</h1>
                  <p>{stars} stars out of 5</p>
                 <p className='attraction-type'>{attraction.attractionType}</p>
                 <p id='desc'>{attraction.description}</p>
                 <hr className='line' />
-                <p id='opening-hours'><b>OPENING HOURS:</b>{attraction.openingHours}</p>
+
+                    
+                <p id='opening-hours'><p id='opening-hours-header'>OPENING HOURS:&nbsp;&nbsp;</p>{attraction.openingHours}</p>
                 <hr className='line' />
-                <p>ENTRY PRICES:</p>
 
-                {/* <StarRatings
-                    rating={stars}
-                    starRatedColor="blue"
-                    numberOfStars={5}
-                    name='rating'
-                /> */}
+                <p id='entry-heading'>ENTRY PRICES:</p>
+                <p id='prices'>Adult: £{attraction.adultEntryPrice}&nbsp;  &nbsp; Child: £{attraction.childEntryPrice}</p>
+                {/* <p> <b>Child:</b> £{attraction.childEntryPrice}</p> */}
+                <p id='concession-price'>Concession: £{attraction.concessionEntryPrice}</p>
 
-        
-                <p> <b>Adult:</b> £{attraction.adultEntryPrice}</p>
-                <p> <b>Child:</b> £{attraction.childEntryPrice}</p>
-                <p> <b>Concession:</b> £{attraction.concessionEntryPrice}</p>
+
+                {attraction.freeEntryForCarers ? <p id='carers'>Free for Carers</p> : null}
+
+                <hr className='line' />
+
                 <div>
-                    {attraction.freeEntryForCarers ? <b>Free For Carers</b> : null}
-                </div>
-                <p> <b>Opening Hours:</b> {attraction.openingHours}</p>
-                <div>
-                    <p>{attraction.isIndoors ? <b>Indoor Facilities</b> : null}</p>
+                    <p>{attraction.isIndoors ? <b>Has Indoor Facilities</b> : null}</p>
+                    <hr className='line' />
+
                 </div>
 
-                <p> <b>Address:</b> {attraction.address}</p>
+
 
                 <div>    
                     <p>{attraction.isBusy ? <b> Currently is Busy</b> : <b> Currently is Quiet</b>} </p>
-                </div>    
-                
-               
-                <p> <b>Bus Routes:</b>{busList}</p>
+
+            
+                    <hr className='line' />
+                </div>
+
+
+
+                <p>Bus Routes:{busList}</p>
+
+
+
+                <div>
+                    {attraction.wheelchairAccessible ? <b>Wheelchair Accessible</b> : null}
+                </div>
+                <div>
+                    {attraction.epilepsyFriendly ? <b>Epilepsy Friendly</b> : null}
+                </div>
+                <div>
+                    {attraction.hasQuietRoom ? <b>Has A Quiet Room</b> : null}
+                </div>
+                <div>
+                    {attraction.hasParking ? <b>Parking Available</b> : null}
+                </div>
+                <div>
+                    {attraction.hasHeadphones ? <b>Sensory Headphones Available</b> : null}
+                </div>
+
+
+
+
+
+                <p> <b>Address:</b> {attraction.address}</p>
+                <div id="map">
+                    <MapContainer center={[attraction.latitude, attraction.longitude]} zoom={16} scrollWheelZoom={false}>
+
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <Marker position={[attraction.latitude, attraction.longitude]}>
+                            <Popup>{attraction.name}</Popup>
+                        </Marker>
+                    </MapContainer>
+
+
+                </div>
+
+
+
+
+
+
+
+
+                <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
+
+                <Button primary onClick={goBackToList}>Back</Button>
+
+
+                <Button onClick={handleDelete}>Delete</Button>
+
+                <Link to="/edit">Edit</Link>
+
             </div>
-            <div>
-                {attraction.wheelchairAccessible ? <img src={''} /> : null}
-            </div>
-            <div>
-                {attraction.epilepsyFriendly ? <img src={''} /> : null}
-            </div>
-            <div>
-                {attraction.hasQuietRoom ? <img src={''} /> : null}
-            </div>
-            <div>
-                {attraction.hasParking ? <img src={''} /> : null}
-            </div>
-            <div>
-                {attraction.hasHeadphones ? <img src={''} /> : null}
-            </div>
-            <div id="map">
-                <MapContainer center={[attraction.latitude, attraction.longitude]} zoom={16} scrollWheelZoom={false}>
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    <Marker position={[attraction.latitude, attraction.longitude]}>
-                        <Popup>{attraction.name}</Popup>
-                    </Marker>
-                </MapContainer>
-            </div>
-            <Button primary onClick={goBackToList}>Back</Button>
-            <Button onClick={handleDelete}>Delete</Button>
-            <Link to="/edit">Edit</Link>
-            <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
+
+
+
+
+
         </>
     )
 }

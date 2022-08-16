@@ -2,7 +2,9 @@ import React from 'react'
 import '../static/Navbar.css'
 import { Link } from 'react-router-dom';
 
-const Navbar = (bringBackList, selectedAttraction) => {
+
+const Navbar = ({ goBackToList, selectedAttraction }) => {
+
 
     const handleClick = () => {
         var x = document.getElementById("myTopnav");
@@ -14,16 +16,19 @@ const Navbar = (bringBackList, selectedAttraction) => {
     }
 
     const handleBack = () => {
+
         if (selectedAttraction) {
-            bringBackList();
+            goBackToList();
+
         }
+
     }
 
     return (
         <>
             <nav className="topnav" id="myTopnav">
 
-                <Link to="/" onClick={handleBack}>Todos</Link>
+                <Link to="/home" onClick={handleBack}>Todos</Link>
                 <Link to="/add">Add attraction</Link>
 
                 <Link to="/fave">Favourites List</Link>

@@ -26,20 +26,23 @@ const Attraction = ({ attraction, attractions, user, changeSelectedAttraction, a
     }
 
     return (
-        <div className="individual-item">
-            <img src={attraction.image} alt={attraction.name} width="280px" height="180px" />
-            <div className="button-group">
 
-                <li onClick={handleClick} value={attraction.id}> {attraction.name}</li>
-                <br>
+        <>
+        
 
-                </br>
-                <br></br>
-
-                <button onClick={handleFavourite} value={attraction.id}>Add to Faves</button>
-
+        <div>
+            <div className="individual-item">
+                <img src={attraction.image} alt={attraction.name} width="280px" height="180px" />
+                <p id="name">{attraction.name}</p>
             </div>
+                
+            <div className= "buttons">
+                <button id="selectButton" onClick={handleClick} value={attraction.id}> Tell Me More</button>
+                <button onClick={handleFavourite} value={attraction.id}>Add to Favourites</button>
+            </div>
+
         </div>
+        </>
     )
 }
 

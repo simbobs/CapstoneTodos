@@ -1,0 +1,296 @@
+/* .form{
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 85%;
+} */
+
+
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+    font-family: 'Baloo Thambi 2';
+    
+ }
+ 
+ .form #form-name{
+     width: 600px;
+     border-radius: 10px;
+     padding: 10px;
+ }
+ 
+ .form #form-description{
+     width: 600px;
+     height: 100px;
+     border-radius: 10px;
+     padding: 10px;
+     
+ }
+ 
+ .checkbox{
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     padding-right: 40%;
+     padding-left: 5%;
+ 
+     margin-bottom: 10px;
+ }
+ 
+ .dark input[type='text']{
+ 
+     background-color: white;
+     opacity: 85%;
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .dark #form-select{
+     width: 600px;
+     background-color: white;
+     opacity: 85%;
+     border-radius: 7px;
+     padding: 5px;
+     margin-bottom: 10px;
+ }
+ 
+ .dark input[type='float']{
+     background-color: white;
+     opacity: 85%;
+     font-family: 'Baloo Thambi 2';
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .dark #form-description{
+     background-color: white;
+     opacity: 85%;
+     font-family: 'Baloo Thambi 2';
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .dark #address{
+     width: 600px;
+     background-color: white;
+     opacity: 85%;
+     font-family: 'Baloo Thambi 2';
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .dark #form-hours{
+     width: 600px;
+     background-color: white;
+     opacity: 85%;
+     font-family: 'Baloo Thambi 2';
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .dark #image-form{
+     width: 600px;
+     background-color: white;
+     opacity: 85%;
+     font-family: 'Baloo Thambi 2';
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .dark ::placeholder{
+     color: #121212;
+     opacity: 100;
+ }
+ 
+ .dark #adult-price-form{
+     width: 600px;
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .dark #child-price-form{
+     width: 600px;
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .dark #concession-price-form{
+     width: 600px;
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .dark #form-type{
+     width: 600px;
+     background-color: white;
+     opacity: 85%;
+     border-radius: 7px;
+     padding: 5px;
+     margin-bottom: 10px;
+ }
+ 
+ .light #form-type{
+     width: 600px;
+     background-color: white;
+     opacity: 100%;
+     border-radius: 7px;
+     padding: 5px;
+     margin-bottom: 10px;
+ }
+ 
+ .light input[type='text']{
+ 
+     background-color: white;
+     opacity: 100%;
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .light #form-select{
+     width: 600px;
+     background-color: white;
+     opacity: 100%;
+     border-radius: 7px;
+     padding: 5px;
+     margin-bottom: 10px;
+ }
+ 
+ .light input[type='float']{
+     background-color: white;
+     opacity: 100%;
+     font-family: 'Baloo Thambi 2';
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .light #form-description{
+     background-color: white;
+     opacity: 100%;
+     font-family: 'Baloo Thambi 2';
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .light #address{
+     width: 600px;
+     background-color: white;
+     opacity: 100%;
+     font-family: 'Baloo Thambi 2';
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ 
+ }
+ 
+ .light #form-hours{
+     width: 600px;
+     background-color: white;
+     opacity: 100%;
+     font-family: 'Baloo Thambi 2';
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .light #image-form{
+     width: 600px;
+     background-color: white;
+     opacity: 100%;
+     font-family: 'Baloo Thambi 2';
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .light ::placeholder{
+     color: #121212;
+     opacity: 100;
+ }
+ 
+ .light #adult-price-form{
+     width: 600px;
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .light #child-price-form{
+     width: 600px;
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .light #concession-price-form{
+     width: 600px;
+     border-radius: 10px;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .light #form-type{
+     width: 600px;
+     background-color: rgb(255, 255, 255);
+     opacity: 100%;
+     border-radius: 7px;
+     padding: 5px;
+     margin-bottom: 10px;
+ }
+ 
+ .dark #add-form-header{
+     font-family: 'Baloo Bhaijaan';
+     font-size: 28px;
+     letter-spacing: -0.5pt;
+     margin-left: 9%;
+ }
+ 
+ .light #add-form-header{
+     font-family: 'Baloo Bhaijaan';
+     font-size: 28px;
+     color: #B96AC9;
+     letter-spacing: -0.5pt;
+     margin-left: 9%;
+ 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+     
+ 
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
