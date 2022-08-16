@@ -2,6 +2,7 @@ import React from 'react'
 import Comment from '../components/Comment'
 import { useState } from 'react'
 import { postComment } from '../services/services'
+import '../static/AttractionDetail.css'
 
 
 const CommentList = ({ comments, user, attraction, addNewComment }) => {
@@ -55,10 +56,10 @@ const CommentList = ({ comments, user, attraction, addNewComment }) => {
     return (
         <>
             <div>{commentNodes}</div>
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="review-form" onSubmit={handleSubmit}>
 
                 <input type="float" placeholder="rating" name="rating" onChange={handleChange} value={addComment.rating} />
-                <textarea name="review" placeholder="What did you think of this place?" onChange={handleChange} value={addComment.review} />
+                <textarea type="text" name="review" placeholder="What did you think of this place?" onChange={handleChange} value={addComment.review} />
 
 
 

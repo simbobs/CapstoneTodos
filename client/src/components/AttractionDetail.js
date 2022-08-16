@@ -78,33 +78,31 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
 
                 <div class="vl"></div>
-                <img id="image" width="90%" height="auto" src={attraction.image} />
+
+                
+                <iframe className='image' width='350px' height='200px'
+                    id="pic" src={attraction.image}
+                    marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0">
+                </iframe>
                 <h1 className='detail-header'> {attraction.name}</h1>
-                <p>{stars} stars out of 5</p>
-                <p className='attraction-type'>{attraction.attractionType}</p>
+                <p className='attraction-type'>{attraction.attractionType}  |  {stars} stars out of 5</p>
+
                 <p id='desc'>{attraction.description}</p>
                 <hr className='line' />
-                <p id='opening-hours'><b>OPENING HOURS:</b>{attraction.openingHours}</p>
+                <p id='opening-hours'><b>OPENING HOURS:&nbsp;&nbsp;</b>{attraction.openingHours}</p>
                 <hr className='line' />
-                <p>ENTRY PRICES:</p>
 
-                {/* <StarRatings
-                    rating={stars}
-                    starRatedColor="blue"
-                    numberOfStars={5}
-                    name='rating'
-                /> */}
+                <p id='entry-heading'>ENTRY PRICES:</p>
+                <p id='prices'>Adult: £{attraction.adultEntryPrice}&nbsp;  &nbsp; Child: £{attraction.childEntryPrice}</p>
+                {/* <p> <b>Child:</b> £{attraction.childEntryPrice}</p> */}
+                <p id='concession-price'>Concession: £{attraction.concessionEntryPrice}</p>
 
-
-                <p> <b>Adult:</b> £{attraction.adultEntryPrice}</p>
-                <p> <b>Child:</b> £{attraction.childEntryPrice}</p>
-                <p> <b>Concession:</b> £{attraction.concessionEntryPrice}</p>
-                <div>
                     {attraction.freeEntryForCarers ? <b>Free For Carers</b> : null}
-                </div>
-                <p> <b>Opening Hours:</b> {attraction.openingHours}</p>
+                    <hr className='line' />
+                
                 <div>
                     <p>{attraction.isIndoors ? <b>Indoor Facilities</b> : null}</p>
+                    <hr className='line' />
                 </div>
 
                 <p> <b>Address:</b> {attraction.address}</p>
@@ -152,11 +150,14 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 </MapContainer>
 
 
+            </div> 
+
+
        
 
-            </div>
+   
 
-
+            <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
 
             <Button primary onClick={goBackToList}>Back</Button>
 
@@ -164,7 +165,6 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
             <Button onClick={handleDelete}>Delete</Button>
 
             <Link to="/edit">Edit</Link>
-            <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
 
 
 
