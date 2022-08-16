@@ -8,6 +8,7 @@ import AddForm from './components/AddForm';
 import EditForm from './components/EditForm';
 import About from './components/About';
 import MainContainer from './containers/MainContainer';
+import FavouriteList from './containers/FavouriteList';
 
 
 
@@ -23,9 +24,15 @@ function App() {
   const [user, setUser] = useState({});
   const [comments, setComments] = useState([]);
 
+  const [favourites, setFavourites] = useState([])
+  console.log("faves",favourites)
+
+
 
   //this is our filtered list state - needs to be set to null for logic to work
   const [filtered, setFiltered] = useState(null)
+
+
 
   // state for light-dark-mode
   const [theme, setTheme] = useState(
@@ -55,10 +62,18 @@ function App() {
     getUser().then(user => setUser(user[0]));
   }, [])
 
+  // useEffect(() => {
+  //   getUser().then(user => setFavourites(user[0].attractions));
+  // }, [])
+
+  // .then(user => setFavourites(user.attractions))
+
   useEffect(() => {
     getComments()
       .then(data => setComments(data))
   }, [])
+
+
 
 
   const changeSelectedAttraction = (id) => {
@@ -83,26 +98,29 @@ function App() {
 
     const selected = selectedList[0]
 
+    const faveCopy = [... favourites]
     const userCopy = { ...user }
 
 
-    let userList = user.attractions.filter((attraction) => {
+    let searchUserList = faveCopy.filter((attraction) => {
       return attraction["id"] == parseInt(id)
 
     })
 
 
 
-    if (userList.length == 1) {
-      const index = userCopy.attractions.indexOf(selected)
+    if (searchUserList.length == 1) {
+      const index = faveCopy.indexOf(selected)
       console.log("i am the index", index)
-      userCopy.attractions.splice(index, 1);
-      setUser(userCopy);
+      faveCopy.splice(index, 1);
+      setFavourites(faveCopy)
+      setUser(userCopy["attractions"] = faveCopy);
       editUser(userCopy);
 
     } else {
-      userCopy.attractions.push(selected)
-      setUser(userCopy);
+      faveCopy.push(selected)
+      setFavourites(faveCopy)
+      setUser(userCopy["attractions"] = faveCopy);
       editUser(userCopy);
       console.log("you got else baby")
 
@@ -188,7 +206,7 @@ function App() {
           <Route path="/add" element={<AddForm locations={locations} onCreate={createAttraction} goBackToList={goBackToList} setSelectedAttraction={setSelectedAttraction} />} />
 
 
-          <Route path="/fave" element={<AttractionList attractions={user.attractions} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} addToUserFavourites={addToUserFavourites} />} />
+          <Route path="/fave" element={<FavouriteList favourites={favourites} selectedAttraction={selectedAttraction} changeSelectedAttraction={changeSelectedAttraction} goBackToList={goBackToList} addToUserFavourites={addToUserFavourites} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment} />} />
 
           <Route path="/edit" element={<EditForm selectedAttraction={selectedAttraction} setSelectedAttraction={setSelectedAttraction} locations={locations} updateAttraction={updateAttraction} />} />
 
