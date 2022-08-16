@@ -6,13 +6,11 @@ import '../static/AttractionDetail.css'
 
 
 import CommentList from '../containers/CommentList';
-
 import { useState } from 'react';
 // import StarRatings from './react-star-ratings';
 
-
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css';
+
 
 
 const Button = styled.button`
@@ -57,37 +55,42 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
         }).then(() => {
             goBackToList();
         })
-
+    
     }
 
     const busList = attraction.busRoutes.map((bus) => {
-        return <ul>{bus}</ul>
+
+        return <li>{bus}</li>
 
     })
 
 
-
+    
     return (
 
         <>
-            
+
 
 
             <div className='attraction-info'>
 
 
-                <div class="vl"></div>
+
+                <div className="vl"></div>
+
 
 
                 <iframe className='image' width='350px' height='200px'
                     id="pic" src={attraction.image}
-                    marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0">
+                    marginWidth="0" marginHeight="0" frameBorder="0" vspace="0" hspace="0">
                 </iframe>
                 <h1 className='detail-header'> {attraction.name}</h1>
-                <p className='attraction-type'>{attraction.attractionType}  |  {stars} stars out of 5</p>
-
+                 <p>{stars} stars out of 5</p>
+                <p className='attraction-type'>{attraction.attractionType}</p>
                 <p id='desc'>{attraction.description}</p>
                 <hr className='line' />
+
+                    
                 <p id='opening-hours'><p id='opening-hours-header'>OPENING HOURS:&nbsp;&nbsp;</p>{attraction.openingHours}</p>
                 <hr className='line' />
 
@@ -96,23 +99,30 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 {/* <p> <b>Child:</b> £{attraction.childEntryPrice}</p> */}
                 <p id='concession-price'>Concession: £{attraction.concessionEntryPrice}</p>
 
+
                 {attraction.freeEntryForCarers ? <p id='carers'>Free for Carers</p> : null}
+
                 <hr className='line' />
 
                 <div>
                     <p>{attraction.isIndoors ? <b>Has Indoor Facilities</b> : null}</p>
                     <hr className='line' />
+
                 </div>
 
 
 
-                <div>
+                <div>    
                     <p>{attraction.isBusy ? <b> Currently is Busy</b> : <b> Currently is Quiet</b>} </p>
+
+            
                     <hr className='line' />
                 </div>
 
 
+
                 <p>Bus Routes:{busList}</p>
+
 
 
                 <div>
@@ -168,6 +178,9 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 <Link to="/edit">Edit</Link>
 
             </div>
+
+
+
 
 
         </>
