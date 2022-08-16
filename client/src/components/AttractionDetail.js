@@ -55,16 +55,16 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
         }).then(() => {
             goBackToList();
         })
-    
+
     }
 
     const busList = attraction.busRoutes.map((bus) => {
         return <ul>{bus}</ul>
-      
+
     })
 
 
-    
+
     return (
 
         <>
@@ -75,9 +75,9 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
 
                 <div class="vl"></div>
-                <img id="image" width="90%" height="auto" src={attraction.image}/>
+                <img id="image" width="90%" height="auto" src={attraction.image} />
                 <h1 className='detail-header'> {attraction.name}</h1>
-                 <p>{stars} stars out of 5</p>
+                <p>{stars} stars out of 5</p>
                 <p className='attraction-type'>{attraction.attractionType}</p>
                 <p id='desc'>{attraction.description}</p>
                 <hr className='line' />
@@ -92,7 +92,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                     name='rating'
                 /> */}
 
-        
+
                 <p> <b>Adult:</b> £{attraction.adultEntryPrice}</p>
                 <p> <b>Child:</b> £{attraction.childEntryPrice}</p>
                 <p> <b>Concession:</b> £{attraction.concessionEntryPrice}</p>
@@ -106,14 +106,14 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
                 <p> <b>Address:</b> {attraction.address}</p>
 
-                <div>    
+                <div>
                     <p>{attraction.isBusy ? <b> Currently is Busy</b> : <b> Currently is Quiet</b>} </p>
-                </div>    
-                
-               
+                </div>
+
+
                 <p> <b>Bus Routes:</b>{busList}</p>
 
-                
+
 
             </div>
             <div>
@@ -132,7 +132,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 {attraction.hasHeadphones ? <img src={''} /> : null}
             </div>
 
-            
+
 
 
             <div id="map">
