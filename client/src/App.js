@@ -194,7 +194,8 @@ function App() {
         </div>
 
         <Routes>
-          <Route exact path="/" element={<MainContainer selectedAttraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment} userLoggedIn={userLoggedIn}
+          <Route path="/" element={<UserLogin setPopup={setPopup} user={user} />} />
+          <Route exact path="/home" element={<MainContainer selectedAttraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment} userLoggedIn={userLoggedIn}
             attractions={attractions} filtered={filtered} filter={createFilteredList} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} />} />
 
 
@@ -213,9 +214,9 @@ function App() {
         </Routes>
       </Router>
 
-      <Popup trigger={popup} setTrigger={setPopup}>
+      {/* <Popup trigger={popup} setTrigger={setPopup}>
         <UserLogin setPopup={setPopup} user={user} />
-      </Popup>
+      </Popup> */}
 
     </>
   )

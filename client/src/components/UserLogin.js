@@ -1,28 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 
 const UserLogin = ({ user }) => {
 
-    const [clicked, setClicked] = useState(false)
-
-    const handleLogin = () => {
-
-        setClicked(true)
-
-    }
-
-
-
 
 
 
     return (
-        clicked ?
-            <div>
-                <h2> Welcome {user.name} </h2>
-            </div>
-            :
+        <>
             <div>
                 <form>
                     <label>Username</label>
@@ -31,13 +18,13 @@ const UserLogin = ({ user }) => {
                     <label>Password</label>
                     <input type="password"></input>
 
-                    <button onClick={handleLogin}> login </button>
+                    <Link to="/home">login</Link>
 
 
                 </form>
             </div>
 
-
+        </>
 
     )
 

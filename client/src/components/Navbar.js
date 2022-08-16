@@ -24,7 +24,7 @@ const Navbar = (bringBackList, selectedAttraction, userLoggedIn) => {
         <>
             <nav className="topnav" id="myTopnav">
 
-                <Link to="/" onClick={handleBack}>Todos</Link>
+                <Link to="/home" onClick={handleBack}>Todos</Link>
                 <Link to="/add">Add attraction</Link>
 
                 <Link to="/fave">Favourites List</Link>
