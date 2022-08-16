@@ -2,9 +2,11 @@ package com.example.codeclan.attractions.components;
 
 import com.example.codeclan.attractions.enums.AttractionType;
 import com.example.codeclan.attractions.models.Attraction;
+import com.example.codeclan.attractions.models.Comment;
 import com.example.codeclan.attractions.models.Location;
 import com.example.codeclan.attractions.models.User;
 import com.example.codeclan.attractions.repositories.AttractionRepository;
+import com.example.codeclan.attractions.repositories.CommentRepository;
 import com.example.codeclan.attractions.repositories.LocationRepository;
 import com.example.codeclan.attractions.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    CommentRepository commentRepository;
 
     AttractionType attractionType;
 
@@ -60,9 +65,10 @@ public class DataLoader implements ApplicationRunner {
                 0.00,
                 0.00,
                 true,
-                "10.00 - 17.00 (7 days)",
+                "10AM - 5PM (7 days)",
                 true,
                 "https://i.ibb.co/MPPJbKX/dundee.jpg",
+                56.45739364245968, -2.966974304745474,
                 dundee,
                 AttractionType.MUSEUM);
         attractionRepository.save(vAndA);
@@ -85,9 +91,10 @@ public class DataLoader implements ApplicationRunner {
                 5.50,
                 7.80,
                 true,
-                "10.00 - 18.00 (11.00 on Sundays)",
+                "10AM - 6PM (11AM on Sundays)",
                 true,
                 "https://i.ibb.co/pwRStdv/discovery.jpg",
+                56.45704048630755, -2.9679251121868964,
                 dundee,
                 AttractionType.MUSEUM);
         attractionRepository.save(discoveryPoint);
@@ -108,9 +115,10 @@ public class DataLoader implements ApplicationRunner {
                 4.50,
                 5.00,
                 true,
-                "9.00 - 17.30",
+                "9AM - 5:30PM",
                 true,
                 "https://i.ibb.co/PZYXPfw/dundee-Science-Centre.jpg",
+                56.456540592560245, -2.974747443841276,
                 dundee,
                 AttractionType.MUSEUM);
         attractionRepository.save(dundeeScienceCentre);
@@ -132,9 +140,10 @@ public class DataLoader implements ApplicationRunner {
                 11.95,
                 11.95,
                 true,
-                "10.00 - 18.30",
+                "10AM - 6:30PM",
                 true,
                 "https://i.ibb.co/7jFXDpJ/adventure-park.jpg",
+                57.124320247850086, -2.0978442149813112,
                 aberdeen,
                 AttractionType.ENTERTAINMENT);
         attractionRepository.save(aberdeenAdventureParks);
@@ -154,9 +163,10 @@ public class DataLoader implements ApplicationRunner {
                 07.00,
                 08.50,
                 true,
-                "10.00 - 16.30",
+                "10AM - 4:30PM",
                 true,
                 "https://i.ibb.co/DRKythF/science-centre.jpg",
+                57.15329944314646, -2.0845910726511505,
                 aberdeen,
                 AttractionType.MUSEUM);
         attractionRepository.save(aberdeenScienceCentre);
@@ -178,9 +188,10 @@ public class DataLoader implements ApplicationRunner {
                 00.00,
                 00.00,
                 true,
-                "10.00 - 17.00",
+                "10AM - 5PM",
                 true,
                 "https://i.ibb.co/F00zqnV/art-gallery.jpg",
+                57.14815120234907, -2.102551801486792,
                 aberdeen,
                 AttractionType.MUSEUM);
         attractionRepository.save(aberdeenArtGallery);
@@ -204,9 +215,10 @@ public class DataLoader implements ApplicationRunner {
                 10.50,
                 10.50,
                 true,
-                "10.00 - 17.00",
+                "10AM - 5PM",
                 true,
                 "https://i.ibb.co/Y7VjXbc/glasgow-science-centre.jpg",
+                55.85868047323723, -4.293760086192168,
                 glasgow,
                 AttractionType.MUSEUM);
         attractionRepository.save(glasgowScienceCentre);
@@ -231,9 +243,10 @@ public class DataLoader implements ApplicationRunner {
                 00.00,
                 00.00,
                 true,
-                "10.00 - 15.30",
+                "10AM - 3:30PM",
                 false,
                 "https://i.ibb.co/L88b0z4/glasgow-tollcross-farm.jpg",
+                55.84767801991581, -4.175707343863459,
                 glasgow,
                 AttractionType.ZOO);
         attractionRepository.save(tollcrossFarm);
@@ -251,9 +264,10 @@ public class DataLoader implements ApplicationRunner {
                 00.00,
                 00.00,
                 true,
-                "07.00 - 10.00",
+                "OPEN 24HRS",
                 false,
                 "https://i.ibb.co/8m4VKP3/glasgow-queens-park.jpg",
+                55.83183436736665, -4.2704507707296715,
                 glasgow,
                 AttractionType.PARK);
         attractionRepository.save(queensPark);
@@ -273,9 +287,10 @@ public class DataLoader implements ApplicationRunner {
                 00.00,
                 18.10,
                 true,
-                "10.00 - 18.00",
+                "10AM - 6PM",
                 false,
                 "https://i.ibb.co/Qpk12Ct/edinbrugh-zoo.jpg",
+                55.94255198615939, -3.26860970852669,
                 edinburgh,
                 AttractionType.ZOO);
 
@@ -301,9 +316,10 @@ public class DataLoader implements ApplicationRunner {
                 00.00,
                 00.00,
                 true,
-                "10.00 - 17.00",
+                "10AM - 5PM",
                 true,
                 "https://i.ibb.co/2vF6w50/edinbrugh-national-museum.jpg",
+                55.947119634701586, -3.190577330366159,
                 edinburgh,
                 AttractionType.MUSEUM);
         attractionRepository.save(nationalMuseumofScotland);
@@ -325,9 +341,10 @@ public class DataLoader implements ApplicationRunner {
                 10.95,
                 15.20,
                 true,
-                "10.00 - 17.00",
+                "10AM - 5PM",
                 true,
                 "https://i.ibb.co/KLWwmj9/dynamic-earth-edinbrugh.jpg",
+                55.95086328018255, -3.1745965015306115,
                 edinburgh,
                 AttractionType.VISITOR_CENTRE);
         attractionRepository.save(dynamicEarth);
@@ -355,9 +372,10 @@ public class DataLoader implements ApplicationRunner {
                 03.00,
                 4.50,
                 true,
-                "06.00 - 21.00",
+                "6AM - 9PM",
                 true,
                 "https://i.ibb.co/4t01ZKs/the-peak-stirling.jpg",
+                56.11876576903853, -3.914445999676356,
                 stirling,
                 AttractionType.ENTERTAINMENT);
         attractionRepository.save(thePeak);
@@ -379,9 +397,10 @@ public class DataLoader implements ApplicationRunner {
                 00.00,
                 00.00,
                 true,
-                "always open",
+                "OPEN 24HRS",
                 false,
                 "https://i.ibb.co/YdVG58q/ba5a0abc694ea8d8736489f8dfe4aac5.jpg",
+                56.11420890926524, -3.94827604112986,
                 stirling,
                 AttractionType.PARK);
         attractionRepository.save(kingsPark);
@@ -399,9 +418,10 @@ public class DataLoader implements ApplicationRunner {
                 00.00,
                 00.00,
                 true,
-                "09:30-17:00",
+                "9:30PM-5PM",
                 false,
                 "https://i.ibb.co/BN5ny0w/kelpies.jpg",
+                56.01937789991856, -3.7556842015280893,
                 stirling,
                 AttractionType.PARK);
         attractionRepository.save(kelpies);
@@ -417,8 +437,8 @@ public class DataLoader implements ApplicationRunner {
 
         User jonny = new User("Jonny","ABC123");
         userRepository.save(jonny);
-//        jonny.addAttraction(kelpies);
-//        jonny.addAttraction(kingsPark);
-//        userRepository.save(jonny);
+
+        Comment comment = new Comment("Cammy", kelpies, 4.5, "I don't know what all the fuss is about.");
+        commentRepository.save(comment);
     }
 }

@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { postAttraction } from '../services/services.js'
-import "../static/form.css"
+
+// import "../static/Form.css"
+import "../static/AddForm.css"
+
 import { useNavigate } from 'react-router-dom';
 
 
@@ -82,25 +85,16 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
 
     return (
         <>
+            <h1 id='add-form-header'>ADD AN ATTRACTION</h1>
             <form className="form" onSubmit={handleSubmit}>
-                <input type="text" placeholder="Name" name="name" onChange={handleChange} value={attraction.name} />
-                <textarea placeholder="Description" name="description" onChange={handleChange} value={attraction.description} />
-                <textarea placeholder="Address" name="address" onChange={handleChange} value={attraction.address} />
-                <input type="float" placeholder="Adult Price" name="adultEntryPrice" onChange={handleChange} value={attraction.adultEntryPrice} />
-                <input type="float" placeholder="Child Price" name="childEntryPrice" onChange={handleChange} value={attraction.childEntryPrice} />
-                <input type="float" placeholder="Concession Price" name="concessionEntryPrice" onChange={handleChange} value={attraction.concessionEntryPrice} />
-                <label>Free Entry for Carers?</label>
-                <input type="checkbox" name="freeEntryForCarers" onChange={handleChange} value="true"></input>
-                <input type="text" placeholder="Opening Hours" name="openingHours" onChange={handleChange} value={attraction.openingHours} />
-                <label>Indoor Venue?</label>
-                <input type="checkbox" name="isIndoors" onChange={handleChange} value="true"></input>
-                <input type="text" placeholder="Image Url" name="image" onChange={handleChange} value={attraction.image} />
-                <select name="location" onChange={handleLocation} defaultValue="select-location">
+                <input id='form-name' type="text" placeholder="Name" name="name" onChange={handleChange} value={attraction.name} />
+                <select id='form-select' name="location" onChange={handleLocation} defaultValue="select-location">
                     <option disabled value="select-location">Select a City</option>
                     {locationOptions}
 
                 </select>
-                <select name="attractionType" onChange={handleChange} defaultValue="select-attraction-type">
+                <textarea id='form-description' placeholder="Description" name="description" onChange={handleChange} value={attraction.description} />
+                <select id='form-type' name="attractionType" onChange={handleChange} defaultValue="select-attraction-type">
                     <option disabled value="select-category">Select A Category</option>
                     <option value="MUSEUM">Museum</option>
                     <option value="PARK">Park</option>
@@ -113,9 +107,24 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
                     <option value="CASTLE">Castle</option>
 
                 </select>
+                <textarea id='address' placeholder="Address" name="address" onChange={handleChange} value={attraction.address} />
+                <input id='form-hours' type="text" placeholder="Opening Hours" name="openingHours" onChange={handleChange} value={attraction.openingHours} />
+                <input id='image-form' type="text" placeholder="Image Url" name="image" onChange={handleChange} value={attraction.image} />
+                <input id='adult-price-form' type="float" placeholder="Adult Price" name="adultEntryPrice" onChange={handleChange} />
+                <input id='child-price-form' type="float" placeholder="Child Price" name="childEntryPrice" onChange={handleChange} />
+                <input id='concession-price-form' type="float" placeholder="Concession Price" name="concessionEntryPrice" onChange={handleChange} />
+                <label>Free Entry For Carers</label>
+                <input type="checkbox" name="freeEntryForCarers" onChange={handleChange} value="true"></input>
+                <label>Indoor Venue</label>
+                <input type="checkbox" name="isIndoors" onChange={handleChange} value="true"></input>
 
 
-                <button type="submit">Add</button>
+                <button className='add-button' type="submit">Add Attraction</button>
+
+
+
+
+
 
 
 

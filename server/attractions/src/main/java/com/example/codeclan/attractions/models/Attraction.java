@@ -4,6 +4,7 @@ import com.example.codeclan.attractions.enums.AttractionType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -19,6 +20,11 @@ public class Attraction {
     private Long id;
     @Column(name = "name")
     private String name;
+
+    @JsonBackReference(value="attractionComments")
+    @OneToMany(mappedBy="attraction", fetch=FetchType.LAZY)
+    private List<Comment> comments = new ArrayList<>();
+
     @Column(name = "description", length = 1024)
     private String description;
     @Column(name = "address")
@@ -61,13 +67,16 @@ public class Attraction {
     private boolean hasMakatonSigner;
     @Column(name = "hasDisabledToilets")
     private boolean hasDisabledToilets;
-
+    @Column(name = "latitude")
+    private double latitude;
+    @Column(name = "longitude")
+    private double longitude;
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = true)
     private Location location;
 
-    @JsonBackReference
+    @JsonBackReference(value="users-attractions")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
@@ -80,7 +89,7 @@ public class Attraction {
     @Column(name = "attraction_type")
     private AttractionType attractionType;
 
-    public Attraction(String name, String description, String address, double adultEntryPrice, double childEntryPrice, double concessionEntryPrice, boolean freeEntryForCarers, String openingHours, boolean isIndoors, String image, Location location, AttractionType attractionType) {
+    public Attraction(String name, String description, String address, double adultEntryPrice, double childEntryPrice, double concessionEntryPrice, boolean freeEntryForCarers, String openingHours, boolean isIndoors, String image, double latitude, double longitude, Location location, AttractionType attractionType) {
         this.name = name;
         this.description = description;
         this.address = address;
@@ -91,6 +100,8 @@ public class Attraction {
         this.openingHours = openingHours;
         this.isIndoors = isIndoors;
         this.image = image;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.location = location;
         this.users = new ArrayList<>();
         this.attractionType = attractionType;
@@ -331,5 +342,31 @@ public class Attraction {
 
     public void addUsers(User user){
         this.users.add(user);
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public void addComment(Comment comment){this.comments.add(comment);}
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 }

@@ -1,7 +1,57 @@
 .attraction-info{
    text-align: center;
+   z-index: 2;
 }
 
 b{
     size: 20px;
 }
+
+.light {
+    background-color: #ffffff;
+}
+
+.light .individual-item{
+    color: #B96AC9;
+}
+
+.light .detail-header{
+    color: #B96AC9;
+}
+
+.light .attraction-type .opening-hours{
+    color: #121212;
+}
+
+.dark{
+    background-color: #121212;
+    color: white;
+}
+
+.dark .attraction-type #opening-hours .desc{
+    color: white;
+}
+
+.dark .vl{
+    border-left: 3px solid white;
+}
+
+/* .light-dark-mode {
+    color: var(--text-primary);
+    background-color: var(--background);
+    font-size: large;
+    font-weight: bold;
+    padding: 20px;
+    height: calc(100vh - 40px);
+    transition: all .5s;
+    z-index: 1;
+  } */
+  
+.button {
+    color: var(--text-primary);
+    background-color: var(--background);
+    border: 2px var(--text-primary) solid;
+    float: right;
+    transition: all .5s;
+}
+

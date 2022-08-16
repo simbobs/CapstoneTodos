@@ -3,9 +3,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 10px;
+    font-family: 'Baloo Bhaijaan';font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: -0.5pt;
+
 }
 
 .button-group {
     list-style: none;
 }
+
+#selectButton {
+    margin-right: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: -30px;
+}
+
+
+#name {
+    margin-top: -1px; 
+}
+

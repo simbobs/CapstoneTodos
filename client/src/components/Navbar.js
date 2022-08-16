@@ -2,7 +2,7 @@ import React from 'react'
 import '../static/Navbar.css'
 import { Link } from 'react-router-dom';
 
-const Navbar = (setSelectedAttraction) => {
+const Navbar = ({goBackToList, selectedAttraction}) => {
 
     const handleClick = () => {
         var x = document.getElementById("myTopnav");
@@ -14,8 +14,10 @@ const Navbar = (setSelectedAttraction) => {
     }
 
     const handleBack = () => {
-        setSelectedAttraction(null);
-        console.log("I clicked the span")
+        if (selectedAttraction){
+            goBackToList();
+        }
+      
     }
 
     return (
