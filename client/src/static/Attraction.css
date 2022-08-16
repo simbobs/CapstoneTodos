@@ -3,11 +3,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
-    font-family: 'Baloo Bhaijaan';font-size: 30px;
+    margin-top: 5px;
+    font-family: 'Baloo Bhaijaan';
+    font-size: 30px;
     text-transform: uppercase;
     letter-spacing: -0.5pt;
+    flex-basis: 280px;
 
+}
+
+.list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+.list-container::after {
+    content: "";
+    flex-basis: 280px;
 }
 
 .button-group {
@@ -28,6 +42,7 @@
 
 
 #name {
-    margin-top: -1px; 
+    margin-top: -1px;
+    width: 280px;
+    text-align: center;
 }
-

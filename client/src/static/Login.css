@@ -1,0 +1,13 @@
+.login-header {
+    font-family: 'Baloo Bhaijaan';
+    font-size: 28px;
+    letter-spacing: -0.5pt;
+}
+
+.user-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 80vh;
+}
