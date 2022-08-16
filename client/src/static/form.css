@@ -256,6 +256,22 @@
     margin-bottom: 10px;
 }
 
+.dark #add-form-header{
+    font-family: 'Baloo Bhaijaan';
+    font-size: 28px;
+    letter-spacing: -0.5pt;
+    margin-left: 9%;
+}
+
+.light #add-form-header{
+    font-family: 'Baloo Bhaijaan';
+    font-size: 28px;
+    color: #B96AC9;
+    letter-spacing: -0.5pt;
+    margin-left: 9%;
+
+}
+
 
 
 
