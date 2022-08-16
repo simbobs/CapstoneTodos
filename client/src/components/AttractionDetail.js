@@ -12,7 +12,7 @@ import { useState } from 'react';
 
 
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
-import'leaflet/dist/leaflet.css';
+import 'leaflet/dist/leaflet.css';
 
 
 const Button = styled.button`
@@ -80,7 +80,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
                 <div class="vl"></div>
 
-                
+
                 <iframe className='image' width='350px' height='200px'
                     id="pic" src={attraction.image}
                     marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0">
@@ -98,14 +98,14 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 {/* <p> <b>Child:</b> £{attraction.childEntryPrice}</p> */}
                 <p id='concession-price'>Concession: £{attraction.concessionEntryPrice}</p>
 
-                    {attraction.freeEntryForCarers ? <p id='carers'>Free for Carers</p> : null}
-                    <hr className='line' />
-                
+                {attraction.freeEntryForCarers ? <p id='carers'>Free for Carers</p> : null}
+                <hr className='line' />
+
                 <div>
                     <p>{attraction.isIndoors ? <b>Has Indoor Facilities</b> : null}</p>
                     <hr className='line' />
                 </div>
-                
+
 
 
                 <div>
@@ -115,8 +115,8 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
 
                 <p>Bus Routes:{busList}</p>
-            
-                
+
+
                 <div>
                     {attraction.wheelchairAccessible ? <b>Wheelchair Accessible</b> : null}
                 </div>
@@ -135,38 +135,30 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
 
 
-                <MapContainer center={[attraction.latitude, attraction.longitude]} zoom={16} scrollWheelZoom={false}>
 
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    <Marker position={[attraction.latitude, attraction.longitude]}>
-                        <Popup>{attraction.name}</Popup>
-                    </Marker>
-                </MapContainer>
 
                 <p> <b>Address:</b> {attraction.address}</p>
                 <div id="map">
+                    <MapContainer center={[attraction.latitude, attraction.longitude]} zoom={16} scrollWheelZoom={false}>
 
-
-                    <MapContainer center={[56.45739364245968, -2.966974304745474]} zoom={16} scrollWheelZoom={false}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
-                        <Marker position={[56.45739364245968, -2.966974304745474]}>
+                        <Marker position={[attraction.latitude, attraction.longitude]}>
                             <Popup>{attraction.name}</Popup>
                         </Marker>
                     </MapContainer>
+
+
                 </div>
 
-           
 
 
-       
 
-   
+
+
+
 
                 <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
 
@@ -177,7 +169,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
                 <Link to="/edit">Edit</Link>
 
-            </div> 
+            </div>
 
 
         </>
