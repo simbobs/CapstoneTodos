@@ -120,19 +120,19 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
             </div>
             <div>
-                {attraction.wheelchairAccessible ? <img src={''} /> : null}
+                {attraction.wheelchairAccessible ? <b>Wheelchair Accessible</b> : null}
             </div>
             <div>
-                {attraction.epilepsyFriendly ? <img src={''} /> : null}
+                {attraction.epilepsyFriendly ? <b>Epilepsy Friendly</b> : null}
             </div>
             <div>
-                {attraction.hasQuietRoom ? <img src={''} /> : null}
+                {attraction.hasQuietRoom ? <b>Has A Quiet Room</b> : null}
             </div>
             <div>
-                {attraction.hasParking ? <img src={''} /> : null}
+                {attraction.hasParking ? <b>Parking Available</b> : null}
             </div>
             <div>
-                {attraction.hasHeadphones ? <img src={''} /> : null}
+                {attraction.hasHeadphones ? <b>Sensory Headphones Available</b> : null}
             </div>
 
             
