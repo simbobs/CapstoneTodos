@@ -8,7 +8,7 @@ import AddForm from './components/AddForm';
 import EditForm from './components/EditForm';
 import About from './components/About';
 import MainContainer from './containers/MainContainer';
-import FavouriteList from './components/FavouriteList';
+
 
 
 import Filter from './components/filterComponents/Filter';
@@ -24,7 +24,7 @@ function App() {
   const [selectedAttraction, setSelectedAttraction] = useState(null);
   const [user, setUser] = useState({});
   const [comments, setComments] = useState([]);
-  const [favourites, setFavourites] = useState(user.attractions)
+
 
   //this is our filtered list state - needs to be set to null for logic to work
   const [filtered, setFiltered] = useState(null)
