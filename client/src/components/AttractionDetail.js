@@ -61,7 +61,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
     }
 
     const busList = attraction.busRoutes.map((bus) => {
-        return <ul>{bus}</ul>
+        return <li>{bus}</li>
 
     })
 
@@ -70,18 +70,19 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
     return (
 
         <>
-            
+
 
 
             <div className='attraction-info'>
 
 
-                <div class="vl"></div>
+                <div className="vl"></div>
+
 
 
                 <iframe className='image' width='350px' height='200px'
                     id="pic" src={attraction.image}
-                    marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0">
+                    marginWidth="0" marginHeight="0" frameBorder="0" vspace="0" hspace="0">
                 </iframe>
                 <h1 className='detail-header'> {attraction.name}</h1>
                 <p className='attraction-type'>{attraction.attractionType}  |  {stars} stars out of 5</p>
@@ -96,7 +97,9 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 {/* <p> <b>Child:</b> £{attraction.childEntryPrice}</p> */}
                 <p id='concession-price'>Concession: £{attraction.concessionEntryPrice}</p>
 
+
                 {attraction.freeEntryForCarers ? <p id='carers'>Free for Carers</p> : null}
+
                 <hr className='line' />
 
                 <div>
@@ -112,7 +115,9 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 </div>
 
 
+
                 <p>Bus Routes:{busList}</p>
+
 
 
                 <div>
@@ -168,6 +173,8 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 <Link to="/edit">Edit</Link>
 
             </div>
+
+
 
 
         </>
