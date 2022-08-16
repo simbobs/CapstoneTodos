@@ -1,48 +1,35 @@
-import React, {useState} from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 
-const UserLogin = ({user}) => {
-
-    const [clicked, setClicked] = useState(false)
-
-    const handleLogin = () => {
-
-        setClicked(true)
-      
-    }
-
-
-    
+const UserLogin = ({ user }) => {
 
 
 
-    return(
-        clicked ?
-        <div>
-        <h2> Welcome {user.name} </h2>
-    </div>
-    :
-        <div>
-            <form>
-                <label>Username</label>
-                <input type="textbox"></input>
 
-                <label>Password</label>
-                <input type="textbox"></input>
+    return (
+        <>
+            <div>
+                <form>
+                    <label>Username</label>
+                    <input type="textbox"></input>
 
-                <button onClick ={handleLogin}> login </button>
+                    <label>Password</label>
+                    <input type="password"></input>
 
-                
-            </form>
-        </div>
-    
+                    <Link to="/home">login</Link>
 
-       
+
+                </form>
+            </div>
+
+        </>
+
     )
 
 
 
-  
+
 }
 export default UserLogin;

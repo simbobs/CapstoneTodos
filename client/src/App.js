@@ -8,6 +8,7 @@ import AddForm from './components/AddForm';
 import EditForm from './components/EditForm';
 import About from './components/About';
 import MainContainer from './containers/MainContainer';
+import UserLogin from './components/UserLogin';
 
 
 
@@ -17,6 +18,7 @@ import MainContainer from './containers/MainContainer';
 
 function App() {
 
+  const [popup, setPopup] = useState(true);
   const [locations, setLocations] = useState([])
   const [attractions, setAttractions] = useState([])
   const [selectedAttraction, setSelectedAttraction] = useState(null);
@@ -59,6 +61,12 @@ function App() {
     getComments()
       .then(data => setComments(data))
   }, [])
+
+  // This function needs to called every time you go back to the home page because the popup state must be set to false otherwise the user log in screen shows
+
+  const userLoggedIn = () => {
+    setPopup(false);
+  }
 
 
   const changeSelectedAttraction = (id) => {
@@ -173,14 +181,17 @@ function App() {
 
       <Router>
 
+
         <Navbar selectedAttraction={selectedAttraction} goBackToList={goBackToList} />
+
 
         <div className={`App ${theme}`}>
           <button onClick={toggleTheme}>Toggle Theme</button>
         </div>
 
         <Routes>
-          <Route exact path="/" element={<MainContainer selectedAttraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment}
+          <Route path="/" element={<UserLogin setPopup={setPopup} user={user} />} />
+          <Route exact path="/home" element={<MainContainer selectedAttraction={selectedAttraction} locations={locations} removeAttraction={removeAttraction} goBackToList={goBackToList} updateAttraction={updateAttraction} comments={comments} user={user} addNewComment={addNewComment} userLoggedIn={userLoggedIn}
             attractions={attractions} filtered={filtered} filter={createFilteredList} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} />} />
 
 
@@ -198,6 +209,10 @@ function App() {
 
         </Routes>
       </Router>
+
+      {/* <Popup trigger={popup} setTrigger={setPopup}>
+        <UserLogin setPopup={setPopup} user={user} />
+      </Popup> */}
 
     </>
   )
