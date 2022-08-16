@@ -135,6 +135,17 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
 
 
+                <MapContainer center={[attraction.latitude, attraction.longitude]} zoom={16} scrollWheelZoom={false}>
+
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={[attraction.latitude, attraction.longitude]}>
+                        <Popup>{attraction.name}</Popup>
+                    </Marker>
+                </MapContainer>
+
                 <p> <b>Address:</b> {attraction.address}</p>
                 <div id="map">
 
