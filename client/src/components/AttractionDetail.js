@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components';
 import { deleteAttraction, editAttraction } from '../services/services';
 import { Link } from 'react-router-dom'
 import CommentList from '../containers/CommentList';
-
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+import'leaflet/dist/leaflet.css';
 
 const Button = styled.button`
 background: transparent;
@@ -96,7 +96,10 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
             <div id="map">
 
-            <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+            <MapContainer 
+            zoom={1}
+            style={{ height: '50vh', width: '50vh'}}
+             > 
             <TileLayer
                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -107,6 +110,8 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
             </Popup>
             </Marker>
             </MapContainer>
+
+       
 
             </div>
 
