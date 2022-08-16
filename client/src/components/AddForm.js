@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { postAttraction } from '../services/services.js'
-import "../static/Form.css"
+// import "../static/Form.css"
+import "../static/AddForm.css"
 import { useNavigate } from 'react-router-dom';
 
 
