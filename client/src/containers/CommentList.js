@@ -57,7 +57,7 @@ const CommentList = ({ comments, user, attraction, addNewComment }) => {
         <>
             <div>{commentNodes}</div>
             <form className="review-form" onSubmit={handleSubmit}>
-
+                <label name="rating">Rate your experience 1 - 5</label>
                 <input type="float" placeholder="rating" name="rating" onChange={handleChange} value={addComment.rating} />
                 <textarea type="text" name="review" placeholder="What did you think of this place?" onChange={handleChange} value={addComment.review} />
 

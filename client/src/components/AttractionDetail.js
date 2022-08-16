@@ -8,6 +8,8 @@ import '../static/AttractionDetail.css'
 import CommentList from '../containers/CommentList';
 import { useState } from 'react';
 // import StarRatings from './react-star-ratings';
+import Rating from '@mui/material/Rating';
+
 
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
@@ -55,7 +57,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
         }).then(() => {
             goBackToList();
         })
-    
+
     }
 
     const busList = attraction.busRoutes.map((bus) => {
@@ -65,7 +67,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
     })
 
 
-    
+
     return (
 
         <>
@@ -85,12 +87,16 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                     marginWidth="0" marginHeight="0" frameBorder="0" vspace="0" hspace="0">
                 </iframe>
                 <h1 className='detail-header'> {attraction.name}</h1>
-                 <p>{stars} stars out of 5</p>
+
+                <div className="stars"><Rating name="read-only" value={stars} readOnly /></div>
+
+
+
                 <p className='attraction-type'>{attraction.attractionType}</p>
                 <p id='desc'>{attraction.description}</p>
                 <hr className='line' />
 
-                    
+
                 <p id='opening-hours'><p id='opening-hours-header'>OPENING HOURS:&nbsp;&nbsp;</p>{attraction.openingHours}</p>
                 <hr className='line' />
 
@@ -112,10 +118,10 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
 
 
-                <div>    
+                <div>
                     <p>{attraction.isBusy ? <b> Currently is Busy</b> : <b> Currently is Quiet</b>} </p>
 
-            
+
                     <hr className='line' />
                 </div>
 
