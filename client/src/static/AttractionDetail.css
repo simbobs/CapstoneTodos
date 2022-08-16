@@ -163,3 +163,9 @@ iframe {
     width: 80%;
     margin: auto;
 }
+
+.stars {
+    margin-top: 15px;
+    float: right;
+    margin-right: 5px;
+}
