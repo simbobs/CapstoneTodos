@@ -17,6 +17,7 @@
     /* margin-bottom: -9%; */
     margin-left: 10%;
     font-size: 30pt;
+    margin-bottom: -8%;
 
 }
 
@@ -44,7 +45,7 @@ iframe {
 }
 
 .vl {
-    display: inline-block;
+    /* display: inline-block; */
     border-left: 3px solid #B96AC9;
     display: flex;
     height: 70px;
@@ -61,6 +62,20 @@ iframe {
     padding-left: 12%;
     opacity: 50%;
     letter-spacing: -0.5pt;
+}
+
+.light .attraction-info #opening-hours-header {
+    letter-spacing: -0.5pt;
+    font-size: 16pt;
+    color: #B96AC9;
+    margin-bottom: 0%;
+}
+
+.dark .attraction-info #opening-hours-header {
+    letter-spacing: -0.5pt;
+    font-size: 16pt;
+    margin-bottom: 0%;
+    
 }
 
 .attraction-info #opening-hours {
@@ -88,16 +103,35 @@ iframe {
     object-fit: scale-down;
 }
 
-#entry-heading{
+.light #entry-heading{
+    margin-bottom: -6%;
+    color: #B96AC9;
+}
+
+.dark #entry-heading{
     margin-bottom: -6%;
 }
 
-#prices{
+.light #prices{
+    margin-bottom: -6%;
+    opacity: 50%;
+}
+
+.light #concession-price{
+    margin-bottom: -6%;
+    opacity: 50%;
+}
+
+.light #carers{
+    opacity: 50%;
+}
+
+.dark #prices{
     margin-bottom: -6%;
 }
 
-#concession-price{
-    margin-bottom: 0%;
+.dark #concession-price{
+    margin-bottom: -6%;
 }
 
 .light input[type='float']{

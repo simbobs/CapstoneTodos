@@ -26,6 +26,7 @@ const Attraction = ({ attraction, attractions, user, changeSelectedAttraction, a
     }
 
     return (
+
         <>
         
 

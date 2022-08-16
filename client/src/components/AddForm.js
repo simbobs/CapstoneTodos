@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { postAttraction } from '../services/services.js'
-import "../static/form.css"
+
+// import "../static/Form.css"
+import "../static/AddForm.css"
+
 import { useNavigate } from 'react-router-dom';
 
 
@@ -82,6 +85,7 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
 
     return (
         <>
+            <h1 id='add-form-header'>ADD AN ATTRACTION</h1>
             <form className="form" onSubmit={handleSubmit}>
                 <input id='form-name' type="text" placeholder="Name" name="name" onChange={handleChange} value={attraction.name} />
                 <select id='form-select' name="location" onChange={handleLocation} defaultValue="select-location">
