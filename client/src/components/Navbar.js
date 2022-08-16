@@ -13,16 +13,16 @@ const Navbar = (changeSelectedAttraction) => {
         }
     }
 
-    const handleBack = () => {
-        changeSelectedAttraction(null);
-        console.log("I clicked the span")
-    }
+    // const handleBack = () => {
+    //     changeSelectedAttraction(null);
+    //     console.log("I clicked the span")
+    // }
 
     return (
         <>
             <nav className="topnav" id="myTopnav">
 
-                <Link to="/" onClick={handleBack}>Todos</Link>
+                <Link to="/">Todos</Link>
                 <Link to="/add">Add attraction</Link>
 
                 <Link to="/fave">Favourites List</Link>

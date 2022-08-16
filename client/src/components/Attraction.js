@@ -12,7 +12,7 @@ const Attraction = ({ attraction, attractions, user, changeSelectedAttraction, a
 
     const handleClick = (event) => {
         const id = event.target.value;
-        console.log(index);
+        // console.log(index);
         changeSelectedAttraction(id);
     }
 
@@ -20,15 +20,8 @@ const Attraction = ({ attraction, attractions, user, changeSelectedAttraction, a
 
     const handleFavourite = (event) => {
         const index = event.target.value;
-        const attraction = attractions[index]
-        const userAttractions = user.attractions
-        if (userAttractions.includes(attraction)) {
-            deleteFromUserFavourites(attraction);
-        } else {
-            addToUserFavourites(attraction);
-        }
 
-
+        addToUserFavourites(index);
 
     }
 
