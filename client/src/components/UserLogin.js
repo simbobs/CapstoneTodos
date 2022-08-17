@@ -36,7 +36,7 @@ const UserLogin = ({ user }) => {
                 <h1 className="login-header">WELCOME TO TODOS</h1>
                 <form className="login-form">
                     <input className="form-name" type="textbox" placeholder="Username"></input>
-                    <br></br>
+
 
                     <input className="form-name" type="password" placeholder="Password"></input>
                 </form>

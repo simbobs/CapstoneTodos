@@ -15,22 +15,27 @@
     height: 80vh;
 }
 
-.form-hours {
-    /* width: 600px; */
+.form-name {
+    width: 80vw;
     background-color: white;
+    text-align: center;
     opacity: 100%;
     font-family: 'Baloo Thambi 2';
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px;
     margin-bottom: 10px;
 }
 
 .login-form {
-    display: inline-block;
-    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
     width: 330px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10px;
     font-family: 'Baloo Thambi 2';
     border-radius: 10px;
 
