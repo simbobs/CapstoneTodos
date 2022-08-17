@@ -87,7 +87,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                     marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0">
                 </iframe>
                 <h1 className='detail-header'> {attraction.name}</h1>
-                <p className='attraction-type'>{attraction.attractionType}  |  {stars} stars out of 5</p>
+                <p className='attraction-type'>{attraction.attractionType}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;{stars} stars out of 5</p>
 
                 <p id='desc'>{attraction.description}</p>
                 <hr className='line' />
@@ -151,19 +151,20 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 </div>
 
                 <p id='bus-routes'><i className='fa fa-bus'></i>&nbsp;  &nbsp;<span id='bus-routes-header'>Bus Routes:&nbsp; &nbsp;</span>{busList}</p>
-
+                <h3 id='reviews-header'>Reviews</h3>
                 <div id='comments-list-wrapper'>
                     <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
                 </div>
                 
+                <div className='detail-buttons'>
 
-                <Button primary onClick={goBackToList}>Back</Button>
+                    <Button primary onClick={goBackToList}>Back</Button>
 
 
-                <Button onClick={handleDelete}>Delete</Button>
+                    <Button onClick={handleDelete}>Delete</Button>
 
-                <Link to="/edit">Edit</Link>
-
+                    <Link to="/edit">Edit</Link>
+                </div>
             </div>
 
 

@@ -3,14 +3,18 @@ import React from 'react'
 const Comment = ({ comment, index }) => {
     return (
         <>
-
-        <h3 id='comment-name'>Name: {comment.name}</h3>
-        <div className='comments-section'>
+        
+        <div id='user-comment-wrapper'>
+            <img id='avatar' src='https://i.ibb.co/Tb6w6ms/avatar.png' alt='anon-avatar-pic'></img>
+            <h4 id='comment-name'>Name: {comment.name}</h4>
+            <div className='comments-section'>
             
-            <p>Rating: {comment.rating}</p>
-            <p>{comment.review}</p>
+            <p id='rating-score'>Rating: {comment.rating}</p>
+            <p id='user-comment'>{comment.review}</p>
+        </div>
 
         </div>
+
         </>
     )
 }

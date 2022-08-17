@@ -1,0 +1,122 @@
+.light #location-filter-heading{
+    font-family: 'Baloo Bhaijaan';font-size: 22px;
+    text-transform: uppercase;
+    display: flex;
+    margin-bottom: 2%;
+    color: #B96AC9;
+}
+
+.dark #location-filter-heading{
+    font-family: 'Baloo Bhaijaan';font-size: 22px;
+    text-transform: uppercase;
+    display: flex;
+    margin-bottom: 1%;
+}
+
+.light #accessibility-filter-heading{
+    font-family: 'Baloo Bhaijaan';font-size: 22px;
+    text-transform: uppercase;
+    display: flex;
+    margin-bottom: 1%;
+    color: #B96AC9;
+}
+
+.dark #accessibility-filter-heading{
+    font-family: 'Baloo Bhaijaan';font-size: 22px;
+    text-transform: uppercase;
+    display: flex;
+    margin-bottom: 1%;
+}
+
+.filter-bits-n-bobs{
+    margin-left: 5%;
+    margin-right: 5%;
+    line-height: 16pt;
+    font-family: "PT Sans";
+}
+
+#filter-dropdown{
+    width: 85%;
+}
+/* 
+.dropdown-check-list {
+    display: inline-block;
+  }
+  
+  .dropdown-check-list .anchor {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 50px 5px 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .dropdown-check-list .anchor:after {
+    position: absolute;
+    content: "";
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    padding: 5px;
+    right: 10px;
+    top: 20%;
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+  }
+  
+  .dropdown-check-list .anchor:active:after {
+    right: 8px;
+    top: 21%;
+  }
+  
+  .dropdown-check-list ul.items {
+    padding: 2px;
+    display: none;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+  
+  .dropdown-check-list ul.items li {
+    list-style: none;
+  }
+  
+  .dropdown-check-list.visible .anchor {
+    color: #0094ff;
+  }
+  
+  .dropdown-check-list.visible .items {
+    display: block;
+  } */
+
+  .light #checkbox-css{
+    display: inline-block;
+    justify-content: space-between;
+    margin-bottom: 10%;
+    font-size: 12pt;
+  }
+
+  .dark #checkbox-css{
+    display: inline-block;
+    justify-content: space-between;
+    margin-bottom: 10%;
+    
+  }
+
+  .light #location-dropdown{
+    font-size: 12pt;
+    font-family: 'Baloo Thambi 2';
+    border-radius: 7px;
+  }
+
+  .dark #location-dropdown{
+    font-size: 12pt;
+    font-family: 'Baloo Thambi 2';
+    background-color: white;
+     opacity: 85%;
+     border-radius: 7px;
+  }
+
+ 

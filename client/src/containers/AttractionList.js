@@ -14,7 +14,7 @@ const AttractionList = ({ filtered, attractions, changeSelectedAttraction, addTo
     return (
 
         //this handles the list to filter
-
+        
         filtered && filtered.length > 0 ?
         <div className="list-container">
             {attractionNodes}
@@ -28,6 +28,7 @@ const AttractionList = ({ filtered, attractions, changeSelectedAttraction, addTo
                 <h2>no results matching your search were found </h2>
         </div>
 
+        
 
         
     )
