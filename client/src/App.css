@@ -54,3 +54,34 @@ b {
     float: right;
     transition: all .5s;
 }
+
+.light #light-dark-toggle-button{
+    display: inline-block;
+    background-color:#B96AC9;
+    color: whitesmoke;
+    border: none;
+    height: 30px;
+    font-family: 'Baloo Thambi 2';
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.dark #light-dark-toggle-button{
+    display: inline-block;
+    background-color:transparent;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    height: 30px;
+    font-family: 'Baloo Thambi 2';
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+
+
+
+

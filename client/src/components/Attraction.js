@@ -36,9 +36,9 @@ const Attraction = ({ attraction, attractions, user, changeSelectedAttraction, a
                 <p id="name">{attraction.name}</p>
             </div>
                 
-            <div className= "buttons">
-                <button id="selectButton" onClick={handleClick} value={attraction.id}> Tell Me More</button>
-                <button onClick={handleFavourite} value={attraction.id}>Add to Favourites</button>
+            <div id='button-group'>
+                <button className='buttons-detail' onClick={handleClick} value={attraction.id}> Tell Me More</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button className='buttons-detail' onClick={handleFavourite} value={attraction.id}>Favourite</button>
             </div>
 
         </div>

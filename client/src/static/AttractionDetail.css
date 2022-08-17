@@ -52,7 +52,7 @@ iframe {
     position: absolute;
     left: 11%;
     margin-left: -5%;
-    top: 36%;
+    top: 39.3%;
 }
 
 .attraction-type {
@@ -321,6 +321,47 @@ iframe {
     height: auto;
 }
 
+#edit-button{
+    display: inline-block;
+    text-decoration: none;
+
+}
+
+#edit-button-flex{
+    display: inline-block;
+}
+
+#edit-button-flex{
+    display: inline-block;
+}
+
+.light .buttons-detail{
+    display: inline-block;
+    background-color:#B96AC9;
+    color: whitesmoke;
+    border: none;
+    height: 30px;
+    font-family: 'Baloo Thambi 2';
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.dark .buttons-detail{
+    background-color:transparent;
+    color: whitesmoke;
+    border: 1px solid white;
+    height: 30px;
+    font-family: 'Baloo Thambi 2';
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
 
 
 
@@ -341,7 +382,7 @@ iframe {
 
 
 .stars {
-    margin-top: 15px;
-    float: right;
-    margin-right: 5px;
+    display: inline-block;
+
+
 }

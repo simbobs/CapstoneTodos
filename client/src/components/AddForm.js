@@ -119,7 +119,7 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
                 <input type="checkbox" name="isIndoors" onChange={handleChange} value="true"></input>
 
 
-                <button className='add-button' type="submit">Add Attraction</button>
+                <button className='buttons-detail' type="submit">Add Attraction</button>
 
 
 
