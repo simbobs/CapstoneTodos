@@ -19,9 +19,9 @@ const Attraction = ({ attraction, attractions, user, changeSelectedAttraction, a
     // Adds to favourites state
 
     const handleFavourite = (event) => {
-        const index = event.target.value;
+        const id = event.target.value;
 
-        addToUserFavourites(index);
+        addToUserFavourites(id);
 
     }
 
@@ -30,9 +30,9 @@ const Attraction = ({ attraction, attractions, user, changeSelectedAttraction, a
         <>
         
 
-        <div>
+        <div className='attractions-block'>
             <div className="individual-item">
-                <img src={attraction.image} alt={attraction.name} width="280px" height="180px" />
+                <img id="list-photo" src={attraction.image} alt={attraction.name} width="280px" height="180px" />
                 <p id="name">{attraction.name}</p>
             </div>
                 
