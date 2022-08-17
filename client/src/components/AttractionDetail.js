@@ -62,15 +62,21 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
     const busList = attraction.busRoutes.map((bus) => {
 
-        return <li>{bus}</li>
+       
+        return ` ${bus} `
+
 
     })
+
+
 
 
 
     return (
 
         <>
+
+            <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"></link>
 
 
 
@@ -87,6 +93,9 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                     marginWidth="0" marginHeight="0" frameBorder="0" vspace="0" hspace="0">
                 </iframe>
                 <h1 className='detail-header'> {attraction.name}</h1>
+
+                <p className='attraction-type'>{attraction.attractionType}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;{stars} stars out of 5</p>
+
 
                 <div className="stars"><Rating name="read-only" value={stars} readOnly /></div>
 
@@ -111,7 +120,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 <hr className='line' />
 
                 <div>
-                    <p>{attraction.isIndoors ? <b>Has Indoor Facilities</b> : null}</p>
+                    <p>{attraction.isIndoors ? <p>Has Indoor Facilities</p> : null}</p>
                     <hr className='line' />
 
                 </div>
@@ -119,39 +128,34 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
 
                 <div>
-                    <p>{attraction.isBusy ? <b> Currently is Busy</b> : <b> Currently is Quiet</b>} </p>
 
-
+                    <p>{attraction.isBusy ? <p> Currently is Busy</p> : <p> Currently is Quiet</p>} </p>
                     <hr className='line' />
                 </div>
 
-
-
-                <p>Bus Routes:{busList}</p>
-
-
-
                 <div>
-                    {attraction.wheelchairAccessible ? <b>Wheelchair Accessible</b> : null}
-                </div>
-                <div>
-                    {attraction.epilepsyFriendly ? <b>Epilepsy Friendly</b> : null}
-                </div>
-                <div>
-                    {attraction.hasQuietRoom ? <b>Has A Quiet Room</b> : null}
-                </div>
-                <div>
-                    {attraction.hasParking ? <b>Parking Available</b> : null}
-                </div>
-                <div>
-                    {attraction.hasHeadphones ? <b>Sensory Headphones Available</b> : null}
+                    {attraction.wheelchairAccessible ? <p>Wheelchair Accessible</p> : null}
                 </div>
 
+                <div>
+                    {attraction.epilepsyFriendly ? <p>Epilepsy Friendly</p> : null}
+                </div>
+
+                <div>
+                    {attraction.hasQuietRoom ? <p>Has A Quiet Room</p> : null}
+                </div>
+                <div>
+                    {attraction.hasParking ? <p>Parking Available</p> : null}
+                </div>
+                <div>
+                    {attraction.hasHeadphones ? <p>Sensory Headphones Available</p> : null}
+                </div>
+                <hr className='line' />
 
 
 
 
-                <p> <b>Address:</b> {attraction.address}</p>
+                <p id='address-deets'><span id='address-header'>Address:&nbsp;</span> {attraction.address}</p>
                 <div id="map">
                     <MapContainer center={[attraction.latitude, attraction.longitude]} zoom={16} scrollWheelZoom={false}>
 
@@ -163,25 +167,24 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                             <Popup>{attraction.name}</Popup>
                         </Marker>
                     </MapContainer>
-
-
                 </div>
 
+                <p id='bus-routes'><i className='fa fa-bus'></i>&nbsp;  &nbsp;<span id='bus-routes-header'>Bus Routes:&nbsp; &nbsp;</span>{busList}</p>
+                <h3 id='reviews-header'>Reviews</h3>
+                <div id='comments-list-wrapper'>
+                    <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
+                </div>
+                
+                <div className='detail-buttons'>
+
+                    <Button primary onClick={goBackToList}>Back</Button>
 
 
+                    <Button onClick={handleDelete}>Delete</Button>
 
 
-
-
-
-                <CommentList comments={comments} user={user} attraction={attraction} addNewComment={addNewComment} />
-
-                <Button primary onClick={goBackToList}>Back</Button>
-
-
-                <Button onClick={handleDelete}>Delete</Button>
-
-                <Link to="/edit"><Button>Edit</Button></Link>
+                    <Link to="/edit">Edit</Link>
+                </div>
 
             </div>
 
