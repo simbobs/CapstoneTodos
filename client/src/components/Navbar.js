@@ -29,7 +29,7 @@ const Navbar = ({ goBackToList, selectedAttraction }) => {
             <nav className="topnav" id="myTopnav">
 
 
-                <Link id='todos' to="/" onClick={handleBack}>Todos</Link>
+                <Link id='todos' to="/home" onClick={handleBack}>Todos</Link>
 
                 <Link to="/add">Add attraction</Link>
 

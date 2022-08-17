@@ -60,7 +60,7 @@ const EditForm = ({ locations, selectedAttraction, setSelectedAttraction, update
         const tempFormData = attraction;
         updateAttraction(tempFormData);
         setSelectedAttraction(tempFormData);
-        navigate("/");
+        navigate("/home");
 
     }
 

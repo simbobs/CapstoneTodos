@@ -67,7 +67,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10AM - 5PM (7 days)",
                 true,
-                "https://i.ibb.co/MPPJbKX/dundee.jpg",
+                "https://i.ibb.co/RD8LW3X/dundee.jpg",
                 56.45739364245968, -2.966974304745474,
                 dundee,
                 AttractionType.MUSEUM);
@@ -93,7 +93,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10AM - 6PM (11AM on Sundays)",
                 true,
-                "https://i.ibb.co/pwRStdv/discovery.jpg",
+                "https://i.ibb.co/5kSKjGS/discovery.jpg",
                 56.45704048630755, -2.9679251121868964,
                 dundee,
                 AttractionType.MUSEUM);
@@ -117,7 +117,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "9AM - 5:30PM",
                 true,
-                "https://i.ibb.co/PZYXPfw/dundee-Science-Centre.jpg",
+                "https://i.ibb.co/c1v3sSK/dundee-Science-Centre.jpg",
                 56.456540592560245, -2.974747443841276,
                 dundee,
                 AttractionType.MUSEUM);
@@ -142,7 +142,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10AM - 6:30PM",
                 true,
-                "https://i.ibb.co/7jFXDpJ/adventure-park.jpg",
+                "https://i.ibb.co/G2qz7Sf/adventure-park.jpg",
                 57.124320247850086, -2.0978442149813112,
                 aberdeen,
                 AttractionType.ENTERTAINMENT);
@@ -165,7 +165,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10AM - 4:30PM",
                 true,
-                "https://i.ibb.co/DRKythF/science-centre.jpg",
+                "https://i.ibb.co/6PsGXrT/science-centre.jpg",
                 57.15329944314646, -2.0845910726511505,
                 aberdeen,
                 AttractionType.MUSEUM);
@@ -190,7 +190,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10AM - 5PM",
                 true,
-                "https://i.ibb.co/F00zqnV/art-gallery.jpg",
+                "https://i.ibb.co/YPmy2Tt/art-gallery.jpg",
                 57.14815120234907, -2.102551801486792,
                 aberdeen,
                 AttractionType.MUSEUM);
@@ -217,7 +217,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10AM - 5PM",
                 true,
-                "https://i.ibb.co/Y7VjXbc/glasgow-science-centre.jpg",
+                "https://i.ibb.co/tm0sBhf/glasgow-science-centre.jpg",
                 55.85868047323723, -4.293760086192168,
                 glasgow,
                 AttractionType.MUSEUM);
@@ -245,7 +245,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10AM - 3:30PM",
                 false,
-                "https://i.ibb.co/L88b0z4/glasgow-tollcross-farm.jpg",
+                "https://i.ibb.co/NS9jbSd/glasgow-tollcross-farm.jpg",
                 55.84767801991581, -4.175707343863459,
                 glasgow,
                 AttractionType.ZOO);
@@ -266,7 +266,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "OPEN 24HRS",
                 false,
-                "https://i.ibb.co/8m4VKP3/glasgow-queens-park.jpg",
+                "https://i.ibb.co/qD9WbkZ/glasgow-queens-park.jpg",
                 55.83183436736665, -4.2704507707296715,
                 glasgow,
                 AttractionType.PARK);
@@ -289,7 +289,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10AM - 6PM",
                 false,
-                "https://i.ibb.co/Qpk12Ct/edinbrugh-zoo.jpg",
+                "https://i.ibb.co/fFmWXCV/edinbrugh-zoo.jpg",
                 55.94255198615939, -3.26860970852669,
                 edinburgh,
                 AttractionType.ZOO);
@@ -302,9 +302,6 @@ public class DataLoader implements ApplicationRunner {
         edinburghZoo.addBusRoute("12");
         edinburghZoo.addBusRoute("26");
         edinburghZoo.addBusRoute("31");
-        edinburghZoo.addBusRoute("900");
-        edinburghZoo.addBusRoute("904");
-        edinburghZoo.addBusRoute("909");
         edinburghZoo.setHasDisabledToilets(true);
         attractionRepository.save(edinburghZoo);
 
@@ -318,7 +315,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10AM - 5PM",
                 true,
-                "https://i.ibb.co/2vF6w50/edinbrugh-national-museum.jpg",
+                "https://i.ibb.co/X44J9DT/with-its-soaring-pillars.jpg",
                 55.947119634701586, -3.190577330366159,
                 edinburgh,
                 AttractionType.MUSEUM);
@@ -343,7 +340,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "10AM - 5PM",
                 true,
-                "https://i.ibb.co/KLWwmj9/dynamic-earth-edinbrugh.jpg",
+                "https://i.ibb.co/cQVnzCZ/dynamic-earth-edinbrugh.jpg",
                 55.95086328018255, -3.1745965015306115,
                 edinburgh,
                 AttractionType.VISITOR_CENTRE);
@@ -374,7 +371,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "6AM - 9PM",
                 true,
-                "https://i.ibb.co/4t01ZKs/the-peak-stirling.jpg",
+                "https://i.ibb.co/nL3XjYw/the-peak-stirling.jpg",
                 56.11876576903853, -3.914445999676356,
                 stirling,
                 AttractionType.ENTERTAINMENT);
@@ -399,7 +396,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "OPEN 24HRS",
                 false,
-                "https://i.ibb.co/YdVG58q/ba5a0abc694ea8d8736489f8dfe4aac5.jpg",
+                "https://i.ibb.co/s9N7rSb/ba5a0abc694ea8d8736489f8dfe4aac5.jpg",
                 56.11420890926524, -3.94827604112986,
                 stirling,
                 AttractionType.PARK);
@@ -420,7 +417,7 @@ public class DataLoader implements ApplicationRunner {
                 true,
                 "9:30PM-5PM",
                 false,
-                "https://i.ibb.co/BN5ny0w/kelpies.jpg",
+                "https://i.ibb.co/wpDq8XB/kelpies.jpg",
                 56.01937789991856, -3.7556842015280893,
                 stirling,
                 AttractionType.PARK);

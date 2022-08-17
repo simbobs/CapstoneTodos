@@ -45,7 +45,7 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
             averageRating = 3.5;
         }
 
-        return averageRating;
+        return parseInt(averageRating);
     }
 
     const stars = findAverageRating();
