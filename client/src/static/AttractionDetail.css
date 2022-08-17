@@ -1,8 +1,8 @@
-
 .leaflet-container {
     width: 100vw;
     height: 70vh;
 }
+
 .attraction-info {
     font-family: 'Baloo Bhaijaan';
     font-size: 22px;
@@ -15,8 +15,8 @@
     flex-wrap: wrap;
     text-transform: uppercase;
     /* margin-bottom: -9%; */
-    margin-left: 10%;
-    font-size: 30pt;
+    margin-left: 11%;
+    font-size: 16pt;
     margin-bottom: -8%;
 
 }
@@ -41,18 +41,18 @@
 }
 
 iframe {
-    margin-bottom: -8%;
+    margin-bottom: -1%;
 }
 
 .vl {
     /* display: inline-block; */
     border-left: 3px solid #B96AC9;
     display: flex;
-    height: 70px;
+    height: 50px;
     position: absolute;
     left: 11%;
     margin-left: -5%;
-    top: 34%;
+    top: 36%;
 }
 
 .attraction-type {
@@ -75,23 +75,21 @@ iframe {
     letter-spacing: -0.5pt;
     font-size: 16pt;
     margin-bottom: 0%;
-    
+
 }
 
 .attraction-info #opening-hours {
     letter-spacing: -0.5pt;
     font-size: 16pt;
+    
 }
 
-/* #map {
-    height: 100px;
+/* forms for comments */
 
-} */
-
-.review-form{
+.light .review-form {
     display: flex;
    flex-wrap: wrap;
-   width: 85%;
+   width: 95%;
    margin-left: auto;
    margin-right: auto;
    justify-content: space-around;
@@ -99,45 +97,81 @@ iframe {
 
 }
 
-#pic{
-    object-fit: scale-down;
+.dark .review-form {
+    display: flex;
+   flex-wrap: wrap;
+   width: 95%;
+   margin-left: auto;
+   margin-right: auto;
+   justify-content: space-around;
+   font-family: 'Baloo Thambi 2';
+
+} 
+
+.review-form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+    font-family: 'Baloo Thambi 2';
+
 }
 
-.light #entry-heading{
+#pic {
+    object-fit: scale-down;
+
+}
+
+.light #entry-heading {
     margin-bottom: -6%;
     color: #B96AC9;
 }
 
-.dark #entry-heading{
+.dark #entry-heading {
     margin-bottom: -6%;
 }
 
-.light #prices{
+.light #prices {
     margin-bottom: -6%;
+
+}
+
+.light #concession-price {
+    margin-bottom: -6%;
+
     opacity: 50%;
 }
 
-.light #concession-price{
-    margin-bottom: -6%;
+.light #carers {
     opacity: 50%;
+
 }
 
-.light #carers{
-    opacity: 50%;
-}
-
-.dark #prices{
+.dark #prices {
     margin-bottom: -6%;
 }
 
-.dark #concession-price{
+.dark #concession-price {
     margin-bottom: -6%;
 }
 
-.light input[type='float']{
+.light input[type='float'] {
     width: 85%;
     background-color: white;
     opacity: 100%;
+    font-family: 'Baloo Thambi 2';
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+.dark input[type='float']{
+    width: 85%;
+    background-color: white;
+    opacity: 85%;
     font-family: 'Baloo Thambi 2';
     border-radius: 10px;
     padding: 10px;
@@ -145,6 +179,7 @@ iframe {
 }
 
 .light input[type='text']{
+
     width: 85%;
     background-color: white;
     opacity: 100%;
@@ -155,4 +190,158 @@ iframe {
 }
 
 
+.leaflet-container{
+    height: 400px;
+}
 
+.bus-container{
+    display: inline-flex;
+}
+
+#bus-routes{
+    display: inline-flex;
+}
+
+.light #bus-routes-header{
+    display: inline-flex;
+    color: #B96AC9;
+}
+
+.light #address-header{
+    color: #B96AC9;
+}
+
+#address-deets{
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.light #comments-text{
+    width: 85%;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: 'Baloo Thambi 2';
+}
+
+.dark #comments-text{
+    width: 85%;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: 'Baloo Thambi 2';
+    opacity: 85%;
+}
+
+
+.light #user-comment-wrapper{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border: 1px solid black;
+    background-color:rgb(255, 255, 255);
+    box-shadow: 10px 10px 30px 5px rgb(213, 213, 213);
+    border-radius: 15px;
+    width: 85%;
+    padding: 10px;
+    margin-bottom: 10%;
+    border-style: none;
+}
+
+.dark #user-comment-wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border: 1px solid rgb(255, 255, 255);
+    background-color:transparent;
+    border-radius: 15px;
+    width: 85%;
+    padding: 10px;
+    margin-bottom: 10%;
+}
+
+.light #comment-name{
+    color: rgb(0, 0, 0);
+    margin-top: 0%;
+    margin-bottom: -5%;
+}
+
+.dark #comment-name{
+
+    margin-top: 0%;
+    margin-bottom: -5%;
+}
+
+#ratings-score{
+    margin-top: 0%;
+
+}
+
+.light #reviews-header{
+    color: #B96AC9;
+    margin-top: 0%;
+}
+
+.dark #reviews-header{
+    margin-top: 0%;
+}
+
+#rating-score{
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.light #user-comment{
+    color: rgb(0, 0, 0);
+    align-items: center;
+    margin-bottom: 0%;
+    margin-top: 0%;
+}
+
+.dark #user-comment{
+    align-items: center;
+    margin-bottom: 0%;
+    margin-top: 0%;
+}
+
+.detail-buttons{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#avatar{
+
+    width: 80px;
+    height: auto;
+}
+
+
+
+
+
+
+
+
+
+.comment {
+    font-family: "PT Sans";
+    /* color: black; */
+    text-align: left;
+    letter-spacing: -0.5pt;
+    line-height: normal;
+    width: 80%;
+    margin: auto;
+}
+
+
+.stars {
+    margin-top: 15px;
+    float: right;
+    margin-right: 5px;
+}

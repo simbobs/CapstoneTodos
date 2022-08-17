@@ -440,5 +440,26 @@ public class DataLoader implements ApplicationRunner {
 
         Comment comment = new Comment("Cammy", kelpies, 4.5, "I don't know what all the fuss is about.");
         commentRepository.save(comment);
+
+        Comment comment1 = new Comment("Simona", vAndA, 5, "The cafe has lots of nice treats!");
+        commentRepository.save(comment1);
+
+        Comment comment2 = new Comment("Lou", glasgowScienceCentre, 3, "Who knew science could be so fun!");
+        commentRepository.save(comment2);
+
+        Comment comment3 = new Comment("Bob", discoveryPoint, 1, "It cost a lot of money.");
+        commentRepository.save(comment3);
+
+        Comment comment4 = new Comment("Jonny", tollcrossFarm, 4, "So cool they have llamas in the East End.");
+        commentRepository.save(comment4);
+
+        Comment comment5 = new Comment("Dev", kingsPark, 5, "Great park for dog walks and BBQs.");
+        commentRepository.save(comment5);
+
+        Comment comment6 = new Comment("Kieran", edinburghZoo, 2, "They don't have any budgies...");
+        commentRepository.save(comment6);
+
+        Comment comment7 = new Comment("Jonny", vAndA, 4.5, "It's better to book ahead if you need the BSL guide.");
+        commentRepository.save(comment7);
     }
 }

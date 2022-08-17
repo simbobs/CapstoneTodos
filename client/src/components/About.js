@@ -23,7 +23,15 @@ const About = () => {
 		<h3>Our App</h3>
 		<p>
     We have built an App that shows Scotland off in a modern and interactive directive. 
-    Our app allows carers to tarck and view attractions all over Scotland to see theaccessability and information of each attraction.  
+    Our app allows carers to tarck and view attractions all over Scotland to see the accessability and information of each attraction.  
+		</p>
+	</li>
+  <li>
+		<h4>How?</h4>
+		<h3>Software</h3>
+		<p>
+    To set up our database we used java and spring to create an API that we could use in the front end.
+    Our frontend was built using JavaScript and React with different dependencies.
 		</p>
 	</li>
 	<li>
@@ -46,14 +54,6 @@ const About = () => {
     <a href="https://github.com/louarchibald">Louise Archibald</a>
 		</p>
     </div>
-	</li>
-  <li>
-		<h4>How?</h4>
-		<h3>Software</h3>
-		<p>
-    To set up our database we used java and spring to create an API that we could use in the front end.
-    Our frontend was built using JavaScript and React with different dependencies.
-		</p>
 	</li>
 </ul>        
     </>

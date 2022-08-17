@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-
-// import "../static/Form.css"
 import "../static/AddForm.css"
-
 import { Navigate, useNavigate } from 'react-router-dom';
 
 const EditForm = ({ locations, selectedAttraction, setSelectedAttraction, updateAttraction }) => {
@@ -35,8 +32,6 @@ const EditForm = ({ locations, selectedAttraction, setSelectedAttraction, update
         epilepsyFriendly: selectedAttraction.epilepsyFriendly,
         busy: selectedAttraction.busy,
         loud: selectedAttraction.loud
-
-
 
     })
 
@@ -97,7 +92,7 @@ const EditForm = ({ locations, selectedAttraction, setSelectedAttraction, update
     return (
 
         <>
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="edit-form" onSubmit={handleSubmit}>
                 <input type="text" placeholder="Name" name="name" onChange={handleChange} value={attraction.name} />
                 <textarea placeholder="Description" name="description" onChange={handleChange} value={attraction.description} />
                 <textarea placeholder="Address" name="address" onChange={handleChange} value={attraction.address} />

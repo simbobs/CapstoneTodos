@@ -1,0 +1,8 @@
+.edit-form{
+    display: flex;
+    align-items: center;
+    width: 85%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: 'Baloo Thambi 2';
+}

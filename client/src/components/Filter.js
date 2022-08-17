@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import AttractionList from '../containers/AttractionList';
+import '../static/Filter.css'
 
 
 // USE THIS FILE
@@ -27,9 +28,6 @@ const Filter = (({ filtered, filter, attractions, locations, changeSelectedAttra
     filter(filteredList);
 
   }
-
-
-
 
 
   // this handles the checkboxes and updates the filter list
@@ -60,54 +58,85 @@ const Filter = (({ filtered, filter, attractions, locations, changeSelectedAttra
 
   }
 
+    // function for dropdown with checkboxes
+//       var checkList = document.getElementById('list1');
+//     checkList.getElementsByClassName('items')[0].onclick = function(evt) {
+//       if (checkList.classList.contains('visible'))
+//         checkList.classList.remove('visible');
+//       else
+//         checkList.classList.add('visible');
+// }
+// const checkList = document.getElementById('list1');
+// console.log(checkList.getElementsByClassName('anchor')[0]);
+
+
   //lou - this is inside a form so I can use the reset button on all the entries
   return (
     <>
-      <form>
+      <form className='filter-bits-n-bobs'>
         {/* this filters by location */}
-        <h2>Filter By Location</h2>
-        <select defaultValue="select-location" onChange={handleChange}>
-          <option disabled value="select-location">pick a location</option>
+        <span><h2 id='location-filter-heading'>Filter By Location</h2>
+        <select id='location-dropdown' defaultValue="select-location" onChange={handleChange}>
+          <option disabled value="select-location">Choose a Location</option>
           {locationNodes}
-        </select>
+        </select></span>
+
+
+        {/* this was/is the dropdown with checkboxes */}
+        {/* <div id="list1" className="dropdown-check-list" tabindex="100">
+            <span className="anchor">Filter By Individual Needs</span>
+            <ul className="items">
+              <li><input type="checkbox" name="isIndoors" checked={checked} onChange={handleSelect} value="true"></input>Indoor Venue </li>
+              <li><input type="checkbox" name="isWheelchairAccessible" checked={checked} onChange={handleSelect} value="true"></input>Wheelchair Accessible</li>
+              <li><input type="checkbox" name="isEpilepsyFriendly" checked={checked} onChange={handleSelect} value="true"></input>Epilepsy Friendly</li>
+              <li><input type="checkbox" name="hasQuietRoom" checked={checked} onChange={handleSelect} value="true"></input>Quiet Room </li>
+              <li><input type="checkbox" name="hasLift" checked={checked} onChange={handleSelect} value="true"></input>Lift</li>
+              <li><input type="checkbox" name="hasParking" checked={checked} onChange={handleSelect} value="true"></input>Parking</li>
+              <li><input type="checkbox" name="hasHeadphones" checked={checked} onChange={handleSelect} value="true"></input>Noise Cancelling Headphones Available </li>
+              <li><input type="checkbox" name="hasBSLSigner" checked={checked} onChange={handleSelect} value="true"></input>BSL Signers On Premises</li>
+              <li><input type="checkbox" name="hasMakatonSigner" checked={checked} onChange={handleSelect} value="true"></input>Makaton Signers On Premises</li>
+              <li><input type="checkbox" name="hasDisabledToilets" checked={checked} onChange={handleSelect} value="true"></input>Disabled Toilets</li>
+            </ul>
+        </div>}
+
+        
 
 
         {/* this filters by checkbox*/}
-        <h2>Filter By Individual Needs</h2>
+        <h2 id='accessibility-filter-heading'>Filter By Individual Needs</h2>
+            <div id='checkbox-css'>
+              <label>Indoor Venue</label>
+              <input type="checkbox" name="isIndoors" checked={checked} onChange={handleSelect} value="true"></input>&nbsp;&nbsp;&nbsp;
+              <label>Wheelchair accessible</label>
+              <input type="checkbox" name="isWheelchairAccessible" checked={checked} onChange={handleSelect} value="true"></input>&nbsp;&nbsp;&nbsp;
+              <label>Lift</label>
+              <input type="checkbox" name="hasLift" checked={checked} onChange={handleSelect} value="true"></input>
+              <br></br>
+              <label>Epilepsy Friendly</label>
+              <input type="checkbox" name="isEpilepsyFriendly" checked={checked} onChange={handleSelect} value="true"></input>&nbsp;&nbsp;&nbsp;&nbsp;
 
-        <label>Indoor Venue</label>
-        <input type="checkbox" name="isIndoors" checked={checked} onChange={handleSelect} value="true"></input>
+              <label>Quiet Room</label>
+              <input type="checkbox" name="hasQuietRoom" checked={checked} onChange={handleSelect} value="true"></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-        <label>Wheelchair accessible</label>
-        <input type="checkbox" name="isWheelchairAccessible" checked={checked} onChange={handleSelect} value="true"></input>
+              <label>Parking</label>
+              <input type="checkbox" name="hasParking" checked={checked} onChange={handleSelect} value="true"></input>
+              <br></br>
+              <label>Noise Cancelling Headphones Available</label>
+              <input type="checkbox" name="hasHeadphones" checked={checked} onChange={handleSelect} value="true"></input>
+              <br></br>
 
-        <label>Epilepsy Friendly</label>
-        <input type="checkbox" name="isEpilepsyFriendly" checked={checked} onChange={handleSelect} value="true"></input>
+              <label>BSL Signers on Premises</label>
+              <input type="checkbox" name="hasBSLSigner" checked={checked} onChange={handleSelect} value="true"></input>&nbsp;&nbsp;&nbsp;
 
-        <label>Quiet Room</label>
-        <input type="checkbox" name="hasQuietRoom" checked={checked} onChange={handleSelect} value="true"></input>
+              <label>Disabled Toilets</label>
+              <input type="checkbox" name="hasDisabledToilets" checked={checked} onChange={handleSelect} value="true"></input>
 
-        <label>Lift</label>
-        <input type="checkbox" name="hasLift" checked={checked} onChange={handleSelect} value="true"></input>
-
-        <label>Parking</label>
-        <input type="checkbox" name="hasParking" checked={checked} onChange={handleSelect} value="true"></input>
-
-        <label>Noise Cancelling Headphones available</label>
-        <input type="checkbox" name="hasHeadphones" checked={checked} onChange={handleSelect} value="true"></input>
-
-        <label>BSL signers on premises</label>
-        <input type="checkbox" name="hasBSLSigner" checked={checked} onChange={handleSelect} value="true"></input>
-
-        <label>Makaton signers on premises</label>
-        <input type="checkbox" name="hasMakatonSigner" checked={checked} onChange={handleSelect} value="true"></input>
-
-        <label>disabled toilets</label>
-        <input type="checkbox" name="hasDisabledToilets" checked={checked} onChange={handleSelect} value="true"></input>
-
-
-
-        <button type="reset" onClick={handleRefresh}>clear filters </button>
+              <label>Makaton Signers on Premises</label>
+              <input type="checkbox" name="hasMakatonSigner" checked={checked} onChange={handleSelect} value="true"></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <br></br>
+            
+              <button type="reset" onClick={handleRefresh}>Clear All </button>
+            </div>
       </form>
 
 
@@ -115,8 +144,6 @@ const Filter = (({ filtered, filter, attractions, locations, changeSelectedAttra
         :
         <AttractionList attractions={attractions} filtered={filtered} changeSelectedAttraction={changeSelectedAttraction} addToUserFavourites={addToUserFavourites} goBackToList={goBackToList} />
       }
-
-
 
 
 

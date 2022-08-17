@@ -28,7 +28,9 @@ const Navbar = ({ goBackToList, selectedAttraction }) => {
         <>
             <nav className="topnav" id="myTopnav">
 
-                <Link to="/home" onClick={handleBack}>Todos</Link>
+
+                <Link id='todos' to="/" onClick={handleBack}>Todos</Link>
+
                 <Link to="/add">Add attraction</Link>
 
                 <Link to="/fave">Favourites List</Link>

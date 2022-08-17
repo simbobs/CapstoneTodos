@@ -1,3 +1,9 @@
+#todos{
+    font-size: 18pt;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
 .topnav {
     overflow: hidden;
     background-color: #B96AC9;
@@ -11,11 +17,17 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    font-family: 'Baloo Bhaijaan';
+    text-transform: uppercase;
+    font-size: 14pt;
+    line-height: 12pt;
 }
 
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #B96AC9;
+    color: rgb(255, 255, 255);
+    margin-right: 2%;
+    margin-top: 1%;
 }
 
 .topnav a.logo {
