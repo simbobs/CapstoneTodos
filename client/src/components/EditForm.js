@@ -103,10 +103,6 @@ const EditForm = ({ locations, selectedAttraction, setSelectedAttraction, update
                 <input type="float" placeholder="Concession Price" name="concessionEntryPrice" onChange={handleChange} value={attraction.concessionEntryPrice} />
 
 
-
-
-                <input type="checkbox" name="freeEntryForCarers" defaultChecked={attraction.freeEntryForCarers} onChange={handleCheckbox} value={attraction.freeEntryForCarers}></input>
-
                 <input type="text" placeholder="Opening Hours" name="openingHours" onChange={handleChange} value={attraction.openingHours} />
 
 

@@ -26,9 +26,12 @@
 }
 
 .login-form {
+    display: inline-block;
+    align-content: center;
     width: 330px;
     margin-left: auto;
     margin-right: auto;
     font-family: 'Baloo Thambi 2';
+    border-radius: 10px;
 
 }

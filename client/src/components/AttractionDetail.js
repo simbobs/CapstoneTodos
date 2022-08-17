@@ -16,12 +16,17 @@ import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
 
 const Button = styled.button`
-background: transparent;
-border-radius: 3px;
-border: 2px solid #B96AC9;
-color: #B96AC9;
-margin: 0 1em;
-padding: 0.25em 1em;
+    display: inline-block;
+    background-color:#B96AC9;
+    color: whitesmoke;
+    border: none;
+    height: 30px;
+    font-family: 'Baloo Thambi 2';
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    justify-content: space-between;
+    
 
 ${props =>
         props.primary &&
@@ -94,14 +99,14 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 </iframe>
                 <h1 className='detail-header'> {attraction.name}</h1>
 
-                <p className='attraction-type'>{attraction.attractionType}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;{stars} stars out of 5</p>
+                <p className='attraction-type'>{attraction.attractionType}&nbsp;&nbsp;&nbsp;&nbsp;| <div className="stars"><Rating name="read-only" value={stars} readOnly /></div></p>
 
 
-                <div className="stars"><Rating name="read-only" value={stars} readOnly /></div>
+                
 
 
 
-                <p className='attraction-type'>{attraction.attractionType}</p>
+
                 <p id='desc'>{attraction.description}</p>
                 <hr className='line' />
 
@@ -177,13 +182,19 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 
                 <div className='detail-buttons'>
 
-                    <Button primary onClick={goBackToList}>Back</Button>
+                    <Button className='buttons-detail' primary onClick={goBackToList}>Back</Button>
 
 
-                    <Button onClick={handleDelete}>Delete</Button>
+                    <Button className='buttons-detail' onClick={handleDelete}>Delete</Button>
+
+                    <p id='edit-button-flex'>
+                        <Link to="/edit"><Button primary>Edit</Button></Link>
 
 
-                    <Link to="/edit">Edit</Link>
+                    </p>
+                   
+
+                    
                 </div>
 
             </div>

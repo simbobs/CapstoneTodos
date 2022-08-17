@@ -65,7 +65,7 @@ const CommentList = ({ comments, user, attraction, addNewComment }) => {
 
 
 
-                <button type="submit">Add review</button>
+                <button className='buttons-detail' type="submit">Add review</button>
             </form>
         </>
 
