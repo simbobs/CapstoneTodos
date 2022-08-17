@@ -107,7 +107,7 @@ const Filter = (({ filtered, filter, attractions, locations, changeSelectedAttra
             <div id='checkbox-css'>
               <label>Indoor Venue</label>
               <input type="checkbox" name="isIndoors" checked={checked} onChange={handleSelect} value="true"></input>&nbsp;&nbsp;&nbsp;
-              <label>Wheelchair accessible</label>
+              <label>Wheelchair Accessible</label>
               <input type="checkbox" name="isWheelchairAccessible" checked={checked} onChange={handleSelect} value="true"></input>&nbsp;&nbsp;&nbsp;
               <label>Lift</label>
               <input type="checkbox" name="hasLift" checked={checked} onChange={handleSelect} value="true"></input>

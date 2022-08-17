@@ -207,7 +207,7 @@ function App() {
 
 
         <div className={`App ${theme}`}>
-          <button id='light-dark-toggle-button' onClick={toggleTheme}>Switch to{`   ${theme}`}</button>
+          <button id='light-dark-toggle-button' onClick={toggleTheme}>Switch Theme</button>
         </div>
 
         <Routes>
