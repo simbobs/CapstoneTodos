@@ -19,9 +19,9 @@ const Attraction = ({ attraction, attractions, user, changeSelectedAttraction, a
     // Adds to favourites state
 
     const handleFavourite = (event) => {
-        const index = event.target.value;
+        const id = event.target.value;
 
-        addToUserFavourites(index);
+        addToUserFavourites(id);
 
     }
 

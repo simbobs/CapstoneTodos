@@ -6,27 +6,27 @@ import '../static/AttractionDetail.css'
 
 
 import CommentList from '../containers/CommentList';
-
 import { useState } from 'react';
 // import StarRatings from './react-star-ratings';
+import Rating from '@mui/material/Rating';
 
 
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css';
+
 
 
 const Button = styled.button`
 background: transparent;
 border-radius: 3px;
-border: 2px solid palevioletred;
-color: palevioletred;
+border: 2px solid #B96AC9;
+color: #B96AC9;
 margin: 0 1em;
 padding: 0.25em 1em;
 
 ${props =>
         props.primary &&
         css`
-  background: palevioletred;
+  background: #B96AC9;
   color: white;
 `};
 `
@@ -61,8 +61,10 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
     }
 
     const busList = attraction.busRoutes.map((bus) => {
+
        
         return ` ${bus} `
+
 
     })
 
@@ -73,24 +75,37 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
     return (
 
         <>
+
             <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"></link>
+
 
 
             <div className='attraction-info'>
 
 
-                <div class="vl"></div>
+
+                <div className="vl"></div>
+
 
 
                 <iframe className='image' width='350px' height='200px'
                     id="pic" src={attraction.image}
-                    marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0">
+                    marginWidth="0" marginHeight="0" frameBorder="0" vspace="0" hspace="0">
                 </iframe>
                 <h1 className='detail-header'> {attraction.name}</h1>
+
                 <p className='attraction-type'>{attraction.attractionType}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;{stars} stars out of 5</p>
 
+
+                <div className="stars"><Rating name="read-only" value={stars} readOnly /></div>
+
+
+
+                <p className='attraction-type'>{attraction.attractionType}</p>
                 <p id='desc'>{attraction.description}</p>
                 <hr className='line' />
+
+
                 <p id='opening-hours'><p id='opening-hours-header'>OPENING HOURS:&nbsp;&nbsp;</p>{attraction.openingHours}</p>
                 <hr className='line' />
 
@@ -99,17 +114,21 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
                 {/* <p> <b>Child:</b> £{attraction.childEntryPrice}</p> */}
                 <p id='concession-price'>Concession: £{attraction.concessionEntryPrice}</p>
 
+
                 {attraction.freeEntryForCarers ? <p id='carers'>Free for Carers</p> : null}
+
                 <hr className='line' />
 
                 <div>
                     <p>{attraction.isIndoors ? <p>Has Indoor Facilities</p> : null}</p>
                     <hr className='line' />
+
                 </div>
 
 
 
                 <div>
+
                     <p>{attraction.isBusy ? <p> Currently is Busy</p> : <p> Currently is Quiet</p>} </p>
                     <hr className='line' />
                 </div>
@@ -163,9 +182,14 @@ const SelectedAttraction = ({ removeAttraction, attraction, goBackToList, locati
 
                     <Button onClick={handleDelete}>Delete</Button>
 
+
                     <Link to="/edit">Edit</Link>
                 </div>
+
             </div>
+
+
+
 
 
         </>

@@ -2,6 +2,7 @@ import React from 'react'
 
 const Comment = ({ comment, index }) => {
     return (
+
         <>
         
         <div id='user-comment-wrapper'>
@@ -12,6 +13,7 @@ const Comment = ({ comment, index }) => {
             <p id='rating-score'>Rating: {comment.rating}</p>
             <p id='user-comment'>{comment.review}</p>
         </div>
+
 
         </div>
 

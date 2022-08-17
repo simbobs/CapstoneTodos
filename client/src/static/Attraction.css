@@ -9,10 +9,20 @@
     letter-spacing: -0.5pt;
     margin-left: auto;
     margin-right: 0%;
-;
+    flex-basis: 280px;
 
+}
 
+.list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
 
+.list-container::after {
+    content: "";
+    flex-basis: 280px;
 }
 
 .button-group {
@@ -33,9 +43,13 @@
 
 
 #name {
+
     margin-top: 20%;
     margin-bottom: 10%;
     /* font-size: 22pt; */
+        margin-top: -1px;
+    width: 280px;
+    text-align: center;
 }
 
 .light .attractions-block{
@@ -71,5 +85,6 @@
 #list-photo{
     margin-bottom: -15%;
 }
+
 
 
