@@ -70,7 +70,7 @@ const AddForm = ({ locations, onCreate, setSelectedAttraction }) => {
         });
 
         setSelectedAttraction(null);
-        navigate("/");
+        navigate("/home");
 
 
 
